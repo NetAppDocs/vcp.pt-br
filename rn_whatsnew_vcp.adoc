@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: rn_whatsnew_vcp.html 
+summary: Saiba o que há de novo nesta versão do plug-in do NetApp Element para VMware vCenter Server. 
+keywords: netapp, vcp, vcenter, plugin, element, new, whats new 
+---
+= Novidades do plug-in do NetApp Element para VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+O plug-in do NetApp Element para vCenter Server 5,3 fornece melhorias de segurança e desempenho. https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["Saiba mais"^].
+
+O plug-in Element vCenter 5,3 está disponível com a versão 2.25.42 dos serviços de gerenciamento.
+
+
+
+== Plug-in do NetApp Element para vCenter Server 5,2
+
+O plug-in do NetApp Element para vCenter Server 5,2 contém melhorias de capacidade de suporte e um aprimoramento para a exibição personalizada de domínios de proteção.
+
+Com a versão 5,2, o plug-in exibe as informações de integridade do domínio de proteção personalizada quando um domínio de proteção personalizado é configurado em um cluster de software Element. link:vcp_task_reports_overview.html#reporting-overview-page-data["Saiba mais"].
+
+O plug-in Element vCenter 5,2 está disponível com a versão 2.24.40 dos serviços de gerenciamento.
+
+
+
+== Plug-in do NetApp Element para vCenter Server 5,1
+
+O plug-in do NetApp Element para vCenter Server 5,1 fornece melhorias de segurança e desempenho. https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["Saiba mais"^].
+
+
+
+== Plug-in do NetApp Element para vCenter Server 5,0
+
+O plug-in do NetApp Element para vCenter Server 5,0 contém a arquitetura de plug-in remota projetada para integrar a funcionalidade de plug-in a um cliente vSphere sem ter que ser executado dentro do vCenter Server. A arquitetura remota dá suporte ao isolamento de plug-ins e permite a escalabilidade horizontal de plug-ins que operam em grandes ambientes vSphere. O plug-in de elemento remoto é implantado em um contentor docker dentro de um nó de gerenciamento, juntamente com serviços de gerenciamento. link:vcp_concept_remote_plugin_architecture.html["Saiba mais"].
+
+O plug-in do Element vCenter 5,0 oferece suporte ao VMware vSphere 8,0, 7,0 e 7,0 Update 1, 2 e 3, incluindo vCenter Server, ESXi e vSphere HTML5 Web Client.
+
+O plug-in Element vCenter 5,0 está disponível com a versão 2.22.7 dos serviços de gerenciamento. Se você não usar o plug-in, esta é uma atualização opcional porque todos os outros serviços e funcionalidades são idênticos à versão 2.21.61. Para obter informações sobre as atualizações mais recentes dos serviços de gerenciamento, https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["Notas de versão dos Serviços de Gestão 2.21.61"^] consulte .
+
+
+
+== Plug-in do NetApp Element para vCenter Server 4,10
+
+O plug-in do Element vCenter 4,10 contém problemas resolvidos, incluindo vulnerabilidades de segurança, que podem reduzir significativamente as interrupções observadas durante as atualizações e aprimorar a operação diária em alguns ambientes. Na versão 4,10 do plug-in, os links de ajuda on-line foram transferidos para este link:index.html["link de documentação"]. Para acessar os links de ajuda on-line de dentro do plug-in, você deve ter acesso à rede.
+
+O plug-in Element vCenter 4,10 está disponível com a versão 2.21.61 dos serviços de gerenciamento.
+
+
+
+== Plug-in do NetApp Element para vCenter Server 4,9
+
+O plug-in do NetApp Element para vCenter Server 4,9 restaura o suporte para o vSphere 6,5, incluindo o vCenter Server, ESXi e o vSphere HTML5 Web Client.
+
+O plug-in Element vCenter 4,9 está disponível com a versão 2.20.69 dos serviços de gerenciamento.
+
+
+
+== Plug-in do NetApp Element para vCenter Server 4,8
+
+O plug-in do Element vCenter 4,8 contém melhorias de segurança, melhorias na utilização da memória e atualizações de bibliotecas de terceiros.
+
+O plug-in Element vCenter 4,8 está disponível com a versão 2,19 dos serviços de gerenciamento.
+
+
+
+== Plug-in do NetApp Element para vCenter Server 4,7
+
+O plug-in do Element vCenter 4,7 contém melhorias importantes de segurança que desenvolvem ainda mais melhorias feitas na https://security.netapp.com/advisory/ntap-20210315-0001/["patch de serviços de gerenciamento recentes 2.17.56"] versão.
+
+Com a versão 4,7, o plug-in agora suporta componentes do vSphere 7,0 Update 2, incluindo vCenter Server, ESXi e vSphere HTML5 Web Client.
+
+O plug-in Element vCenter 4,7 está disponível com a versão 2,18 dos serviços de gerenciamento.
+
+
+
+== Plug-in do NetApp Element para vCenter Server 4,6
+
+Com a versão 4,6, o plug-in agora suporta componentes do vSphere 7,0 Update 1, incluindo vCenter Server, ESXi e vSphere HTML5 Web Client.
+
+O plug-in Element vCenter 4,6 está disponível com a versão 2,16 dos serviços de gerenciamento.
+
+
+
+== Encontre mais informações
+
+* link:reference_earlier_versions.html["Versões anteriores da documentação do plug-in do NetApp Element"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Notas de versão do Hybrid Cloud Control and Management Services"^]
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

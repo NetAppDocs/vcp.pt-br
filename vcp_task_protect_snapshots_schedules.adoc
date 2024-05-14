@@ -1,0 +1,204 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_snapshots_schedules.html 
+summary: Crie um agendamento de instantâneos usando o plug-in. 
+keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, schedule 
+---
+= Criar agendas de instantâneos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode agendar um instantâneo de um volume para ocorrer automaticamente em intervalos de data e hora especificados. Você pode agendar snapshots de volume único ou snapshots de grupo para serem executados automaticamente.
+
+Ao criar agendas de instantâneos, você pode armazenar os instantâneos resultantes em um sistema de storage remoto NetApp Element se o volume estiver sendo replicado.
+
+
+NOTE: As programações são criadas usando a hora UTC-0. Talvez seja necessário ajustar a hora real em que um instantâneo será executado com base no fuso horário.
+
+* <<Criar uma agenda de instantâneos>>
+* <<Ver detalhes da programação do instantâneo>>
+* <<Editar uma agenda de instantâneos>>
+* <<Copiar uma agenda de instantâneos>>
+* <<Eliminar uma agenda de instantâneos>>
+
+
+
+
+== Criar uma agenda de instantâneos
+
+Você pode agendar um instantâneo de um volume ou volumes para que ocorra automaticamente em intervalos especificados.
+
+Ao configurar uma programação de instantâneos, você pode escolher entre intervalos de tempo com base em dias da semana ou dias do mês. Você também pode especificar os dias, horas e minutos antes que o próximo snapshot ocorra.
+
+Se você agendar um snapshot para ser executado em um período de tempo que não é divisível em 5 minutos, o snapshot será executado no próximo período de tempo que é divisível em 5 minutos. Por exemplo, se você agendar um snapshot para ser executado às 12:42:00 UTC, ele será executado às 12:45:00 UTC. Não é possível programar um instantâneo para ser executado em intervalos inferiores a 5 minutos.
+
+.Passos
+. No plug-in do vCenter, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar está selecionado na barra de navegação.
+
+. Selecione a subguia *horários*.
+. Selecione *criar horário*.
+. No campo *IDs de volume CSV*, insira um único ID de volume ou uma lista separada por vírgulas de IDs de volume a incluir na operação de agendamento de instantâneos.
+. Introduza um nome de programação.
+. Selecione um tipo de agendamento e configure os detalhes.
+. (Opcional) para repetir a programação indefinidamente, marque *Agendamento recorrente*.
+. (Opcional) no campo New Snapshot Name (Nome do novo instantâneo), introduza um nome para o novo instantâneo.
++
+
+NOTE: Se não introduzir um nome, o sistema cria um nome de instantâneo predefinido utilizando a data e a hora em que o instantâneo foi criado.
+
+. (Opcional) Verifique *incluir instantâneo na replicação quando emparelhado* para garantir que o instantâneo seja replicado quando o volume pai estiver emparelhado.
+. Selecione uma das seguintes opções como o período de retenção para o instantâneo:
++
+** * Manter para sempre*: Retém o instantâneo no sistema indefinidamente.
+** *Definir período de retenção*: Determine um período de tempo (dias, horas ou minutos) para que o sistema retenha o instantâneo.
++
+
+NOTE: Quando você define um período de retenção, você seleciona um período que começa na hora atual. (A retenção não é calculada a partir do tempo de criação do instantâneo.)
+
+
+
+. Selecione *OK*.
+
+
+
+
+== Ver detalhes da programação do instantâneo
+
+Você pode querer verificar os detalhes da programação do snapshot.
+
+.Passos
+. No plug-in do vCenter, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende visualizar está selecionado na barra de navegação.
+
+. Selecione a página *horários*.
+. Verifique os detalhes da programação.
+
+
+
+
+== Editar uma agenda de instantâneos
+
+Você pode modificar programações de snapshot existentes. Após a modificação, na próxima vez que o agendamento for executado, ele usará os atributos atualizados. Todos os instantâneos criados pela programação original permanecem no sistema de armazenamento.
+
+.Passos
+. No plug-in do vCenter, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Clique na subguia *horários*.
+. Marque a caixa de seleção da programação de instantâneos que deseja editar.
+. Clique em *ações*.
+. No menu resultante, selecione *Editar*.
+. No campo *IDs de volume CSV*, modifique o ID de volume único ou a lista separada por vírgulas de IDs de volume atualmente incluídas na operação de snapshot.
+. (Opcional) para pausar um agendamento ativo ou retomar um agendamento em pausa, marque a caixa de seleção *Pausar manualmente o agendamento*.
+. (Opcional) Insira um nome diferente para a programação no campo *novo Nome da programação*.
+. (Opcional) altere o tipo de agendamento atual para um dos seguintes:
++
+.. *Dias da semana*: Selecione um dos mais dias da semana e uma hora do dia para criar um instantâneo.
+.. *Dias do mês*: Selecione um de mais dias do mês e uma hora do dia para criar um instantâneo.
+.. *Intervalo de tempo*: Selecione um intervalo para a programação ser executada com base no número de dias, horas e minutos entre instantâneos.
+
+
+. (Opcional) Selecione *Agendamento recorrente* para repetir o agendamento instantâneo indefinidamente.
+. (Opcional) Digite ou modifique o nome dos instantâneos definidos pela programação no campo *novo Nome da captura Instantânea*.
++
+
+NOTE: Se você deixar o campo em branco, o sistema usará a hora e a data da criação do instantâneo como nome.
+
+. (Opcional) Selecione a caixa de seleção *incluir instantâneos na replicação quando emparelhado* para garantir que os instantâneos sejam capturados na replicação quando o volume pai estiver emparelhado.
+. (Opcional) Selecione uma das seguintes opções como o período de retenção para o instantâneo:
++
+** * Manter para sempre*: Retém o instantâneo no sistema indefinidamente.
+** *Definir período de retenção*: Determine um período de tempo (dias, horas ou minutos) para que o sistema retenha o instantâneo.
++
+
+NOTE: Quando você define um período de retenção, você seleciona um período que começa na hora atual (a retenção não é calculada a partir do tempo de criação do snapshot).
+
+
+
+. Clique em *OK*.
+
+
+
+
+== Copiar uma agenda de instantâneos
+
+Você pode fazer uma cópia de um agendamento de snapshot e atribuí-lo a novos volumes ou usá-lo para outros fins.
+
+.Passos
+. No plug-in do vCenter, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Clique na subguia *horários*.
+. Marque a caixa de seleção da programação de instantâneos que deseja copiar.
+. Clique em *ações*.
+. No menu resultante, clique em *Copiar*. A caixa de diálogo Copiar Agendamento é exibida, preenchida com os atributos atuais da programação.
+. (Opcional) Digite um nome e atributos de atualização para a cópia da programação.
+. Clique em *OK*.
+
+
+
+
+== Eliminar uma agenda de instantâneos
+
+Pode eliminar uma agenda de instantâneos. Depois de excluir a programação, ela não executa nenhum instantâneo agendado futuro. Todos os snapshots que foram criados pela programação permanecem no sistema de storage.
+
+.Passos
+. No plug-in do vCenter, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Clique na subguia *horários*.
+. Marque a caixa de seleção da programação de instantâneos que deseja excluir.
+. Clique em *ações*.
+. No menu resultante, clique em *Excluir*.
+. Confirme a ação.
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

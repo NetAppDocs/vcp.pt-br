@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task_vcp_upgrades.html 
+summary: Atualize para o plug-in NetApp Element mais recente para o VMware vCenter Server. 
+keywords: netapp, vcp, vcenter, plugin, element, upgrade 
+---
+= Atualize o plug-in
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode atualizar o plug-in do NetApp Element para vCenter Server seguindo as etapas descritas para a instalação. O plug-in 5,3 do NetApp Element vCenter está disponível fora das versões do Element e do NetApp HCI como parte de um pacote de serviços de gerenciamento.
+
+[NOTE]
+====
+* A partir do Element Plug-in para vCenter 5,0, apenas o VMware vSphere 8,0 e 7,0 são suportados.
+* Quando você atualiza do Element Plug-in para vCenter 4.x para 5.x, os clusters já configurados com o plug-in são perdidos porque os dados não podem ser copiados de uma instância do vCenter para um plug-in remoto. Você precisa adicionar novamente os clusters ao plug-in remoto. Essa é uma atividade única ao atualizar de um plug-in local para um plug-in remoto.
+
+
+====
+.Passos
+Para atualizar o plug-in, siga as instruções na documentação de atualização do seu produto:
+
+* https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html["Atualize seu sistema NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/upgrade/task_vcp_upgrade_plugin.html["Atualize seu sistema de storage all-flash SolidFire"^]
+
+
+
+
+== Encontre mais informações
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["Notas de versão do vCenter Plug-in 5,3"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Notas de versão dos Serviços de gerenciamento e controle da nuvem híbrida"^]
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* http://mysupport.netapp.com/hci/resources["Página de recursos do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

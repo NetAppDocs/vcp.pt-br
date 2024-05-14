@@ -1,0 +1,192 @@
+---
+sidebar: sidebar 
+permalink: reference_requirements_vcp.html 
+summary: Antes de começar a usar o plug-in do NetApp Element para VMware vCenter Server, você precisa entender os pré-requisitos para instalação e uso do produto. 
+keywords: netapp, hci, kubernetes, on premise, cloud services 
+---
+= Requisitos para o plug-in do NetApp Element para VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Antes de usar o plug-in do NetApp Element para VMware vCenter Server para gerenciar o storage all-flash do NetApp HCI ou do SolidFire, verifique se o sistema atende aos requisitos de uso do plug-in.
+
+Para o vCenter Servers 8,0 e 7,0, você pode <<create_vcp_role,Crie uma "função VCP" no vCenter>> criar uma conta de usuário do plug-in Element e atribuir permissões para Registrar ou atualizar o plug-in Element para vCenter Server e executar tarefas de administração do plug-in Element.
+
+[role="tabbed-block"]
+====
+.Plug-in Element para vCenter 5,0 ou posterior
+--
+Verifique se o sistema atende aos requisitos de uso do plug-in Element vCenter 5,0 ou posterior.
+
+.Pré-requisitos do VMware vSphere
+O VMware vSphere 8,0 e 7,0, incluindo vCenter e ESXi com adaptador iSCSI de software e rede iSCSI configuradas, é necessário para usar o plug-in Element vCenter.
+
+.Versões do VMware vSphere suportadas pelo plug-in
+O plug-in suporta as seguintes versões principais do software VMware:
+
+* VSphere 8,0 Update 1 e 2, incluindo vCenter Server, ESXi e armazenamentos de dados VMFS5 e VMFS6
+* VSphere 7,0 e 7,0 Update 1, 2 e 3, incluindo vCenter Server, ESXi e armazenamentos de dados VMFS5 e VMFS6
+
+
+
+IMPORTANT: O VMware vSphere 6,5 e 6,7 chegaram ao status de fim do suporte em 15 de outubro de 2022. A partir do Element Plug-in 5,0, o vSphere 6,5 e o 6,7 não são mais compatíveis. Para obter detalhes, consulte este https://core.vmware.com/blog/reminder-vsphere-6567-end-general-support["artigo"^].
+
+--
+.Plug-in Element para vCenter 4,10 ou anterior
+--
+Verifique se o sistema atende aos requisitos de uso do plug-in Element vCenter 4,10 ou anterior.
+
+.Pré-requisitos do VMware vSphere
+O VMware vSphere 7,0, 6,7 ou 6,5, incluindo vCenter e ESXi com adaptador iSCSI de software e rede iSCSI configurada, é necessário para usar o plug-in Element vCenter.
+
+.Versões do VMware vSphere suportadas pelo plug-in
+O plug-in suporta as seguintes versões principais do software VMware:
+
+* VSphere 7,0 e 7,0 Update 1 e 2, incluindo vCenter Server, ESXi e armazenamentos de dados VMFS5 e VMFS6
+* VSphere 7,0 Update 3 incluindo vCenter Server, ESXi e armazenamentos de dados VMFS5 e VMFS6 usando o Spring Framework 4
++
+
+IMPORTANT: Quando você atualiza para o VMware vCenter Server 7,0 U3, o plug-in Element não consegue implantar. Para resolver esse problema usando o Spring Framework 4, https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["Este artigo da KB"^] consulte .
+
+* VSphere 6,7 e 6,7 Update 1 e 3, incluindo vCenter Server, ESXi e armazenamentos de dados VMFS5 e VMFS6
++
+
+IMPORTANT: O plug-in não é compatível com a versão 6,7 U2 build 13007421 do HTML5 vSphere Web Client e outras versões 6,7 U2 lançadas antes da atualização 2a (compilação 13643870). É compatível com a versão 6,7 U2 vSphere Web Client for Flash/FLEX.
+
+* VSphere 6,5, incluindo vCenter Server, ESXi e armazenamentos de dados VMFS5 e VMFS6
++
+
+IMPORTANT: O plug-in não é compatível com a versão 6,5 do Element Plug-in para vCenter 4,6, 4,7 e 4,8.
+
+
+
+.Fim do suporte ao vSphere 6,0
+
+IMPORTANT: O VMware vSphere 6,0 atingiu o status de fim do suporte em 12 de março de 2020. A partir do NetApp HCI 1,8 e do Element 12, o vSphere 6,0 não é mais compatível. Para obter detalhes, consulte este https://mysupport.netapp.com/info/communications/ECMLP2863840.html["comunicado de produto"].
+
+--
+====
+
+
+== Compatibilidade do vSphere e práticas recomendadas
+
+Considere os seguintes recursos e recomendações antes de usar o plugin:
+
+* O vCenter High Availability (VCHA) não é suportado.
+* Como os datastores são criados usando a versão mais alta do VMFS suportada pelo host ESXi selecionado, todos os membros do cluster devem executar a mesma versão do vSphere e do ESXi para evitar problemas de compatibilidade do VMFS.
+* O vSphere HTML5 Web Client e o Flash Web Client têm bancos de dados separados que não podem ser combinados. Os clusters adicionados em um cliente não serão visíveis no outro. Se você pretende usar ambos os clientes, adicione seus clusters em ambos.
+
+
+
+
+== Suporte à NetApp Element
+
+O plug-in suporta as seguintes versões principais:
+
+* Elemento 12.x
+* Elemento 11.x
+
+
+
+
+== Requisitos de porta de rede
+
+Você precisa permitir algumas portas TCP através do firewall de borda do seu datacenter para que você possa gerenciar o sistema remotamente e permitir que clientes fora do seu datacenter se conetem a recursos. Para obter uma lista abrangente de portas usadas nos sistemas NetApp HCI e SolidFire, consulte este link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["página"].
+
+
+
+== (Opcional) Crie uma "função VCP" no vCenter
+
+Para o vCenter Servers 8,0 e 7,0, você pode criar uma "função VCP" no vCenter para uma conta de usuário do plug-in Element e atribuir permissões para Registrar ou atualizar o plug-in Element para vCenter Server e executar tarefas de administração do plug-in Element.
+
+.Passos
+. Faça login no vSphere Web Client como administrador.
+. Selecione *Administration* (Administração).
+. Selecione *Início de sessão único* > *utilizadores e grupos*.
+. Selecione a guia *usuários* e, na lista *domínio*, selecione o domínio de destino.
+. Selecione *Adicionar*.
+. Preencha os campos na tela *Adicionar usuário* e selecione *Adicionar*.
++
+image:vcp_add_user.PNG["Captura de tela dos campos Adicionar usuário"]
+
+. Selecione *Access Control* > *Roles* e *New*.
+. Na tela *Nova função*, execute as seguintes etapas:
++
+.. Em *Nome da função*, digite "VCPrule".
+.. Escreva uma descrição.
+.. Na lista *Mostrar*, selecione as permissões para a versão do vCenter Server:
++
+... Selecione as permissões para o vCenter Server 8,0:
++
+**** Operações criptográficas > Registar VM
+**** Datastore > Selecione tudo
+**** Extensão > selecione tudo
+**** Anfitrião > Configuração > alterar definições
+**** Host > Configuração > conexão
+**** Host > Configuração > Manutenção
+**** Host > Configuração > Configuração da partição de armazenamento
+**** Host > Configuração > Gerenciamento do sistema
+**** Host > Configuração > recursos do sistema
+**** Privilege.Task.Update.Task.Update.Label > Privilege.Task.Update.Task.Update.Update.label
+**** Tarefas > Selecione tudo
+**** Máquina virtual > Editar inventário > Registar
+**** Políticas de armazenamento de VM > políticas de armazenamento de VM exibir permissões > Exibir políticas de armazenamento de VM
+
+
+... Selecione as permissões para o vCenter Server 7.x:
++
+**** Operações criptográficas > Registar VM
+**** Datastore > Selecione tudo
+**** Extensão > selecione tudo
+**** Anfitrião > Configuração > alterar definições
+**** Host > Configuração > conexão
+**** Host > Configuração > Manutenção
+**** Host > Configuração > Configuração da partição de armazenamento
+**** Host > Configuração > Gerenciamento do sistema
+**** Host > Configuração > recursos do sistema
+**** Plugin > Selecione tudo
+**** Tarefa agendada > selecione tudo
+**** Vistas de armazenamento > Selecionar tudo
+**** Tarefas > Selecione tudo
+
+
+
+
+.. Selecione *criar*.
+
+
++
+image:vcp_create_vcprole.PNG["Captura de tela dos campos Nova função"]
+
+. Selecione *permissões globais* e *Adicionar*.
+. Na tela *Adicionar permissão*, execute as seguintes etapas:
++
+--
+.. Selecione o domínio de destino na lista *domínio*.
+.. No campo *Usuário/Grupo*, insira o ID do usuário do plug-in do elemento.
+.. Selecione *VCProle* na lista *Role*.
+.. Selecione *propagar para crianças* e selecione *OK*.
+
+
+--
++
+image:vcp_assign_vcprole.PNG["Captura de tela dos campos Adicionar permissão"]
+
++
+Agora você pode fazer login no vSphere Web Client usando a conta "vcpuser".
+
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

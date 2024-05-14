@@ -1,0 +1,374 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_clusters_manage.html 
+summary: Você pode adicionar um nó ao cluster de storage usando o plug-in. 
+keywords: netapp, cluster, vcp, vcenter, element 
+---
+= Gerenciar clusters
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode editar um cluster executando o software Element, gerenciar a configuração SSH, definir o monitoramento do domínio de proteção e encerrar um cluster.
+
+.O que você vai precisar
+* Pelo menos um cluster deve ser adicionado:
++
+** link:vcp_task_getstarted_5_0.html#add-storage-clusters-for-use-with-the-plug-in["Adicione um cluster usando o Element Plug-in para vCenter 5,0 e posterior"]
+** link:vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["Adicione um cluster usando o Element Plug-in para vCenter 4,10 e versões anteriores"]
+
+
++
+
+NOTE: Você deve adicionar pelo menos um cluster para usar as funções do ponto de extensão do plug-in.
+
+* Credenciais de usuário atuais do administrador de cluster completo para o cluster.
+* As regras de firewall permitem a comunicação de rede aberta entre o vCenter e o MVIP do cluster nas seguintes portas TCP:
++
+** Começando com o plug-in Element para vCenter 5,0, nas portas 443, 8333 e 8443.
+** Para o plug-in Element para vCenter 4,10 ou anterior, nas portas 443 e 8443.
+
+
+
+
+.Opções
+* <<Exibir detalhes do cluster>>
+* <<Editar um perfil de cluster>>
+* <<Remover um perfil de cluster>>
+* <<Ative a encriptação em repouso>>
+* <<Desativar encriptação em repouso>>
+* <<Ativar SSH>>
+* <<Altere o limite de tempo do SSH>>
+* <<Desativar SSH>>
+* <<Definir monitoramento de domínio de proteção>>
+* <<Encerre um cluster>>
+* <<Expanda sua infraestrutura NetApp HCI>>
+
+
+
+
+== Exibir detalhes do cluster
+
+Você pode exibir os detalhes do cluster no ponto de extensão do vCenter Plug-in.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o cluster que deseja editar.
+. Selecione *ações*.
+. Selecione *Detalhes*.
+. Revise as seguintes informações para todos os clusters:
++
+** *Nome do cluster*: O nome do cluster.
+** *Endereço IP do vCenter*: O endereço IP ou FQDN do vCenter Server ao qual o cluster é atribuído.
+** *ID exclusiva*: ID exclusiva para o cluster.
+** *IP virtual de gerenciamento*: O endereço IP virtual de gerenciamento (MVIP).
+** *Storage Virtual*: O endereço IP virtual de armazenamento (SVIP).
+** *Status*: O status do cluster.
+** *Vols*: O status da funcionalidade vols no cluster.
+
+
+. Analisar detalhes adicionais de um cluster individual:
++
+** *MVIP Node ID*: O nó que contém o endereço MVIP principal.
+** *SVIP Node ID*: O nó que contém o endereço SVIP principal.
+** *Versão do elemento*: A versão do software NetApp Element que o cluster está sendo executado.
+** *Status do VASA 2*: O status do provedor VASA no cluster do Element.
+** *URL do provedor VASA*: O URL do provedor VASA habilitado no cluster do Element, quando aplicável.
+** *Estado de encriptação em repouso*: Valores possíveis:
++
+*** Habilitando: A criptografia em repouso está sendo ativada.
+*** Ativado: A encriptação em repouso está ativada.
+*** Desativação: A encriptação em repouso está a ser desativada.
+*** Desativado: A encriptação em repouso está desativada.
+
+
+** *Ensemble Nodes*: IPS dos nós que fazem parte do conjunto de banco de dados.
+** *Emparelhado com*: Os nomes de clusters adicionais que são emparelhados com o cluster local.
+** *Status SSH*: O status do shell seguro. Se ativado, o tempo restante é exibido.
+
+
+
+
+
+
+== Editar um perfil de cluster
+
+Pode alterar a ID de utilizador e a palavra-passe do cluster a partir do ponto de extensão do plug-in.
+
+
+NOTE: Este procedimento descreve como alterar o nome de usuário e a senha do administrador do cluster usados pelo plug-in. Não é possível alterar as credenciais de administrador do cluster a partir do plug-in. Consulte https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html["gerenciamento de contas de usuários de administrador de cluster"^] para obter instruções sobre como alterar credenciais para uma conta de administrador de cluster.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *Editar*.
+. Altere qualquer uma das seguintes opções:
++
+** ID do usuário: O nome do administrador do cluster.
+** Senha: A senha do administrador do cluster.
++
+
+NOTE: Não é possível alterar o endereço IP ou o FQDN de um cluster depois que um cluster é adicionado. Você também não pode alterar o vCenter Server do modo vinculado atribuído para um cluster adicionado. Para alterar o endereço do cluster ou o vCenter Server associado, você deve remover o cluster e adicioná-lo novamente.
+
+
+
+. Selecione *OK*.
+
+
+
+
+== Remover um perfil de cluster
+
+Você pode remover o perfil de um cluster que não deseja mais gerenciar do vCenter Plug-in usando o ponto de extensão do plug-in.
+
+Se você configurar um grupo do modo vinculado e quiser reatribuir um cluster a outro vCenter Server, poderá remover o perfil do cluster e adicioná-lo novamente com um IP do vCenter Server vinculado diferente.
+
+[NOTE]
+====
+* A partir do plug-in Element vCenter 5,0, para usar link:vcp_concept_linkedmode.html["Modo vinculado do vCenter"]o , você Registra o plug-in Element a partir de um nó de gerenciamento separado para cada vCenter Server que gerencia clusters de storage do NetApp SolidFire.
+* O uso do plug-in Element vCenter 4,10 e anterior para gerenciar recursos de cluster de outros vCenter Servers que usam link:vcp_concept_linkedmode.html["Modo vinculado do vCenter"] é limitado apenas a clusters de storage locais.
+
+
+====
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o cluster que pretende remover.
+. Selecione *ações*.
+. Selecione *Remover*.
+. Confirme a ação.
+
+
+
+
+== Ative a encriptação em repouso
+
+Você pode ativar manualmente a funcionalidade de criptografia em repouso (EAR) usando o ponto de extensão do plug-in.
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Selecione o cluster no qual deseja ativar a criptografia em repouso.
+. Selecione *ações*.
+. No menu resultante, selecione *Ativar EAR*.
+. Confirme a ação.
+
+
+
+
+== Desativar encriptação em repouso
+
+Você pode desativar manualmente a funcionalidade de criptografia em repouso (EAR) usando o ponto de extensão do plug-in.
+
+.Passos
+. No vSphere Web Client, abra a tabela *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Marque a caixa de seleção do cluster.
+. Selecione *ações*.
+. No menu resultante, selecione *Desativar EAR*.
+. Confirme a ação.
+
+
+
+
+== Ativar SSH
+
+Você pode ativar manualmente uma sessão de Secure Shell (SSH) usando o ponto de extensão do plug-in. A ativação do SSH permite aos engenheiros de suporte técnico da NetApp aceder aos nós de armazenamento para resolução de problemas durante a duração que determinar.
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *Ativar SSH*.
+. Insira uma duração para que a sessão SSH seja ativada em horas até um máximo de 720.
++
+
+NOTE: Para continuar, você precisa inserir um valor.
+
+. Selecione *Sim*.
+
+
+
+
+== Altere o limite de tempo do SSH
+
+Você pode inserir uma nova duração para uma sessão SSH.
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *alterar SSH*.
++
+A caixa de diálogo exibe o tempo restante para a sessão SSH.
+
+. Insira uma nova duração para a sessão SSH em horas até um máximo de 720.
++
+
+NOTE: Para continuar, você precisa inserir um valor.
+
+. Selecione *Sim*.
+
+
+
+
+== Desativar SSH
+
+Você pode desativar manualmente o acesso SSH (Secure Shell) aos nós no cluster de armazenamento usando o ponto de extensão do plug-in.
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *Desativar SSH*.
+. Selecione *Sim*.
+
+
+
+
+== Definir monitoramento de domínio de proteção
+
+Você pode ativar manualmente link:vcp_concept_protection_domains.html["monitoramento de domínio de proteção"]usando o ponto de extensão do plug-in. Você pode selecionar um limite de domínio de proteção com base em domínios de nó ou chassi.
+
+.O que você vai precisar
+* O cluster selecionado deve ser monitorado pelo elemento 11,0 ou posterior para usar o monitoramento de domínio de proteção; caso contrário, as funções de domínio de proteção não estão disponíveis.
+* O cluster precisa ter mais de dois nós para usar o recurso de domínios de proteção. A compatibilidade com clusters de dois nós não está disponível.
+
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *Definir monitoramento de domínio de proteção*.
+. Selecione um limite de falha:
++
+** *Nó*: O limite além do qual um cluster não pode mais fornecer dados ininterruptos durante falhas de hardware no nível do nó. O limite do nó é o padrão do sistema.
+** *Chassis*: O limite para além do qual um cluster não pode mais fornecer dados ininterruptos durante falhas de hardware no nível do chassi.
+
+
+. Selecione *OK*.
+
+
+Depois de definir preferências de monitoramento, você pode monitorar domínios de proteção na link:vcp_task_reports_overview.html#reporting-overview-page-data["Relatórios"]guia do ponto de extensão Gerenciamento do NetApp Element.
+
+
+
+== Encerre um cluster
+
+Você pode desligar manualmente todos os nós ativos em um cluster de storage usando o ponto de extensão do plug-in.
+
+Se você quiserlink:vcp_task_add_manage_nodes.html#restart-a-node["reinicie"], em vez de desligar o cluster, você pode selecionar todos os nós da página Cluster no ponto de extensão Gerenciamento do NetApp Element e executar uma reinicialização.
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.O que você vai precisar
+Parou e/S e desligou todas as sessões iSCSI.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *Encerrar*.
+. Confirme a ação.
+
+
+
+
+== Expanda sua infraestrutura NetApp HCI
+
+Você pode expandir manualmente sua infraestrutura do NetApp HCI adicionando nós usando o NetApp HCI. Um link para uma IU do NetApp HCI para escalar seu sistema é fornecido a partir do ponto de extensão do plug-in.
+
+Links adicionais são fornecidos nas páginas Introdução e Cluster:
+
+* A partir do plug-in do Element vCenter 5,0, selecione Plugin remoto NetApp Element > Gerenciamento.
+* Para o plug-in do Element vCenter 4,10 e anterior, selecione o ponto de extensão Gerenciamento do NetApp Element.
+
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *clusters*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > clusters*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > clusters*.
+
+
+. Verifique o painel de instrumentos.
+. Selecione *ações*.
+. Selecione *expanda o seu NetApp HCI*.
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

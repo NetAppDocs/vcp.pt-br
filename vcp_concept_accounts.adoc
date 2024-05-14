@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_accounts.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, account 
+---
+= Contas de utilizador
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+As contas de usuário controlam o acesso aos recursos de storage em uma rede baseada no software NetApp Element. Pelo menos uma conta de usuário é necessária antes que um volume possa ser criado.
+
+Quando você cria um volume, ele é atribuído a uma conta. Se você criou um volume virtual, a conta será o recipiente de armazenamento. A conta contém a autenticação CHAP necessária para acessar os volumes atribuídos a ela.
+
+Uma conta pode ter até 2000 volumes atribuídos a ela, mas um volume pode pertencer a apenas uma conta.
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

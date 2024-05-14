@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_qossioc.html 
+summary:  
+keywords: netapp, quality of service, volume performance, sioc, storage I/O control, vcp 
+---
+= QoSSIOC
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+O plug-in do NetApp Element para VMware vCenter Server permite, como uma configuração opcional, a qualidade automática do serviço (https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html["QoS"^]) com base no controle de e/S do armazenamento (https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html["SIOC"^]) de todas as VMs em um datastore padrão. A integração QoS e SIOC (QoSSIOC), que podem ser ativadas para qualquer datastore padrão, executa uma varredura de todas as configurações SIOC em todas as VMs associadas.
+
+O QoSSIOC ajusta os valores de QoS em volumes de elemento padrão quando ocorrem eventos de máquina virtual, como eventos de ativação ou desligamento, reinicializações ou desligamento de convidados ou atividade de reconfiguração. O serviço QoSSIOC usa a soma de todas as reservas ou compartilhamentos SIOC e a soma dos limites de IOPS para determinar QoS mínimo e máximo para o volume subjacente de cada datastore. Um fator de burst configurável também está disponível.
+
+Os seguintes itens devem ser considerados antes de usar a automação do QoSSIOC:
+
+* Automação de QoSSIOC e https://docs.netapp.com/us-en/hci/docs/concept_hci_performance.html#qos-policies["Políticas de QoS"^] não deve ser usada em conjunto. Se você estiver usando políticas de QoS, não ative o QoSSIOC. O QoSSIOC substituirá e ajustará os valores de QoS para configurações de QoS de volume.
+* O QoSSIOC é melhor para VMs de uso leve, como desktops virtuais ou VMs especializadas do tipo quiosque, que podem ser reinicializadas, ligadas ou desligadas diariamente ou várias vezes ao dia.
+* O QoSSIOC é menos adequado para ambientes de serviço, por exemplo, com servidores de banco de dados, aplicativos ou infraestrutura que raramente reiniciam e precisam de acesso igual constante ao armazenamento. As políticas de QoS são mais adequadas para esses ambientes.
+* O QoSSIOC está disponível somente com datastores padrão. Ele não funciona com volumes virtuais (VVols).
+
+
+
+NOTE: Quando as configurações SIOC para um VMDK estão no nível de compartilhamentos padrão normal e no limite padrão de IOPS ilimitado, os valores de compartilhamentos e limite de IOPS contribuem para o QoS total para o volume subjacente. Se as configurações SIOC para o VMDK não estiverem em níveis padrão, os compartilhamentos SIOC contribuem para os valores limite de QoS min e IOPS SIOC contribuem para QoS Max para o volume subjacente.
+
+
+TIP: É possível definir um valor de reserva por meio da API vSphere. Se um valor de reserva for definido para um VMDK, as ações serão ignoradas e o valor da reserva será usado.
+
+
+TIP: https://activeiq.solidfire.com["SolidFire Active IQ"^] Tem uma página de recomendações de QoS que fornece conselhos sobre a configuração ideal e configuração de configurações de QoS.
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

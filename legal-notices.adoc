@@ -1,0 +1,64 @@
+---
+permalink: legal-notices.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Avisos legais
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avisos legais fornecem acesso a declarações de direitos autorais, marcas registradas, patentes e muito mais.
+
+
+
+== Direitos de autor
+
+link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
+
+
+
+== Marcas comerciais
+
+NetApp, o logotipo DA NetApp e as marcas listadas na página de marcas comerciais da NetApp são marcas comerciais da NetApp, Inc. Outros nomes de produtos e empresas podem ser marcas comerciais de seus respetivos proprietários.
+
+link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
+
+
+
+== Patentes
+
+Uma lista atual de patentes de propriedade da NetApp pode ser encontrada em:
+
+link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf"^]
+
+
+
+== Política de privacidade
+
+link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]
+
+
+
+== Código aberto
+
+Os arquivos de aviso fornecem informações sobre direitos autorais de terceiros e licenças usadas no software NetApp.
+
+* link:media/mgmt_svcs_2.25_notice.pdf["Aviso para Serviços de gerenciamento 2.25.42 (plug-in do NetApp Element para VMware vCenter Server 5,3.9)"^]
+* link:media/mgmt_svcs_2.24_notice.pdf["Aviso para Serviços de gerenciamento 2.24.40 (plug-in do NetApp Element para VMware vCenter Server 5,2.12)"^]
+* link:media/mgmt_svcs_2.23_notice.pdf["Aviso para Serviços de gerenciamento 2.23.64 (plug-in do NetApp Element para VMware vCenter Server 5,1.12)"^]
+* link:media/mgmt_svcs_2.22_notice.pdf["Aviso para Serviços de gerenciamento 2.22.7 (plug-in do NetApp Element para VMware vCenter Server 5,0.37)"^]
+* link:media/mgmt_svcs_2.21_notice.pdf["Aviso para serviços de gerenciamento 2.21.61 (plug-in do NetApp Element para VMware vCenter Server 4.10.12)"^]
+* link:media/mgmt_svcs_2.20_notice.pdf["Aviso para Serviços de gerenciamento 2.20.69 (plug-in do NetApp Element para VMware vCenter Server 4,9.14)"^]
+* link:media/mgmt_svcs_2.19_notice.pdf["Aviso para Serviços de gerenciamento 2.19.48 (plug-in do NetApp Element para VMware vCenter Server 4,8.34)"^]
+* link:media/mgmt_svcs_2.18_notice.pdf["Aviso para Serviços de gerenciamento 2.18.91 (plug-in do NetApp Element para VMware vCenter Server 4,7.10)"^]
+* link:media/mgmt_svcs_2.17.56_notice.pdf["Aviso para Serviços de gerenciamento 2.17.56 (plug-in do NetApp Element para VMware vCenter Server 4,6.32)"^]
+* link:media/mgmt_svcs_2.17_notice.pdf["Aviso para Serviços de gerenciamento 2.17.52 (plug-in do NetApp Element para VMware vCenter Server 4,6.29)"^]
+* link:media/mgmt_svcs_2.16_notice.pdf["Aviso para Serviços de gerenciamento 2,16 (plug-in do NetApp Element para VMware vCenter Server 4,6.29)"^]
+* link:media/mgmt_svcs_2.14_notice.pdf["Aviso para Serviços de gerenciamento 2,14 (plug-in do NetApp Element para VMware vCenter Server 4,5.42)"^]
+* link:media/mgmt_svcs_2.13_notice.pdf["Aviso para Serviços de gerenciamento 2,13 (plug-in do NetApp Element para VMware vCenter Server 4,5.42)"^]
+* link:media/mgmt_svcs_2.11_notice.pdf["Aviso para Serviços de gerenciamento 2,11 (plug-in do NetApp Element para VMware vCenter Server 4,4.72)"^]
+

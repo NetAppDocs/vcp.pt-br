@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_create_manage_user_accounts.html 
+summary: Você pode criar e gerenciar contas de usuário usando o plug-in. 
+keywords: netapp, storage, accounts, vcp, vcenter, element 
+---
+= Criar e gerenciar contas de usuário
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+link:vcp_concept_accounts.html["Contas de utilizador"] São usados para controlar o acesso aos recursos de storage em uma rede baseada no software NetApp Element.
+
+.Opções
+* <<Crie uma conta>>
+* <<Edite uma conta>>
+* <<Eliminar uma conta>>
+
+
+
+
+== Crie uma conta
+
+Você pode criar uma conta de usuário exclusiva para permitir o acesso a volumes de armazenamento.
+
+.O que você vai precisar
+* Pelo menos um cluster deve ser adicionado e executado.
+
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *Contas*.
+. Selecione *criar conta*.
+. Introduza um nome de utilizador.
++
+
+TIP: Use as melhores práticas descritivas de nomenclatura. Isso é especialmente importante se vários clusters ou vCenter Servers forem usados em seu ambiente.
+
+. Na seção *CHAP Settings*:
++
+.. Insira o segredo do iniciador para a autenticação da sessão do nó CHAP.
+.. Introduza o segredo de destino para a autenticação da sessão do nó CHAP.
++
+
+NOTE: Os segredos do iniciador e do alvo devem ser diferentes. Se esses campos forem deixados em branco, o sistema gerará as credenciais de autenticação.
+
+
+
+. Clique em *OK* para criar a conta.
+
+
+
+
+== Edite uma conta
+
+Você pode editar uma conta de usuário para alterar o status ou os segredos CHAP. Alterar as configurações do CHAP pode causar perda de conetividade entre um host e seus volumes associados.
+
+.Sobre esta tarefa
+Se você estiver usando volumes persistentes com o nó de gerenciamento, não modifique o nome da conta associada a esses volumes.
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *Contas*.
+. Marque a caixa de seleção da conta que deseja editar.
+. Selecione *ações*.
+. No menu resultante, selecione *Editar*.
+. Altere o seguinte, conforme necessário:
++
+.. Edite o status de acesso da conta.
++
+
+IMPORTANT: Alterar o acesso a *bloqueado* termina todas as ligações iSCSI à conta e a conta já não está acessível. Os volumes associados à conta são mantidos; no entanto, os volumes não são detetáveis por iSCSI.
+
+.. Edite as credenciais secretas do iniciador ou secretas de destino usadas para autenticação de sessão do nó.
++
+
+NOTE: Se você não alterar as credenciais, elas permanecerão as mesmas. Se você deixar os campos de credenciais em branco, o sistema gera novas senhas.
+
+
+
+. Clique em *OK*.
+
+
+
+
+== Eliminar uma conta
+
+Você pode excluir contas de usuário usando o ponto de extensão do plug-in.
+
+.O que você vai precisar
+Exclua e limpe quaisquer volumes associados à conta ou reatribua os volumes a outra conta.
+
+
+IMPORTANT: Se você estiver usando volumes persistentes com o nó de gerenciamento, não exclua a conta associada a esses volumes.
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *Contas*.
+. Marque a caixa de seleção da conta que deseja excluir.
+. Clique em *ações*.
+. No menu resultante, selecione *Excluir*.
+. Confirme a ação.
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

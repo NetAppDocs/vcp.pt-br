@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_iscsi.html 
+summary: Você pode exibir informações sobre sessões iSCSI conetadas ao cluster selecionado no plug-in do NetApp Element para VMware vCenter Server. 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, iscsi, connection 
+---
+= Monitore sessões iSCSI para determinar o status da conexão
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir informações sobre sessões iSCSI conetadas ao cluster selecionado no plug-in do NetApp Element para VMware vCenter Server.
+
+.Passos
+. No plug-in do vCenter, abra a guia *Reporting*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > relatórios*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento NetApp Element > relatórios*.
+
+
+. Selecione *sessões iSCSI*.
+
+
+
+
+== Dados de sessão iSCSI
+
+* *Node*: O nó que hospeda a partição de metadados primária para o volume.
+* *Conta*: O nome da conta que possui o volume. Se o valor estiver em branco, um traço (-) será exibido.
+* *Volume*: O nome do volume identificado no nó.
+* *ID do volume*: ID do volume associado ao IQN alvo.
+* *Initiator ID*: Um ID gerado pelo sistema para o iniciador.
+* *Initiator Alias*: Um nome opcional para o iniciador que facilita a localização do iniciador em uma longa lista.
+* *Initiator IP*: O endereço IP do endpoint que inicia a sessão.
+* *Iniciador IQN*: O IQN do endpoint que inicia a sessão.
+* *IP de destino*: O endereço IP do nó que hospeda o volume.
+* *Target IQN*: O IQN do volume.
+* *Criado em*: Data em que a sessão foi estabelecida.
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

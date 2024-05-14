@@ -1,0 +1,49 @@
+---
+indexpage:
+  lead: O plug-in do NetApp Element para VMware vCenter Server fornece um plug-in
+    para a interface do VMware vSphere, para que você possa gerenciar e monitorar
+    clusters de storage executando o software NetApp Element. Este site de documentação
+    aborda o plug-in remoto Element Plug-in para vCenter 5,0 e posterior e o plug-in
+    local Element para vCenter 4,6 a 4,10.
+  tiles:
+  - title: Comece agora
+    links:
+    - title: Notas de lançamento
+      url: "/rn_relatedrn_vcp.html"
+    - title: O que há de novo
+      url: "/rn_whatsnew_vcp.html"
+    - title: Visão geral do produto
+      url: "/concept_vcp_product_overview.html"
+    - title: Instale e implante o plug-in
+      url: "/vcp_task_getstarted_5_0.html"
+  - title: Sistemas de storage all-flash SolidFire
+    links:
+    - title: Novidades do software NetApp Element
+      url: https://docs.netapp.com/us-en/element-software/concepts/concept_rn_whats_new_element.html
+    - title: Atualize o plug-in Element
+      url: https://docs.netapp.com/us-en/element-software/upgrade/task_vcp_upgrade_plugin.html
+    - title: Atualize seus componentes do vSphere
+      url: https://docs.netapp.com/us-en/element-software/upgrade/task_sf_upgrade_all_vsphere.html
+  - title: Sistemas NetApp HCI
+    links:
+    - title: O que há de novo no NetApp HCI
+      url: https://docs.netapp.com/us-en/hci/docs/rn_whatsnew.html
+    - title: Atualize o plug-in Element
+      url: https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html
+    - title: Atualize seus componentes do vSphere
+      url: https://docs.netapp.com/us-en/hci/docs/task_hci_upgrade_all_vsphere.html
+  - title: Versões anteriores
+    links:
+    - title: Documentação do plug-in do NetApp Element 4,5 e anterior
+      url: "/reference_earlier_versions.html"
+  - title: Mais recursos
+    links:
+    - title: Recursos de documentação do SolidFire e do Element
+      url: https://www.netapp.com/data-storage/solidfire/documentation
+    - title: Recursos de documentação do NetApp HCI
+      url: https://www.netapp.com/hybrid-cloud/hci-documentation/
+    - title: Notas de lançamento dos serviços de gerenciamento e controle de nuvem
+        híbrida da NetApp KB
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes
+    - title: Documentação do produto NetApp
+      url: https://www.netapp.com/support-and-training/documentation/

@@ -1,0 +1,11 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: index.html 
+lead: NetApp Element Plug-in for VMware vCenter Server provides a plug-in to the VMware vSphere interface so that you can manage and monitor storage clusters running NetApp Element software. You can use this doc site learn about and use the plug-in. This doc site addresses the remote Element Plug-in for vCenter 5.0 and later and the local Element Plug-in for vCenter 4.6 to 4.10. 
+summary: Use o plug-in do NetApp Element para VMware vCenter Server, um plug-in para a interface do VMware vSphere, para gerenciar e monitorar clusters de storage que executam o software NetApp Element. 
+---
+= Plug-in do NetApp Element para documentação do VMware vCenter Server
+:allow-uri-read: 
+
+

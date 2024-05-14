@@ -1,0 +1,1012 @@
+---
+sidebar: sidebar 
+permalink: vcp_reference_reports_alert_errors.html 
+summary: Aqui está uma lista de alertas do sistema, que são informações, avisos ou erros que indicam a eficiência do cluster em execução usando as páginas de relatórios do plug-in do NetApp Element para VMware vCenter Server. 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, alert, cluster, performance 
+---
+= Lista de alertas do sistema
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: media/
+
+
+[role="lead"]
+O sistema relata códigos de erro com cada alerta que o ajudam a determinar qual componente do sistema experimentou o alerta e por que o alerta foi gerado. Você pode visualizar os códigos de erro usando o ponto de extensão do plug-in:
+
+* A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp > Gerenciamento > relatórios > Alertas*.
+* Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento NetApp Element > relatórios > Alertas*.
+
+
+A lista a seguir descreve os diferentes tipos de alertas de sistema.
+
+* *AuthenticationServiceFault*
++
+O Serviço de autenticação em um ou mais nós de cluster não está funcionando como esperado.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *DisponívelVirtualNetworkIPAddressLow*
++
+O número de endereços de rede virtual no bloco de endereços IP é baixo.
+
++
+Para resolver essa falha, adicione mais endereços IP ao bloco de endereços de rede virtual.
+
+* *BlockClusterFull*
++
+Não há espaço de armazenamento em bloco suficiente para suportar uma perda de nó único. Consulte o método da API GetClusterFullThreshold para obter detalhes sobre os níveis de plenitude do cluster. Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** stage3Low (Aviso): O limite definido pelo usuário foi cruzado. Ajuste as configurações de Cluster Full ou adicione mais nós.
+** stage4Critical (erro): Não há espaço suficiente para recuperar de uma falha de 1 nós. A criação de volumes, snapshots e clones não é permitida.
+** stage5CompletelyConsumed (crítico)1; não são permitidas gravações ou novas ligações iSCSI. As conexões iSCSI atuais serão mantidas. As gravações falharão até que mais capacidade seja adicionada ao cluster.
+
+
++
+Para resolver essa falha, limpe ou exclua volumes ou adicione outro nó de armazenamento ao cluster de armazenamento.
+
+* *BlocksDegraded*
++
+Os dados de bloco não são mais totalmente replicados devido a uma falha.
+
++
+|===
+
+
+| Gravidade | Descrição 
+
+
+ a| 
+Aviso
+ a| 
+Apenas duas cópias completas dos dados de bloco são acessíveis.
+
+
+
+ a| 
+Erro
+ a| 
+Apenas uma única cópia completa dos dados do bloco é acessível.
+
+
+
+ a| 
+Crítico
+ a| 
+Não há cópias completas dos dados de bloco acessíveis.
+
+|===
++
+*Nota:* o estado de aviso só pode ocorrer num sistema Triple Helix.
+
++
+Para resolver essa falha, restaure quaisquer nós off-line ou bloqueie serviços ou entre em Contato com o suporte da NetApp para obter assistência.
+
+* *BlockServiceTooFull*
++
+Um serviço de bloco está usando muito espaço.
+
++
+Para resolver essa falha, adicione mais capacidade provisionada.
+
+* *BlockServiceUnHealthy*
++
+Um serviço de bloco foi detetado como não saudável:
+
++
+** Aviso: Nenhuma ação é tomada. Este período de aviso expirará em cTimeUntilBSIsKilledMSec: 330000 milissegundos.
+** Gravidade: O sistema está desativando automaticamente os dados e replicando novamente seus dados para outras unidades íntegras.
+** Gravidade Crítica: Há serviços de bloco com falha em vários nós maiores ou iguais à contagem de replicação (2 para hélice dupla). Os dados não estão disponíveis e a sincronização do bin não será concluída.
+
+
++
+Verifique se há problemas de conetividade de rede e erros de hardware. Haverá outras falhas se os componentes de hardware específicos tiverem falhado. A falha será apagada quando o serviço de bloco estiver acessível ou quando o serviço tiver sido desativado.
+
+* *BmcSelfTestFailed*
++
+O controlador de gerenciamento de placa base (BMC) falhou em um autoteste.
+
++
+Contacte o suporte da NetApp para obter assistência.
+
++
+Durante uma atualização para o elemento 12,5 ou posterior, a `BmcSelfTestFailed` falha não é gerada para um nó que tenha um BMC com falha pré-existente ou quando o BMC de um nó falha durante a atualização. Os BMCs que falham nos autotestes durante a atualização emitirão uma `BmcSelfTestFailed` falha de aviso depois que todo o cluster concluir a atualização.
+
+* *ClockSkewExceedsFaultThreshold*
++
+O desvio de tempo entre o mestre de cluster e o nó que está apresentando um token excede o limite recomendado. O cluster de storage não pode corrigir o desvio de tempo entre os nós automaticamente.
+
++
+Para resolver essa falha, use servidores NTP internos à sua rede, em vez dos padrões de instalação. Se estiver a utilizar um servidor NTP interno, contacte o suporte da NetApp para obter assistência.
+
+* *ClusterCannotSync*
++
+Há uma condição de espaço fora e os dados nas unidades de armazenamento de bloco off-line não podem ser sincronizados com unidades que ainda estão ativas.
+
++
+Para resolver essa falha, adicione mais armazenamento.
+
+* *Incluído*
++
+Não há mais espaço de armazenamento livre no cluster de armazenamento.
+
++
+Para resolver essa falha, adicione mais armazenamento.
+
+* *ClusterIOPSAreOverProvisioned*
++
+As IOPS do cluster estão provisionadas em excesso. A soma de todas as IOPS mínimas de QoS é maior do que as IOPS esperadas do cluster. A QoS mínima não pode ser mantida para todos os volumes simultaneamente.
+
++
+Para resolver esse problema, reduza as configurações mínimas de IOPS de QoS para volumes.
+
+* *CpuThermalEventThreshold*
++
+O número de eventos térmicos da CPU em uma ou mais CPUs excede o limite configurado.
+
++
+Se nenhum novo evento térmico da CPU for detetado dentro de dez minutos, o aviso irá resolver-se.
+
+* *DisableDriveSecurityFailed*
++
+O cluster não está configurado para ativar a segurança da unidade (criptografia em repouso), mas pelo menos uma unidade tem a segurança da unidade ativada, o que significa que a desativação da segurança da unidade nessas unidades falhou. Esta avaria é registada com a gravidade ""Aviso"".
+
++
+Para resolver esta avaria, verifique os detalhes da avaria para o motivo pelo qual a segurança da unidade não pode ser desativada. Possíveis razões são:
+
++
+** Não foi possível adquirir a chave de encriptação, investigue o problema com o acesso à chave ou ao servidor de chaves externo.
+** A operação de desativação falhou na unidade, determine se a chave errada poderia ter sido adquirida.
+
+
++
+Se nenhum destes for o motivo da falha, a unidade pode precisar ser substituída.
+
++
+Você pode tentar recuperar uma unidade que não desabilite a segurança com êxito mesmo quando a chave de autenticação correta é fornecida. Para executar esta operação, remova a(s) unidade(s) do sistema movendo-a para disponível, execute uma eliminação segura na unidade e mova-a de volta para Ativo.
+
+* *DisconnectedClusterPair*
++
+Um par de cluster está desconetado ou configurado incorretamente.
+
++
+Verifique a conetividade de rede entre os clusters.
+
+* *DisconnectedRemoteNode*
++
+Um nó remoto está desconetado ou configurado incorretamente.
+
++
+Verifique a conetividade de rede entre os nós.
+
+* *DisconnectedSnapMirrorEndpoint*
++
+Um endpoint SnapMirror remoto está desconetado ou configurado incorretamente.
+
++
+Verifique a conetividade de rede entre o cluster e o SnapMirrorEndpoint remoto.
+
+* *DriveAvailable*
++
+Uma ou mais unidades estão disponíveis no cluster. Em geral, todos os clusters devem ter todas as unidades adicionadas e nenhuma no estado disponível. Se esta avaria aparecer inesperadamente, contacte o suporte da NetApp.
+
++
+Para resolver essa falha, adicione todas as unidades disponíveis ao cluster de armazenamento.
+
+* *DriveFailed*
++
+O cluster retorna essa falha quando uma ou mais unidades falharam, indicando uma das seguintes condições:
+
++
+** O gestor de unidades não consegue aceder à unidade.
+** O serviço de corte ou bloco falhou muitas vezes, presumivelmente por causa de falhas de leitura ou gravação da unidade e não pode ser reiniciado.
+** A unidade está ausente.
+** O serviço mestre para o nó está inacessível (todas as unidades no nó são consideradas ausentes/com falha).
+** A unidade está bloqueada e a chave de autenticação da unidade não pode ser adquirida.
+** A unidade está bloqueada e a operação de desbloqueio falha.
+
+
++
+Para resolver este problema:
+
++
+** Verifique a conetividade de rede para o nó.
+** Substitua a unidade.
+** Certifique-se de que a chave de autenticação está disponível.
+
+
+* *DriveHealthFault*
++
+Uma unidade falhou na verificação INTELIGENTE de integridade e, como resultado, as funções da unidade são diminuídas. Existe um nível crítico de gravidade para esta avaria:
+
++
+** Unidade com série: <serial number> in slot: <node slot> <drive slot> falhou a verificação geral INTELIGENTE de integridade.
+
+
++
+Para resolver esta avaria, substitua a unidade.
+
+* *DriveWearFault*
++
+A vida útil restante de uma unidade caiu abaixo dos limites, mas ainda está funcionando. Existem dois níveis de gravidade possíveis para esta falha: Crítico e Aviso:
+
++
+** Unidade com série: <serial number> in slot: <node slot> <drive slot> tem níveis críticos de desgaste.
+** Unidade com série: <serial number> in slot: <node slot> <drive slot> tem baixas reservas de desgaste.
+
+
++
+Para resolver esta avaria, substitua a unidade em breve.
+
+* *DuplicateClusterMasterCandidates*
++
+Mais de um candidato mestre do cluster de armazenamento foi detetado.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *EnableDriveSecurityFailed*
++
+O cluster está configurado para exigir segurança da unidade (criptografia em repouso), mas a segurança da unidade não pôde ser ativada em pelo menos uma unidade. Esta avaria é registada com a gravidade ""Aviso"".
+
++
+Para resolver esta avaria, verifique os detalhes da avaria para o motivo pelo qual a segurança da unidade não pôde ser ativada. Possíveis razões são:
+
++
+** Não foi possível adquirir a chave de encriptação, investigue o problema com o acesso à chave ou ao servidor de chaves externo.
+** A operação de ativação falhou na unidade, determine se a chave errada poderia ter sido adquirida. Se nenhum destes for o motivo da falha, a unidade pode precisar ser substituída.
+
+
++
+Você pode tentar recuperar uma unidade que não habilite a segurança com êxito mesmo quando a chave de autenticação correta é fornecida. Para executar esta operação, remova a(s) unidade(s) do sistema movendo-a para disponível, execute uma eliminação segura na unidade e mova-a de volta para Ativo.
+
+* *EnsembleDegraded*
++
+A conetividade ou a energia da rede foi perdida para um ou mais nós do ensemble.
+
++
+Para resolver esta avaria, restaure a conetividade ou a alimentação da rede.
+
+* *exceção*
++
+Uma avaria comunicada que não é uma avaria de rotina. Estas avarias não são eliminadas automaticamente da fila de avarias.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *FailedSpaceToFull*
++
+Um serviço de bloco não está respondendo às solicitações de gravação de dados. Isto faz com que o serviço de corte fique sem espaço para armazenar gravações com falha.
+
++
+Para resolver esta avaria, restaure a funcionalidade de serviços de bloco para permitir que as gravações continuem normalmente e que o espaço com falha seja eliminado do serviço de corte.
+
+* *FanSensor*
++
+Um sensor da ventoinha falhou ou está em falta.
+
++
+Para resolver essa falha, substitua qualquer hardware com falha.
+
+* *FibreChannelAccessDegraded*
++
+Um nó Fibre Channel não responde a outros nós no cluster de storage durante seu IP de storage por um período de tempo. Nesse estado, o nó será considerado não responsivo e gerará uma falha de cluster.
+
++
+Verifique a conetividade da rede.
+
+* *FibreChannelAccessUnavailable*
++
+Todos os nós do Fibre Channel não respondem. As IDs de nó são exibidas.
+
++
+Verifique a conetividade da rede.
+
+* *FibreChannelActiveIxL*
++
+A contagem IXL Nexus está se aproximando do limite suportado de 8000 sessões ativas por nó Fibre Channel.
+
++
+** O limite de melhores práticas é 5500.
+** O limite de aviso é 7500.
+** O limite máximo (não aplicado) é 8192.
+
+
++
+Para resolver essa falha, reduza a contagem IXL Nexus abaixo do limite de melhores práticas de 5500.
+
+* *FibreChannelConfig*
++
+Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** Há uma porta Fibre Channel inesperada em um slot PCI.
+** Existe um modelo HBA Fibre Channel inesperado.
+** Existe um problema com o firmware de um HBA Fibre Channel.
+** Uma porta Fibre Channel não está online.
+** Há um problema persistente na configuração de passagem Fibre Channel.
+
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *FibreChannelIOPS*
++
+A contagem total de IOPS está se aproximando do limite de IOPS para nós Fibre Channel no cluster. Os limites são:
+
++
+** FC0025: Limite de 450K IOPS a um tamanho de bloco de 4K PB por nó Fibre Channel.
+** FCN001: Limite de 625K OPS a 4K tamanho de bloco por nó Fibre Channel.
+
+
++
+Para resolver essa falha, equilibre a carga em todos os nós Fibre Channel disponíveis.
+
+* *FibreChannelStaticIxL*
++
+A contagem IXL Nexus está se aproximando do limite suportado de 16000 sessões estáticas por nó Fibre Channel.
+
++
+** O limite de melhores práticas é 11000.
+** O limite de aviso é 15000.
+** O limite máximo (imposto) é 16384.
+
+
++
+Para resolver essa falha, reduza a contagem IXL Nexus abaixo do limite de melhores práticas de 11000.
+
+* *FileSystemCapacityLow*
++
+Há espaço insuficiente em um dos sistemas de arquivos.
+
++
+Para resolver essa falha, adicione mais capacidade ao sistema de arquivos.
+
+* *FileSystemIsReadOnly*
++
+Um sistema de arquivos foi movido para o modo somente leitura.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *FipsDrivesMismatch*
++
+Uma unidade não FIPS foi fisicamente inserida em um nó de storage com capacidade FIPS ou uma unidade FIPS foi fisicamente inserida em um nó de storage não FIPS. Uma única falha é gerada por nó e lista todas as unidades afetadas.
+
++
+Para resolver esta avaria, remova ou substitua a unidade ou unidades incompatíveis em questão.
+
+* *FipsDrivesOutOfCompliance*
++
+O sistema detetou que a encriptação em repouso foi desativada após a funcionalidade de unidades FIPS estar ativada. Essa falha também é gerada quando o recurso unidades FIPS está ativado e uma unidade ou nó não FIPS está presente no cluster de storage.
+
++
+Para resolver esta avaria, ative a encriptação em repouso ou remova o hardware não FIPS do cluster de armazenamento.
+
+* *FipsSelfTestFailure*
++
+O subsistema FIPS detetou uma falha durante o autoteste.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *HardwareConfigMismatch*
++
+Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** A configuração não corresponde à definição do nó.
+** Existe um tamanho de unidade incorreto para este tipo de nó.
+** Foi detetada uma unidade não suportada. Uma possível razão é que a versão do elemento instalado não reconhece esta unidade. Recomendamos a atualização do software Element neste nó.
+** Há uma incompatibilidade de firmware da unidade.
+** O estado capaz de encriptação da unidade não corresponde ao nó.
+
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *IdPCertificateExpiration*
++
+O certificado SSL do provedor de serviços do cluster para uso com um provedor de identidade de terceiros (IDP) está prestes a expirar ou já expirou. Esta avaria utiliza as seguintes gravidades com base na urgência:
+
++
+|===
+
+
+| Gravidade | Descrição 
+
+
+ a| 
+Aviso
+ a| 
+O certificado expira dentro de 30 dias.
+
+
+
+ a| 
+Erro
+ a| 
+O certificado expira dentro de 7 dias.
+
+
+
+ a| 
+Crítico
+ a| 
+O certificado expira dentro de 3 dias ou já expirou.
+
+|===
++
+Para resolver esta avaria, atualize o certificado SSL antes de expirar. Use o método UpdateIdpConfiguration API com `refreshCertificateExpirationTime=true` para fornecer o certificado SSL atualizado.
+
+* *InconsistentBondModes*
++
+Os modos de ligação no dispositivo VLAN estão em falta. Esta avaria apresenta o modo de ligação esperado e o modo de ligação atualmente em utilização.
+
+
+
+* *InconsistentMtus*
++
+Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** Bond1G incompatibilidade: MTUs inconsistentes foram detetadas em interfaces Bond1G.
+** Bond10G incompatibilidade: MTUs inconsistentes foram detetadas em interfaces Bond10G.
+
+
++
+Esta falha exibe o nó ou nós em questão junto com o valor MTU associado.
+
+* *InconsistentRoutingRules*
++
+As regras de roteamento para essa interface são inconsistentes.
+
+* *InconsistentSubnetMasks*
++
+A máscara de rede no dispositivo VLAN não corresponde à máscara de rede gravada internamente para a VLAN. Esta avaria apresenta a máscara de rede esperada e a máscara de rede atualmente em utilização.
+
+* *IncorretBondPortCount*
++
+O número de portas de ligação está incorreto.
+
+* *InvalidConfiguredFibredChannelNodeCount*
++
+Uma das duas conexões de nó Fibre Channel esperadas está degradada. Esta avaria aparece quando apenas um nó de canal de fibra está ligado.
+
++
+Para resolver essa falha, verifique a conetividade de rede do cluster e o cabeamento de rede e verifique se há serviços com falha. Se não houver problemas de rede ou de serviço, entre em Contato com o suporte da NetApp para uma substituição de nó Fibre Channel.
+
+* *IrqBalanceFailed*
++
+Ocorreu uma exceção ao tentar equilibrar interrupções.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *KmipCertificateFault*
++
+** O certificado da Autoridade de Certificação raiz (CA) está próximo da expiração.
++
+Para resolver essa falha, adquira um novo certificado da CA raiz com data de expiração de pelo menos 30 dias e use ModifyKeyServerKmip para fornecer o certificado de CA raiz atualizado.
+
+** O certificado do cliente está próximo da expiração.
++
+Para resolver essa falha, crie uma nova CSR usando GetClientCertificateSigningRequest, peça que ela assine garantindo que a nova data de expiração esteja de pelo menos 30 dias e use ModifyKeyServerKmip para substituir o certificado de cliente KMIP que expira pelo novo certificado.
+
+** O certificado de autoridade de certificação raiz (CA) expirou.
++
+Para resolver essa falha, adquira um novo certificado da CA raiz com data de expiração de pelo menos 30 dias e use ModifyKeyServerKmip para fornecer o certificado de CA raiz atualizado.
+
+** O certificado de cliente expirou.
++
+Para resolver essa falha, crie uma nova CSR usando GetClientCertificateSigningRequest, faça com que ela assine garantindo que a nova data de expiração esteja de pelo menos 30 dias e use ModifyKeyServerKmip para substituir o certificado de cliente KMIP expirado pelo novo certificado.
+
+** Erro de certificado da Autoridade de Certificação raiz (CA).
++
+Para resolver essa falha, verifique se o certificado correto foi fornecido e, se necessário, readquira o certificado da CA raiz. Use ModifyKeyServerKmip para instalar o certificado de cliente KMIP correto.
+
+** Erro de certificado do cliente.
++
+Para resolver essa falha, verifique se o certificado de cliente KMIP correto está instalado. A CA raiz do certificado de cliente deve ser instalada no EKS. Use ModifyKeyServerKmip para instalar o certificado de cliente KMIP correto.
+
+
+
+* *KmipServerFault*
++
+** Falha de ligação
++
+Para resolver esta avaria, verifique se o servidor de chaves externas está ativo e acessível através da rede. Use TestKeyServerKimp e TestKeyProviderKmip para testar sua conexão.
+
+** Falha de autenticação
++
+Para resolver essa falha, verifique se os certificados de cliente KMIP e CA raiz corretos estão sendo usados e se a chave privada e o certificado de cliente KMIP correspondem.
+
+** Erro de servidor
++
+Para resolver esta avaria, verifique os detalhes do erro. A solução de problemas no servidor de chaves externas pode ser necessária com base no erro retornado.
+
+
+
+* *MemórioEccThreshold*
++
+Foi detetado um grande número de erros ECC corrigíveis ou incorrigíveis. Esta avaria utiliza as seguintes gravidades com base na urgência:
+
++
+|===
+
+
+| Evento | Gravidade | Descrição 
+
+
+ a| 
+Um único DIMM cErrorCount atinge cDimmCorrectableErrWarnThreshold.
+ a| 
+Aviso
+ a| 
+Erros de memória ECC corrigíveis acima do limite no DIMM: <Processor> <DIMM Slot>
+
+
+
+ a| 
+Um único DIMM cErrorCount permanece acima de cDimmCorrectableErrWarnThreshold até que cErrorFaultTimer expire para o DIMM.
+ a| 
+Erro
+ a| 
+Erros de memória ECC corrigíveis acima do limite no DIMM: <Processor> <DIMM>
+
+
+
+ a| 
+Um controlador de memória relata cErrorCount acima de cMemCtlrCorrectableErrWarnThreshold, e cMemCtlrCorrectableErrWarnDuração é especificado.
+ a| 
+Aviso
+ a| 
+Erros de memória ECC corrigíveis acima do limite no controlador de memória: <Processor> <Memory Controller>
+
+
+
+ a| 
+Um controlador de memória relata cErrorCount acima cMemCtlrCorrectableErrWarnThreshold até que cErrorFaultTimer expire para o controlador de memória.
+ a| 
+Erro
+ a| 
+Erros de memória ECC corrigíveis acima do limite no DIMM: <Processor> <DIMM>
+
+
+
+ a| 
+Um único DIMM relata um uErrorCount acima de zero, mas menor que cDimmUncorretableErrFaultThreshold.
+ a| 
+Aviso
+ a| 
+Erro(s) de memória ECC incorrigível(s) detetado(s) no DIMM: <Processor> <DIMM Slot>
+
+
+
+ a| 
+Um único DIMM relata um uErrorCount de pelo menos cDimmUncorretableErrFaultThreshold.
+ a| 
+Erro
+ a| 
+Erro(s) de memória ECC incorrigível(s) detetado(s) no DIMM: <Processor> <DIMM Slot>
+
+
+
+ a| 
+Um controlador de memória relata um uErrorCount acima de zero, mas menor que cMemCtlrUncorretableErrFaultThreshold.
+ a| 
+Aviso
+ a| 
+Erro(s) de memória ECC incorrigível(s) detetado(s) no controlador de memória: <Processor> <Memory Controller>
+
+
+
+ a| 
+Um controlador de memória relata um uErrorCount de pelo menos cMemCtlrUncorretableErrFaultThreshold.
+ a| 
+Erro
+ a| 
+Erro(s) de memória ECC incorrigível(s) detetado(s) no controlador de memória: <Processor> <Memory Controller>
+
+|===
++
+Para resolver esta avaria, contacte o suporte da NetApp para obter assistência.
+
+* *MemoryUsageThreshold*
++
+O uso da memória está acima do normal. Esta avaria utiliza as seguintes gravidades com base na urgência:
+
++
+
+NOTE: Consulte o cabeçalho *Detalhes* na falha de erro para obter informações mais detalhadas sobre o tipo de falha.
+
++
+|===
+
+
+| Gravidade | Descrição 
+
+
+ a| 
+Aviso
+ a| 
+A memória do sistema está baixa.
+
+
+
+ a| 
+Erro
+ a| 
+A memória do sistema é muito baixa.
+
+
+
+ a| 
+Crítico
+ a| 
+A memória do sistema é completamente consumida.
+
+|===
++
+Para resolver esta avaria, contacte o suporte da NetApp para obter assistência.
+
+* *MetadataClusterFull*
++
+Não há espaço de armazenamento de metadados livre suficiente para dar suporte a uma perda de nó único. Consulte o método da API GetClusterFullThreshold para obter detalhes sobre os níveis de plenitude do cluster. Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** stage3Low (Aviso): O limite definido pelo usuário foi cruzado. Ajuste as configurações de Cluster Full ou adicione mais nós.
+** stage4Critical (erro): Não há espaço suficiente para recuperar de uma falha de 1 nós. A criação de volumes, snapshots e clones não é permitida.
+** stage5CompletelyConsumed (crítico)1; não são permitidas gravações ou novas ligações iSCSI. As conexões iSCSI atuais serão mantidas. As gravações falharão até que mais capacidade seja adicionada ao cluster. Limpe ou exclua dados ou adicione mais nós.
+
+
++
+Para resolver essa falha, limpe ou exclua volumes ou adicione outro nó de armazenamento ao cluster de armazenamento.
+
+* *MtuCheckFailure*
++
+Um dispositivo de rede não está configurado para o tamanho adequado da MTU.
+
++
+Para resolver essa falha, verifique se todas as interfaces de rede e portas de switch estão configuradas para quadros jumbo (MTUs de até 9000 bytes de tamanho).
+
+* *NetworkConfig*
++
+Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** Uma interface esperada não está presente.
+** Uma interface duplicada está presente.
+** Uma interface configurada está inativa.
+** É necessário reiniciar a rede.
+
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *NoAvailableVirtualNetworkIPAddresses*
++
+Não há endereços de rede virtual disponíveis no bloco de endereços IP.
+
++
+** A TAG("no") não tem endereços IP de armazenamento disponíveis. Nós adicionais não podem ser adicionados ao cluster.
+
+
++
+Para resolver essa falha, adicione mais endereços IP ao bloco de endereços de rede virtual.
+
+* *NodeHardwareFault (a interface de rede <name> está inativa ou o cabo está desligado)*
++
+Uma interface de rede está inativa ou o cabo está desconetado.
+
++
+Para resolver essa falha, verifique a conetividade de rede para o nó ou nós.
+
+* *NodeHardwareFault (o estado capaz de encriptação da unidade não corresponde ao estado capaz de encriptação do nó para a unidade no slot <node slot> <drive slot>)*
++
+Uma unidade não corresponde aos recursos de criptografia com o nó de armazenamento em que está instalada.
+
+* *NodeHardwareFault (<actual size> incorreto do tamanho da unidade <drive type> para a unidade no slot <node slot> <drive slot> para este tipo de nó - esperado <expected size>)*
++
+Um nó de armazenamento contém uma unidade com o tamanho incorreto para este nó.
+
+* *NodeHardwareFault (unidade não suportada detetada no slot <node slot> <drive slot>; estatísticas da unidade e informações de integridade não estarão disponíveis)*
++
+Um nó de armazenamento contém uma unidade que não suporta.
+
+* *NodeHardwareFault (a unidade no slot <node slot> <drive slot> deve estar usando a versão de firmware <expected version>, mas está usando a versão não suportada <actual version>)*
++
+Um nó de armazenamento contém uma unidade que executa uma versão de firmware não suportada.
+
+* *NodeMaintenanceMode*
++
+Um nó foi colocado no modo de manutenção. Esta avaria utiliza as seguintes gravidades com base na urgência:
+
++
+|===
+
+
+| Gravidade | Descrição 
+
+
+ a| 
+Aviso
+ a| 
+Indica que o nó ainda está no modo de manutenção.
+
+
+
+ a| 
+Erro
+ a| 
+Indica que o modo de manutenção não foi desativado, provavelmente devido a falhas ou padrões ativos.
+
+|===
++
+Para resolver esta avaria, desative o modo de manutenção assim que a manutenção for concluída. Se a avaria no nível de erro persistir, contacte o suporte da NetApp para obter assistência.
+
+* *NodeOffline*
++
+O software Element não pode se comunicar com o nó especificado. Verifique a conetividade da rede.
+
+* *NotUsingLACPBondMode*
++
+O modo de ligação LACP não está configurado.
+
++
+Para resolver essa falha, use a ligação LACP ao implantar nós de storage; os clientes podem ter problemas de desempenho se o LACP não estiver habilitado e configurado corretamente.
+
+* *NtpServerUnreachable*
++
+O cluster de armazenamento não pode se comunicar com o servidor NTP ou servidores especificados.
+
++
+Para resolver essa falha, verifique a configuração do servidor NTP, rede e firewall.
+
+* *NtpTimeNotInSync*
++
+A diferença entre o tempo do cluster de armazenamento e o tempo do servidor NTP especificado é muito grande. O cluster de armazenamento não pode corrigir a diferença automaticamente.
+
++
+Para resolver essa falha, use servidores NTP internos à sua rede, em vez dos padrões de instalação. Se estiver a utilizar servidores NTP internos e o problema persistir, contacte o suporte da NetApp para obter assistência.
+
+* *NvramDeviceStatus*
++
+Um dispositivo NVRAM apresenta um erro, está a falhar ou falhou. Esta avaria tem as seguintes gravidades:
+
++
+|===
+
+
+| Gravidade | Descrição 
+
+
+ a| 
+Aviso
+ a| 
+Foi detetado um aviso pelo hardware. Esta condição pode ser transitória, como um aviso de temperatura.
+
+** NvmLifetimeError
+** NvmLifetimeStatus
+** EnergySourceLifetimeStatus
+** EnergySourceTemperatureStatus
+** WarningThresholdExceeded
+
+
+
+
+ a| 
+Erro
+ a| 
+Foi detetado um erro ou estado crítico pelo hardware. O master do cluster tenta remover a unidade de corte da operação (isto gera um evento de remoção da unidade). Se os serviços de corte secundário não estiverem disponíveis, a unidade não será removida. Erros retornados além dos erros de nível de aviso:
+
+** O ponto de montagem do dispositivo NVRAM não existe.
+** A partição do dispositivo NVRAM não existe.
+** A partição do dispositivo NVRAM existe, mas não está montada.
+
+
+
+
+ a| 
+Crítico
+ a| 
+Foi detetado um erro ou estado crítico pelo hardware. O master do cluster tenta remover a unidade de corte da operação (isto gera um evento de remoção da unidade). Se os serviços de corte secundário não estiverem disponíveis, a unidade não será removida.
+
+** PersistênciaLost
+** ArmStatusSaveNArmed
+** Erro csaveStatusError
+
+
+|===
++
+Substitua qualquer hardware com falha no nó. Se isso não resolver o problema, entre em Contato com o suporte da NetApp para obter assistência.
+
+* *PowerSupplyError*
++
+Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** Não existe uma fonte de alimentação.
+** Uma fonte de alimentação falhou.
+** Uma entrada da fonte de alimentação está ausente ou fora da faixa.
+
+
++
+Para resolver essa falha, verifique se a alimentação redundante é fornecida a todos os nós. Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *ProvisionadoSpaceTooFull*
++
+A capacidade provisionada geral do cluster está muito cheia.
+
++
+Para resolver essa falha, adicione mais espaço provisionado ou exclua e limpe volumes.
+
+* *RemoteRepAsyncDelayExceeded*
++
+O atraso assíncrono configurado para replicação foi excedido. Verifique a conetividade de rede entre clusters.
+
+* * RemoteRepClusterFull*
++
+Os volumes interromperam a replicação remota porque o cluster de armazenamento de destino está demasiado cheio.
+
++
+Para resolver esta avaria, liberte algum espaço no cluster de armazenamento de destino.
+
+* *RemoteRepSnapshotClusterFull*
++
+Os volumes interromperam a replicação remota de instantâneos porque o cluster de armazenamento de destino está demasiado cheio.
+
++
+Para resolver esta avaria, liberte algum espaço no cluster de armazenamento de destino.
+
+* * RemoteRepSnapshotsExceededLimit*
++
+Os volumes interromperam a replicação remota de instantâneos porque o volume do cluster de armazenamento de destino excedeu o limite de instantâneos.
+
++
+Para resolver esta avaria, aumente o limite de instantâneos no cluster de armazenamento de destino.
+
+* *ScheduleActionError*
++
+Uma ou mais das atividades agendadas foram executadas, mas falharam.
+
++
+A falha será apagada se a atividade programada for executada novamente e for bem-sucedida, se a atividade programada for excluída ou se a atividade for pausada e retomada.
+
+* *SensorReadingFailed*
++
+Um sensor não pôde se comunicar com o controlador de gerenciamento da placa de base (BMC).
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *ServiceNotRunning*
++
+Um serviço necessário não está em execução.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *SliceServiceTooFull*
++
+Um serviço de fatia tem pouca capacidade provisionada atribuída a ele.
+
++
+Para resolver essa falha, adicione mais capacidade provisionada.
+
+* *SliceServiceUnHealthy*
++
+O sistema detetou que um serviço de corte não está saudável e está a ser desativado automaticamente.
+
++
+** Aviso: Nenhuma ação é tomada. Este período de aviso expira em 6 minutos.
+** Gravidade: O sistema está desativando automaticamente os dados e replicando novamente seus dados para outras unidades íntegras.
+
+
++
+Verifique se há problemas de conetividade de rede e erros de hardware. Haverá outras falhas se os componentes de hardware específicos tiverem falhado. A avaria será eliminada quando o serviço de corte estiver acessível ou quando o serviço tiver sido desativado.
+
+* *SshEnabled*
++
+O serviço SSH é ativado em um ou mais nós no cluster de armazenamento.
+
++
+Para resolver essa falha, desative o serviço SSH no nó ou nós apropriados ou entre em Contato com o suporte da NetApp para obter assistência.
+
+* *SslCertificateExpiration*
++
+O certificado SSL associado a este nó está próximo da expiração ou expirou. Esta avaria utiliza as seguintes gravidades com base na urgência:
+
++
+|===
+
+
+| Gravidade | Descrição 
+
+
+ a| 
+Aviso
+ a| 
+O certificado expira dentro de 30 dias.
+
+
+
+ a| 
+Erro
+ a| 
+O certificado expira dentro de 7 dias.
+
+
+
+ a| 
+Crítico
+ a| 
+O certificado expira dentro de 3 dias ou já expirou.
+
+|===
++
+Para resolver esta avaria, renove o certificado SSL. Se necessário, entre em Contato com o suporte da NetApp para obter assistência.
+
+* *StrandedCapacity*
++
+Um único nó representa mais da metade da capacidade do cluster de storage.
+
++
+Para manter a redundância de dados, o sistema reduz a capacidade do nó maior, de modo que parte de sua capacidade de bloco fique ociosa (não usada).
+
++
+Para resolver essa falha, adicione mais unidades aos nós de storage existentes ou adicione nós de storage ao cluster.
+
+* *TemSensor*
++
+Um sensor de temperatura indica temperaturas superiores às normais. Esta avaria pode ser acionada em conjunto com avarias powerSupplyError ou fanSensor.
+
++
+Para resolver esta avaria, verifique se existem obstruções de fluxo de ar perto do grupo de armazenamento. Se necessário, entre em Contato com o suporte da NetApp para obter assistência.
+
+* *upgrade*
++
+Uma atualização está em andamento há mais de 24 horas.
+
++
+Para resolver esta avaria, retome a atualização ou contacte o suporte da NetApp para obter assistência.
+
+* *UnresponsiveService*
++
+Um serviço ficou sem resposta.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *VirtualNetworkConfig*
++
+Esta avaria no grupo de instrumentos indica uma das seguintes condições:
+
++
+** Uma interface não está presente.
+** Há um namespace incorreto em uma interface.
+** Existe uma máscara de rede incorreta.
+** Existe um endereço IP incorreto.
+** Uma interface não está ativa e em execução.
+** Há uma interface supérflua em um nó.
+
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+* *VolumesDegraded*
++
+Os volumes secundários não terminaram de replicar e sincronizar. A mensagem é apagada quando a sincronização estiver concluída.
+
+* *VolumesOffline*
++
+Um ou mais volumes no cluster de armazenamento estão offline. A avaria *volumeDegraded* também estará presente.
+
++
+Entre em Contato com o suporte da NetApp para obter assistência.
+
+

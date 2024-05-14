@@ -1,0 +1,126 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_add_manage_drive.html 
+summary: Você pode adicionar e gerenciar unidades ao cluster usando o plug-in. 
+keywords: netapp, drives, add, manage, remove, view vcp, vcenter, element 
+---
+= Adicionar e gerenciar unidades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode adicionar unidades a um cluster, exibir unidades existentes e remover unidades usando o ponto de extensão do plug-in.
+
+* <<Adicionar unidades disponíveis a um cluster>>
+* <<Veja os detalhes da unidade>>
+* <<Remova uma unidade>>
+
+
+
+
+== Adicionar unidades disponíveis a um cluster
+
+Você pode adicionar unidades a um cluster usando o ponto de extensão do plug-in. Quando você adiciona um nó ao cluster ou instala novas unidades em um nó existente, as unidades são registradas automaticamente como `Available`. Você deve adicionar as unidades ao cluster antes que cada unidade possa participar do cluster.
+
+.Sobre esta tarefa
+As unidades não são exibidas na lista disponível quando existem as seguintes condições:
+
+* As unidades estão no `Active` estado , `Removing`, `Erasing` ou `Failed` .
+* O nó do qual a unidade faz parte está `Pending` no estado.
+
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Na subguia *Drives*, selecione *Available* na lista suspensa para exibir a lista de unidades disponíveis.
+. Adicione unidades da seguinte forma:
++
+.. Marque a caixa de seleção para cada unidade que você deseja adicionar.
+.. Clique em *Add Drives*.
+
+
+. Reveja os detalhes das unidades que pretende adicionar e confirmar a ação.
+
+
+
+
+== Veja os detalhes da unidade
+
+Você pode exibir uma lista das unidades ativas no cluster usando a exibição Ativo na página unidades da guia Cluster no ponto de extensão do plug-in. Pode alterar a vista selecionando opções disponíveis utilizando o filtro pendente.
+
+.Sobre esta tarefa
+Quando inicializar um cluster pela primeira vez, a lista de unidades ativas fica vazia. Você pode adicionar unidades que não são atribuídas a um cluster e listadas na guia disponível após a criação de um novo cluster.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *Drives*.
+. Selecione a visualização *Ativo*.
+. Veja os detalhes das unidades que estão atualmente ativas no sistema.
++
+Você pode exibir informações como IDs de unidade, a capacidade e o status de cada unidade e informações sobre o nó em que a unidade reside.
+
+
+
+
+
+== Remova uma unidade
+
+Você pode remover uma unidade de um cluster usando o ponto de extensão do plug-in. Você pode fazer isso ao reduzir a capacidade do cluster ou se preparar para substituir unidades que se aproximam do fim de sua vida útil. Remover uma unidade coloca a unidade offline. Todos os dados na unidade são removidos e migrados para outras unidades no cluster antes que a unidade seja removida do cluster. A migração de dados para outras unidades ativas no sistema pode levar alguns minutos a uma hora, dependendo da utilização da capacidade e e/S ativa no cluster.
+
+.Sobre esta tarefa
+Quando você remove uma unidade em um `Failed` estado, a unidade não é retornada a `Available` estados ou `Active` . Em vez disso, a unidade não está disponível para uso no cluster.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione *All* na lista suspensa para exibir a lista completa de unidades.
+. Remova as unidades da seguinte forma:
++
+.. Marque a caixa de seleção para cada unidade que deseja remover.
+.. Clique em *Remover unidades*.
+
+
+. Confirme a ação.
++
+
+NOTE: Se não houver capacidade suficiente para remover unidades ativas antes de remover um nó, uma mensagem de erro será exibida quando você confirmar a remoção da unidade.
+
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

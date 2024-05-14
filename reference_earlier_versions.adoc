@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: reference_earlier_versions.html 
+keywords: documentation, earlier, previous, versions 
+summary: A documentação está disponível para versões anteriores à versão 4,6 do plug-in do NetApp Element para VMware vCenter Server. 
+---
+= Versões anteriores do plug-in do NetApp Element para a documentação do VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+A documentação também está disponível para versões anteriores à versão 5,3 do plug-in do NetApp Element para VMware vCenter Server.
+
+
+NOTE: Isso link:index.html["link de documentação"] para o plug-in Element vCenter 5,3 também inclui as versões 5,2, 5,1, 5,0, 4,10, 4,9, 4,8, 4,7 e 4,6.
+
+[cols="4*"]
+|===
+| Versão | Notas de lançamento do plug-in | Notas de lançamento dos serviços de gerenciamento | Manual do utilizador 
+
+
+| 5,2 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["2.24.40"^] | link:index.html["Link"] 
+
+
+| 5,1 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["2.23.64"^] | link:index.html["Link"] 
+
+
+| 5,0 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["2.22.7"^] | link:index.html["Link"] 
+
+
+| 4,10 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["2.21.61"^] | link:index.html["Link"] 
+
+
+| 4,9 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["2.20.69"^] | link:index.html["Link"] 
+
+
+| 4,8 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["2.19.48"^] | link:index.html["Link"] 
+
+
+| 4,7 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["2.18.91"^] | link:index.html["Link"] 
+
+
+| 4,6 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2874631["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_Hybrid_Cloud_Control_and_Management_Services_2.17.56_Release_Notes["2.17.56 KB"^] | link:index.html["Link"] 
+
+
+| 4,5 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2873396["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.14.60_Release_Notes["2.14.60 KB"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2872843["PDF"^] 
+
+
+| 4,4 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2866569["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.11.34_Release_Notes["2.11.34 KB"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2870280["PDF"^] 
+
+
+| 4,3 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2856119["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.0.725_Release_Notes["2.0.725 KB"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2860023["PDF"^] OBSERVAÇÃO: Esta publicação descreve procedimentos de atualização de nó de gerenciamento atualizados para o software Element 11,3/NetApp HCI 1,6. https://library.netapp.com/ecm/ecm_download_file/ECMLP2860878["PDF"^] Observação: Esta publicação descreve os procedimentos de atualização atualizados do nó de gerenciamento para o software Element 11,5/NetApp HCI 1,7 https://library.netapp.com/ecm/ecm_download_file/ECMLP2863783["PDF"^] NOTA: Esta publicação descreve os procedimentos atualizados de atualização do nó de gerenciamento para o software Element 11,7/NetApp HCI 1.7P1 
+|===

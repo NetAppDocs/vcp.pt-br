@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: task_vcp_unregister.html 
+summary: Você pode cancelar o Registro do plug-in do NetApp Element para VMware vCenter Server no vCenter. 
+keywords: netapp, vcp, vcenter, plugin, element, unregister 
+---
+= Anule o Registro do vCenter Plug-in
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode cancelar o Registro do plug-in do NetApp Element para VMware vCenter Server usando um desses procedimentos.
+
+.O que você vai precisar
+* Privileges de função do administrador do vCenter para cancelar o Registro de um plug-in.
+* O endereço IP do nó de gerenciamento.
+* URL e credenciais para o vCenter a partir do qual você está desregistrando o plug-in.
+
+
+.Sobre esta tarefa
+Para o vSphere 6,7 e versões anteriores, o cancelamento do Registro do plug-in tem o mesmo efeito de desativá-lo, mas não remove todos os arquivos e pastas associados que são instalados localmente. Para remover todos os arquivos de plug-in, consulte as instruções em link:task_vcp_remove.html["removendo o plugin"].
+
+Para o vSphere 7,0, todos os arquivos são removidos automaticamente depois de cancelar o Registro do plugin.
+
+.Passos
+. Para cancelar o registo do plug-in, siga o procedimento para a versão instalada:
++
+** Para o vCenter Plug-in 3,0 ou posterior, anule o Registro do plug-in usando o utilitário de Registro do vCenter Plug-in:
++
+... Insira o endereço IP do nó de gerenciamento em um navegador, incluindo a porta TCP para Registro: `https://<ManagementNodeIP>:9443`.
+... Navegue até *Unregister Plug-in*.
+... Introduza o seguinte:
++
+.... O endereço IP ou o nome do servidor FQDN do serviço vCenter no qual você registrou seu plug-in.
+.... O nome de usuário do vCenter Administrator.
+.... A senha do vCenter Administrator.
+
+
+... Selecione *Anular registo*.
+
+
+** Para o vCenter Plug-in 2,7 a 2,7.1:
++
+*** Use a interface MOB (Managed Object Browser) do vCenter em seu navegador para cancelar o Registro manualmente:
++
+.... Introduza o URL MOB: `https://<vcenter>/mob`
+.... Selecione *Content > Extension Manager > UnregisterExtension*.
+.... Introduza `com.solidfire`.
+.... Selecione *Invoke Method*.
+
+
+*** Anular o registo utilizando PowerCLI:
++
+[listing]
+----
+Connect-VIServer -Server $vcenter -User administrator@vsphere.local -Password xxxxXXx -Force -ErrorAction Stop -SaveCredentials
+$em = Get-View ExtensionManager
+$em.ExtensionList | ft -property Key
+$em.UnregisterExtension("com.solidfire")
+$em.UpdateViewData()
+$em.ExtensionList | ft -property Key
+Disconnect-VIServer * -Confirm:$false
+----
+
+
+
+
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

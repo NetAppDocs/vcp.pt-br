@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_remote_plugin_extension_point.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, management, extension point, remote 
+---
+= Ponto de extensão do plug-in remoto NetApp Element
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A partir do plug-in do NetApp Element vCenter 5,0, você pode acessar o plug-in remoto Element usando o ponto de extensão do plug-in remoto do NetApp Element, que permite configurar e gerenciar clusters, nós e unidades e exibir informações de cluster.
+
+As seguintes guias estão disponíveis no ponto de extensão do plug-in remoto do NetApp Element:
+
+* <<Como começar>>
+* <<Configuração>>
+* <<Gerenciamento>>
+* <<Sobre>>
+
+
+
+
+== Como começar
+
+A guia Introdução introduz os pontos de extensão para o plug-in e as ações que podem ser executadas. Você pode ocultar as páginas Getting Started de cada página ou restaurá-las na guia *About*.
+
+
+
+== Configuração
+
+A guia *Configuration* permite adicionar e gerenciar clusters e configurar as configurações de nó de gerenciamento para o QoSSIOC.
+
+
+NOTE: O vSphere Web Client pode diferir ligeiramente do que é mostrado na imagem a seguir, dependendo da versão do vSphere instalada.
+
+image::vcp_config_tab.png[Separador Configuration (Configuração)]
+
+Os seguintes separadores estão disponíveis no separador *Configuration* (Configuração):
+
+* *Clusters*: Gerencia os clusters do NetApp Element controlados pelo plug-in. Você também pode ativar, desativar ou configurar recursos específicos do cluster.
+* *Configurações de QoSSIOC*: Configura suas credenciais para o serviço de QSSIOC no nó de gerenciamento para se comunicar com o vCenter.
+* *Eventos de QoSSIOC*: Exibe informações sobre todos os eventos de QoSSIOC detetados.
+
+
+
+
+== Gerenciamento
+
+Usando a guia *Gerenciamento*, você pode executar as seguintes atividades:
+
+* Exibir informações do cluster
+* Gerencie armazenamentos de dados, volumes, contas de usuário, grupos de acesso e iniciadores
+* Gerencie snapshots de grupo individuais e adicione e gerencie unidades e nós
+
+
+
+NOTE: O vSphere Web Client pode diferir ligeiramente do que é mostrado na imagem a seguir, dependendo da versão do vSphere instalada.
+
+image::vcp_management_tab.png[Separador Gestão]
+
+A barra de navegação do cluster permite alternar rapidamente entre clusters que foram adicionados ao plug-in:
+
+* *Cluster*: Se dois ou mais clusters forem adicionados, verifique se o cluster que você pretende usar para tarefas de gerenciamento está selecionado na barra de navegação. Selecione outros clusters adicionados na lista suspensa.
+* *MVIP*: O endereço IP virtual de gerenciamento do cluster selecionado.
+* *SVIP*: O endereço IP virtual de armazenamento do cluster selecionado.
+* *VCenter*: O vCenter Server ao qual o cluster selecionado pode acessar. O cluster recebe acesso a um vCenter Server quando o cluster é adicionado ao plug-in.
+
+
+As guias a seguir estão disponíveis na guia *Gerenciamento*:
+
+* *Relatórios*: Exibe informações sobre os componentes do cluster e fornece uma visão geral do desempenho do cluster. Você também pode encontrar informações sobre eventos, alertas, sessões iSCSI, tarefas em execução e volumes de desempenho na guia.
+* *Gerenciamento*: Crie e gerencie armazenamentos de dados, volumes, contas de usuário, grupos de acesso e iniciadores. Também é possível executar operações de backup, clones e snapshots. As políticas de QoS estão disponíveis para serem criadas e gerenciadas usando o software NetApp Element 10 ou posterior.
+* *Proteção*: Gerencie snapshots individuais e em grupo. Você também pode criar programações para criação de snapshot, emparelhar clusters para replicação em tempo real e gerenciar pares de volume.
+* *Cluster*: Adicione e gerencie unidades e nós. Você também pode criar e gerenciar VLANs.
+* *Vols*: Gerencie volumes virtuais e seus contentores de armazenamento associados, pontos de extremidade de protocolo e ligações.
+
+
+
+
+== Sobre
+
+Exibe informações sobre a versão do plug-in e fornece uma opção de download do pacote de serviços.
+
+[discrete]
+== Encontre mais informações
+
+* link:concept_vcp_product_overview.html["Visão geral do plug-in do NetApp Element para vCenter Server"]
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

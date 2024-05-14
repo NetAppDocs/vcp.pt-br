@@ -1,0 +1,128 @@
+---
+settings:
+  name: VCP
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Plug-in do NetApp Element para documentação do VMware vCenter Server
+    url: "/index.html"
+  - title: Visão geral do plug-in do NetApp Element para VMware vCenter Server
+    url: "/concept_vcp_product_overview.html"
+  - title: Notas de versão
+    entries:
+    - title: Novidades do plug-in do NetApp Element para VMware vCenter Server
+      url: "/rn_whatsnew_vcp.html"
+    - title: Informações adicionais sobre a versão
+      url: "/rn_relatedrn_vcp.html"
+  - title: Conceitos
+    entries:
+    - title: Plug-in do NetApp Element para VMware vCenter Server 5,0 ou posterior
+      entries:
+      - title: Visão geral da arquitetura de plug-in remoto
+        url: "/vcp_concept_remote_plugin_architecture.html"
+      - title: Ponto de extensão do plug-in remoto NetApp Element
+        url: "/vcp_concept_remote_plugin_extension_point.html"
+    - title: Plug-in do NetApp Element para VMware vCenter Server 4,10 ou anterior
+      entries:
+      - title: Ponto de extensão da Configuração do NetApp Element
+        url: "/vcp_concept_config_extension_point.html"
+      - title: Ponto de extensão NetApp Element Management
+        url: "/vcp_concept_management_extension_point.html"
+    - title: Contas de utilizador
+      url: "/vcp_concept_accounts.html"
+    - title: Domínios de proteção
+      url: "/vcp_concept_protection_domains.html"
+    - title: Linked Mode e vCenter Plug-in
+      url: "/vcp_concept_linkedmode.html"
+    - title: QoSSIOC
+      url: "/vcp_concept_qossioc.html"
+    - title: Volumes virtuais (vVols)
+      url: "/vcp_concept_vvols.html"
+  - title: Requisitos de pré-implantação
+    url: "/reference_requirements_vcp.html"
+  - title: Instale e configure o plug-in do NetApp Element para o vCenter Server
+    entries:
+    - title: Instale e configure o Element Plug-in 5,0 e posterior para o vCenter
+        Server 7,0 e posterior
+      url: "/vcp_task_getstarted_5_0.html"
+    - title: Instale e configure o Element Plug-in 4,10 e anterior
+      url: "/vcp_task_getstarted.html"
+  - title: Atualize o plug-in
+    url: "/task_vcp_upgrades.html"
+  - title: Gerencie o storage com o vCenter Plug-in
+    entries:
+    - title: Gerenciar clusters
+      url: "/vcp_task_clusters_manage.html"
+    - title: Gerenciar armazenamentos de dados
+      url: "/vcp_task_datastores_manage.html"
+    - title: Gerenciar volumes
+      url: "/vcp_task_volumes_manage.html"
+    - title: Criar e gerenciar contas de usuário
+      url: "/vcp_task_create_manage_user_accounts.html"
+    - title: Criar e gerenciar grupos de acesso
+      url: "/vcp_task_create_manage_access_groups.html"
+    - title: Criar e gerenciar iniciadores
+      url: "/vcp_task_create_manage_initiators.html"
+    - title: Configure e gerencie o QoSSIOC para volumes de elementos e armazenamentos
+        de dados VMware
+      url: "/vcp_task_qossioc.html"
+    - title: Criar e gerenciar políticas de QoS de volume
+      url: "/vcp_task_qos_policies.html"
+  - title: Gerenciar hardware de cluster e redes virtuais
+    entries:
+    - title: Visão geral de gerenciamento de hardware de cluster e redes virtuais
+      url: "/vcp_task_manage_cluster_overview.html"
+    - title: Adicionar e gerenciar unidades
+      url: "/vcp_task_add_manage_drive.html"
+    - title: Adicionar e gerenciar nós
+      url: "/vcp_task_add_manage_nodes.html"
+    - title: Crie e gerencie redes virtuais
+      url: "/vcp_task_create_manage_vlans.html"
+  - title: Monitorar o desempenho do sistema
+    entries:
+    - title: Monitore o desempenho do sistema com as opções de relatório
+      url: "/vcp_task_reports_intro.html"
+    - title: Monitore a integridade geral do cluster na página Visão geral
+      url: "/vcp_task_reports_overview.html"
+    - title: Monitorar alertas do sistema
+      url: "/vcp_task_reports_alerts.html"
+      entries:
+      - title: Lista de alertas do sistema
+        url: "/vcp_reference_reports_alert_errors.html"
+    - title: Monitore logs de eventos para solução de problemas
+      url: "/vcp_task_reports_event_logs.html"
+    - title: Monitorar a performance do volume
+      url: "/vcp_task_reports_volume_performance.html"
+    - title: Monitore sessões iSCSI para determinar o status da conexão
+      url: "/vcp_task_reports_iscsi.html"
+    - title: Monitore o desempenho da VM com eventos do QOSSIOC
+      url: "/vcp_task_reports_qossioc.html"
+  - title: Proteja os dados com o plug-in do vCenter
+    entries:
+    - title: Proteja os dados com a visão geral do vCenter Plug-in
+      url: "/vcp_task_protect_overview.html"
+    - title: Criar e gerenciar snapshots de volume
+      url: "/vcp_task_protect_snapshots_volume.html"
+    - title: Criar e gerenciar snapshots de grupo
+      url: "/vcp_task_protect_snapshots_group.html"
+    - title: Criar agendas de instantâneos
+      url: "/vcp_task_protect_snapshots_schedules.html"
+    - title: Executar replicação remota entre clusters
+      url: "/vcp_task_protect_remote_replication.html"
+  - title: Configure e gerencie volumes virtuais com o vCenter Plug-in
+    url: "/vcp_task_configure_manage_vvols.html"
+  - title: Anule o registo do plug-in
+    url: "/task_vcp_unregister.html"
+  - title: Retire o plug-in
+    url: "/task_vcp_remove.html"
+  - title: Solucionar problemas do plug-in
+    url: "/vcp_reference_troubleshoot_vcp.html"
+  - title: Versões anteriores da documentação do plug-in do NetApp Element
+    url: "/reference_earlier_versions.html"
+  - title: Avisos legais
+    url: "/legal-notices.html"

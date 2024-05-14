@@ -1,0 +1,730 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_remote_replication.html 
+summary: A replicação em tempo real permite a criação rápida de cópias remotas de dados de volume. 
+keywords: netapp, hci, vcp, vcenter, element, protect, replication, remote, cluster 
+---
+= Executar replicação remota entre clusters
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para clusters que executam o software NetApp Element, a replicação em tempo real permite a criação rápida de cópias remotas de dados de volume. É possível emparelhar um cluster de storage com até quatro outros clusters de storage.
+
+É possível replicar dados de volume de forma síncrona ou assíncrona de qualquer cluster em um par de cluster para cenários de failover e failback. Primeiro, é necessário emparelhar dois clusters NetApp Element e emparelhar volumes em cada cluster para aproveitar a replicação remota em tempo real.
+
+.O que você vai precisar
+* Certifique-se de que adicionou pelo menos um cluster ao plug-in.
+* Certifique-se de que todos os endereços IP de nós em redes de gerenciamento e armazenamento para clusters emparelhados sejam roteados entre si.
+* Certifique-se de que a MTU de todos os nós emparelhados seja a mesma e seja suportada de ponta a ponta entre clusters.
+* Certifique-se de que a diferença entre as versões do software NetApp Element nos clusters não seja maior que uma versão principal. Se a diferença for maior, um dos clusters deve ser atualizado para executar a replicação de dados.
+
+
+
+NOTE: Os dispositivos do acelerador de WAN não foram qualificados pelo NetApp para uso durante a replicação de dados. Esses dispositivos podem interferir na compactação e na deduplicação, se implantados entre dois clusters que estão replicando dados. Certifique-se de qualificar totalmente os efeitos de qualquer dispositivo do acelerador de WAN antes de implantá-lo em um ambiente de produção.
+
+.Passos
+. <<Emparelhe clusters>>
+. <<Emparelhar volumes>>
+. <<Valide a replicação de volume>>
+. <<Excluir uma relação de volume após a replicação>>
+. <<Gerenciar relacionamentos de volume>>
+
+
+
+
+== Emparelhe clusters
+
+É necessário emparelhar dois clusters como primeira etapa para usar a funcionalidade de replicação em tempo real. Depois de emparelhar e conectar dois clusters, é possível configurar volumes ativos em um cluster para serem replicados continuamente para um segundo cluster, fornecendo proteção contínua de dados (CDP).
+
+Você pode emparelhar um cluster de origem e destino usando o MVIP do cluster de destino se houver acesso de administrador de cluster aos dois clusters. Se o acesso ao administrador do cluster estiver disponível apenas num cluster num par de clusters, pode ser utilizada uma chave de emparelhamento no cluster de destino para concluir o emparelhamento do cluster.
+
+.O que você vai precisar
+* Você precisa do Privileges de administrador de cluster para um ou ambos os clusters sendo emparelhados.
+* Garantir que haja menos de 2000 ms de latência de ida e volta entre os clusters.
+* Certifique-se de que a diferença entre as versões do software NetApp Element nos clusters não seja maior que uma versão principal.
+* Certifique-se de que todos os IPs de nós nos clusters emparelhados sejam roteados entre si.
+
+
+
+NOTE: O emparelhamento de cluster requer conetividade total entre nós na rede de gerenciamento. A replicação requer conectividade entre os nós individuais na rede do cluster de storage.
+
+É possível emparelhar um cluster NetApp Element com até quatro outros clusters para replicar volumes. Também é possível emparelhar clusters no grupo de clusters uns com os outros.
+
+Escolha um dos seguintes métodos:
+
+* <<Emparelhe clusters com credenciais conhecidas>>
+* <<Emparelhe clusters com uma chave de emparelhamento>>
+
+
+
+
+=== Emparelhe clusters com credenciais conhecidas
+
+É possível emparelhar dois clusters para replicação em tempo real usando o MVIP de um cluster para estabelecer uma conexão com o outro cluster. O acesso de administrador de cluster em ambos os clusters é necessário para usar esse método.
+
+.Sobre esta tarefa
+O nome de usuário e a senha do administrador de cluster são usados para autenticar o acesso do cluster antes que os clusters possam ser emparelhados.
+
+Se o MVIP não for conhecido ou o acesso ao cluster não estiver disponível, você poderá emparelhar o cluster gerando uma chave de emparelhamento e usar a chave para emparelhar os dois clusters. Para obter instruções, <<Emparelhe clusters com uma chave de emparelhamento>>consulte .
+
+.Passos
+. No vSphere Web Client, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Configuração > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Configuração do NetApp Element > proteção*.
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+
+
+. Selecione a subguia *Cluster Pairs*.
+. Selecione *criar emparelhamento de cluster*.
+. Selecione uma das seguintes opções:
++
+** *Registered Cluster*: Se o cluster remoto do emparelhamento for controlado pela mesma instância do plug-in Element vCenter, selecione esta opção.
+** *Cluster credenciado*: Se o cluster remoto tiver credenciais conhecidas que estão fora da configuração do plug-in do Element vCenter, selecione esta opção.
+
+
+. Se você selecionou *Registered Cluster*, selecione um cluster na lista de clusters disponíveis e clique em *Emparelhar*.
+. Se você selecionou *Credentialed Cluster*, faça o seguinte:
++
+.. Introduza o endereço MVIP do cluster remoto.
+.. Introduza um nome de utilizador de administrador de cluster.
+.. Introduza uma palavra-passe de administrador do cluster.
+.. Selecione *Start Pairing* (Iniciar emparelhamento).
+
+
+. Depois que a tarefa for concluída e você vir a página pares de cluster, verifique se o par de cluster está conetado.
+. (Opcional) no cluster remoto, verifique se o par de cluster está conetado usando a IU do Element ou os pontos de extensão do plug-in:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção > pares de cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção > pares de cluster*.
+
+
+
+
+
+
+=== Emparelhe clusters com uma chave de emparelhamento
+
+Se tiver acesso de administrador de cluster a um cluster local, mas não ao cluster remoto, pode emparelhar os clusters utilizando uma chave de emparelhamento. Uma chave de emparelhamento é gerada em um cluster local e, em seguida, enviada com segurança para um administrador de cluster em um local remoto para estabelecer uma conexão e concluir o emparelhamento de cluster para replicação em tempo real.
+
+Este procedimento descreve o emparelhamento de cluster entre dois clusters usando o vCenter nos locais locais locais e remotos. Para clusters não controlados pelo plug-in do vCenter, você pode, alternativamente, https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_cluster_using_pairing_key.html["iniciar ou concluir o emparelhamento do grupo de instrumentos"] usar a IU da Web do Element.
+
+[[open_protection_tab]]
+.Passos
+. No vCenter que contém o cluster local, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+
+
+. Selecione a subguia *Cluster Pairs*.
+. Selecione *criar emparelhamento de cluster*.
+. Selecione *Cluster inacessível*.
+. Selecione *Generate Key*.
++
+
+NOTE: Esta ação gera uma chave de texto para emparelhamento e cria um par de cluster não configurado no cluster local. Se não concluir o procedimento, terá de eliminar manualmente o par de clusters.
+
+. Copie a chave de emparelhamento do cluster para a área de transferência.
+. Selecione *Fechar*.
+. Torne a tecla de emparelhamento acessível ao administrador do cluster no local do cluster remoto.
++
+
+NOTE: A chave de emparelhamento do cluster contém uma versão do MVIP, nome de utilizador, palavra-passe e informações da base de dados para permitir ligações de volume para replicação remota. Esta chave deve ser tratada de forma segura e não armazenada de forma a permitir o acesso acidental ou não seguro ao nome de utilizador ou palavra-passe.
+
++
+
+IMPORTANT: Não modifique nenhum dos carateres da chave de emparelhamento. A chave se torna inválida se for modificada.
+
+. No vCenter que contém o cluster remoto<<open_protection_tab,Abra a guia proteção>>, .
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
++
+
+NOTE: Você pode, alternativamente, concluir o emparelhamento usando a IU do elemento.
+
+. Selecione a subguia *Cluster Pairs*.
+. Selecione *Complete Cluster Pairing*.
++
+
+NOTE: Aguarde que o girador de carga desapareça antes de avançar para o próximo passo. Se ocorrer um erro inesperado durante o processo de emparelhamento, verifique e elimine manualmente quaisquer pares de cluster não configurados no cluster local e remoto e efetue o emparelhamento novamente.
+
+. Cole a chave de emparelhamento do cluster local no campo *Cluster Pairing Key*.
+. Selecione *Emparelhar Cluster*.
+. Depois que a tarefa for concluída e você vir a página *par de cluster*, verifique se o par de cluster está conetado.
+. Para verificar se o par de cluster está conetado, no cluster remoto <<open_protection_tab,Abra a guia proteção>>ou use a IU do Element.
+
+
+
+
+=== Valide as conexões de par de cluster
+
+Depois que o emparelhamento do cluster estiver concluído, você pode querer verificar a conexão do par de cluster para garantir o sucesso da replicação.
+
+.Passos
+. No cluster local, selecione *proteção de dados* > *pares de cluster*.
+. Verifique se o par de cluster está conetado.
+. Navegue de volta para o cluster local e para a janela *Cluster Pairs* e verifique se o par de cluster está conetado.
+
+
+
+
+== Emparelhar volumes
+
+Depois de estabelecer uma conexão entre clusters em um par de cluster, é possível emparelhar um volume em um cluster com um volume no outro cluster do par.
+
+Você pode emparelhar o volume usando um dos seguintes métodos:
+
+* <<Emparelhe volumes usando credenciais conhecidas>>: Use credenciais conhecidas para ambos os clusters
+* <<Emparelhe volumes utilizando uma tecla de emparelhamento>>: Utilize uma chave de emparelhamento se as credenciais do cluster estiverem disponíveis apenas no cluster de origem.
+* <<Crie volumes de destino e emparelhe-os com volumes locais>>: Se você souber as credenciais dos dois clusters, crie um volume de destino de replicação no cluster remoto para emparelhar com o cluster de origem.
+
+
+Depois de estabelecer uma relação de emparelhamento de volume, tem de identificar qual o volume que é o destino de replicação:
+
+* <<Atribua uma origem de replicação e um destino a volumes emparelhados>>
+
+
+.O que você vai precisar
+* Você deve ter estabelecido uma conexão entre clusters em um par de cluster.
+* Você precisa ter o Cluster admin Privileges para um ou ambos os clusters sendo emparelhados.
+
+
+
+
+=== Emparelhe volumes usando credenciais conhecidas
+
+Pode emparelhar um volume local com outro volume num cluster remoto. Use este método se houver acesso de administrador de cluster a ambos os clusters nos quais os volumes devem ser emparelhados. Este método usa a ID do volume do volume no cluster remoto para iniciar uma conexão.
+
+.Antes de começar
+* Você tem credenciais de administrador de cluster para o cluster remoto.
+* Certifique-se de que os clusters que contêm os volumes estão emparelhados.
+* Você conhece o ID de volume remoto, a menos que pretenda criar um novo volume durante este processo.
+* Se pretender que o volume local seja a origem, certifique-se de que o modo de acesso do volume está definido para ler/escrever.
+
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *Gerenciamento*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *volumes*.
+. Na exibição *Ativo*, marque a caixa de seleção do volume que deseja emparelhar.
+. Selecione *ações*.
+. Selecione *emparelhamento de volume*.
+. Selecione uma das seguintes opções:
++
+** *Criação de volume*: Para criar um volume de destino de replicação no cluster remoto, selecione esta opção. Esse método só pode ser usado em clusters remotos controlados por um plug-in Element vCenter.
+** *Seleção de volume*: Se o cluster remoto para o volume de destino for controlado por um plug-in Element vCenter, selecione-o.
+** *ID de volume*: Se o cluster remoto do volume de destino tiver credenciais conhecidas que estejam fora da configuração do plug-in do Element vCenter, selecione esta opção.
+
+
+. Selecione um modo de replicação:
++
+** *Tempo real (Synchronous)*: As gravações são confirmadas para o cliente depois que são confirmadas nos clusters de origem e de destino.
+** *Tempo real (assíncrono)*: As gravações são confirmadas para o cliente depois que são confirmadas no cluster de origem.
+** *Somente snapshots*: Somente snapshots criados no cluster de origem são replicados. As gravações ativas do volume de origem não são replicadas.
+
+
+. Se selecionou *criação de volume* como a opção de modo de emparelhamento, faça o seguinte:
++
+.. Selecione um cluster emparelhado na lista pendente.
++
+
+NOTE: Esta ação preenche as contas disponíveis no cluster a serem selecionadas na próxima etapa.
+
+.. Selecione uma conta no cluster de destino para o volume de destino de replicação.
+.. Introduza um nome de volume de destino de replicação.
++
+
+NOTE: O tamanho do volume não pode ser ajustado durante este processo.
+
+
+
+. Se selecionou *seleção de volume* como a opção de modo de emparelhamento, faça o seguinte:
++
+.. Selecione um cluster emparelhado.
++
+
+NOTE: Esta ação preenche os volumes disponíveis no cluster a serem selecionados na próxima etapa.
+
+.. (Opcional) selecione a opção *Definir volume remoto para destino de replicação* se pretender definir o volume remoto como alvo no emparelhamento de volume. O volume local, se definido para leitura/gravação, torna-se a fonte no par.
++
+
+IMPORTANT: Se você atribuir um volume existente como destino de replicação, os dados nesse volume serão sobrescritos. Como prática recomendada, você deve usar um novo volume como destino de replicação.
+
++
+
+NOTE: Você também pode atribuir origem e destino de replicação posteriormente no processo de emparelhamento de *volumes* > *ações* > *Editar*. Tem de atribuir uma origem e um destino para concluir o emparelhamento.
+
+.. Selecione um volume na lista de volumes disponíveis.
+
+
+. Se selecionou *volume ID* como a opção de modo de emparelhamento, faça o seguinte:
++
+.. Selecione um cluster emparelhado na lista pendente.
+.. Se o cluster não estiver registado com o plug-in, introduza uma ID de utilizador de administrador de cluster e uma palavra-passe de administrador de cluster.
+.. Introduza uma ID de volume.
+.. Selecione a opção *Definir volume remoto para destino de replicação* se pretender definir o volume remoto como alvo no emparelhamento de volume. O volume local, se definido para leitura/gravação, torna-se a fonte no par.
++
+
+IMPORTANT: Se você atribuir um volume existente como destino de replicação, os dados nesse volume serão sobrescritos. Como prática recomendada, você deve usar um novo volume como destino de replicação.
+
++
+
+NOTE: Você também pode atribuir origem e destino de replicação posteriormente no processo de emparelhamento de *volumes* > *ações* > *Editar*. Tem de atribuir uma origem e um destino para concluir o emparelhamento.
+
+
+
+. Selecione *Emparelhar*.
++
+
+NOTE: Depois de confirmar o emparelhamento, os dois clusters iniciam o processo de conexão dos volumes. Durante o processo de emparelhamento, pode ver mensagens de progresso na coluna Estado do volume na página pares de volume.
+
++
+
+NOTE: Se ainda não tiver atribuído um volume para ser o destino de replicação, a configuração de emparelhamento não está concluída. O par de volume exibe PausedMisconfigned até que a origem e o destino do par de volume sejam atribuídos. Tem de atribuir uma origem e um destino para concluir o emparelhamento de volume.
+
+. Selecione *proteção* > *pares de volume* em qualquer cluster.
+. Verifique o estado do emparelhamento de volume.
+
+
+
+
+=== Emparelhe volumes utilizando uma tecla de emparelhamento
+
+Pode emparelhar um volume local com outro volume num cluster remoto utilizando uma tecla de emparelhamento. Use este método se houver acesso de administrador de cluster apenas ao cluster de origem. Este método gera uma chave de emparelhamento que pode ser utilizada no cluster remoto para concluir o par de volumes.
+
+.Antes de começar
+* Certifique-se de que os clusters que contêm os volumes estão emparelhados.
+* *Melhores práticas*: Defina o volume de origem como leitura/gravação e o volume de destino como destino de replicação. O volume de destino não deve conter dados e ter as caraterísticas exatas do volume de origem, como tamanho, configuração de 512e e configuração de QoS. Se você atribuir um volume existente como destino de replicação, os dados nesse volume serão sobrescritos. O volume de destino pode ser maior ou igual em tamanho ao volume de origem, mas não pode ser menor.
+
+
+.Sobre esta tarefa
+Este procedimento descreve o emparelhamento de volume entre dois volumes usando o vCenter nos locais locais locais e remotos. Para volumes não controlados pelo plug-in do vCenter, você pode iniciar ou concluir o emparelhamento de volume alternadamente usando a IU da Web do Element.
+
+Para obter instruções sobre como iniciar ou concluir o emparelhamento de volume a partir da IU da Web do Element, https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_volumes_using_a_pairing_key.html["Documentação do software NetApp Element"^] consulte .
+
+
+NOTE: A tecla de emparelhamento de volume contém uma versão encriptada das informações de volume e pode conter informações confidenciais. Compartilhe esta chave apenas de forma segura.
+
+[[open_management]]
+.Passos
+. No vCenter que contém o cluster local, abra a guia *Gerenciamento*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+
+
+. Selecione a subguia *volumes*.
+. Na exibição *Ativo*, marque a caixa de seleção do volume que deseja emparelhar.
+. Selecione *ações*.
+. Selecione *emparelhamento de volume*.
+. Selecione *Cluster inacessível*.
+. Selecione um modo de replicação:
++
+** *Tempo real (Synchronous)*: As gravações são confirmadas para o cliente depois que são confirmadas nos clusters de origem e de destino.
+** *Tempo real (assíncrono)*: As gravações são confirmadas para o cliente depois que são confirmadas no cluster de origem.
+** *Somente snapshots*: Somente snapshots criados no cluster de origem são replicados. As gravações ativas do volume de origem não são replicadas.
+
+
+. Selecione *Generate Key*.
++
+
+NOTE: Esta ação gera uma chave de texto para emparelhamento e cria um par de volume não configurado no cluster local. Se você não fizer isso, será necessário excluir manualmente o par de volumes.
+
+. Copie a chave de emparelhamento para a área de transferência.
+. Selecione *Fechar*.
+. Torne a tecla de emparelhamento acessível ao administrador do cluster no local do cluster remoto.
++
+
+NOTE: A tecla de emparelhamento de volume deve ser tratada de forma segura e não armazenada de forma a permitir o acesso acidental ou não seguro.
+
++
+
+IMPORTANT: Não modifique nenhum dos carateres da chave de emparelhamento. A chave se torna inválida se for modificada.
+
+. No vCenter que contém o cluster remoto<<open_management,Abra a guia Gerenciamento>>, .
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *volumes*.
+. Na exibição *Ativo*, marque a caixa de seleção do volume que deseja emparelhar.
+. Selecione *ações*.
+. Selecione *emparelhamento de volume*.
+. Selecione *Complete Cluster Pairing*.
+. Cole a chave de emparelhamento do outro cluster na caixa *chave de emparelhamento*.
+. Selecione *Complete Pairing*.
++
+
+NOTE: Depois de confirmar o emparelhamento, os dois clusters iniciam o processo de conexão dos volumes. Durante o processo de emparelhamento, pode ver mensagens de progresso na coluna Estado do volume da página pares de volume. Se ocorrer um erro inesperado durante o processo de emparelhamento, verifique e elimine manualmente quaisquer pares de cluster não configurados no cluster local e remoto e efetue o emparelhamento novamente.
+
++
+
+IMPORTANT: Se ainda não tiver atribuído um volume para ser o destino de replicação, a configuração de emparelhamento não está concluída. O par de volume exibe "PausedMisconfigned" até que a origem e o destino do par de volume sejam atribuídos. Tem de atribuir uma origem e um destino para concluir o emparelhamento de volume.
+
+. Selecione *proteção* > *pares de volume* em qualquer cluster.
+. Verifique o estado do emparelhamento de volume.
++
+
+NOTE: Os volumes emparelhados com uma tecla de emparelhamento são apresentados depois de o processo de emparelhamento ter sido concluído no local remoto.
+
+
+
+
+
+=== Crie volumes de destino e emparelhe-os com volumes locais
+
+É possível emparelhar dois ou mais volumes locais com volumes de destino associados em um cluster remoto. Esse processo cria um volume de destino de replicação no cluster remoto para cada volume de origem local selecionado. Use este método se houver acesso de administrador de cluster aos dois clusters nos quais os volumes devem ser emparelhados e o cluster remoto for controlado pelo plug-in.
+
+Este método usa a ID do volume de cada volume no cluster remoto para iniciar uma ou mais conexões.
+
+.Antes de começar
+* Certifique-se de que tem credenciais de administrador de cluster para o cluster remoto.
+* Certifique-se de que os clusters que contêm os volumes estão emparelhados com o plug-in.
+* Certifique-se de que o cluster remoto é controlado pelo plug-in.
+* Certifique-se de que o modo de acesso de cada volume local está definido para ler/escrever.
+
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *Gerenciamento*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *volumes*.
+. Na exibição *Ativo*, selecione dois ou mais volumes que você deseja emparelhar.
+. Selecione *ações*.
+. Selecione *emparelhamento de volume*.
+. Selecione um *Replication Mode*:
++
+** *Tempo real (Synchronous)*: As gravações são confirmadas para o cliente depois que são confirmadas nos clusters de origem e de destino.
+** *Tempo real (assíncrono)*: As gravações são confirmadas para o cliente depois que são confirmadas no cluster de origem.
+** *Somente snapshots*: Somente snapshots criados no cluster de origem são replicados. As gravações ativas do volume de origem não são replicadas.
+
+
+. Selecione um cluster emparelhado na lista pendente.
+. Selecione uma conta no cluster de destino para o volume de destino de replicação.
+. (Opcional) Digite um prefixo ou sufixo para os novos nomes de volume no cluster de destino.
++
+
+NOTE: É apresentado um nome de volume de amostra com o nome modificado.
+
+. Selecione *criar pares*.
++
+
+NOTE: Depois de confirmar o emparelhamento, os dois clusters iniciam o processo de conexão dos volumes. Durante o processo de emparelhamento, pode ver mensagens de progresso na coluna Estado do volume na página pares de volume. Após a conclusão do processo, novos volumes de destino são criados e conetados no cluster remoto.
+
+. Selecione *proteção* > *pares de volume* em qualquer cluster.
+. Verifique o estado do emparelhamento de volume.
+
+
+
+
+=== Atribua uma origem de replicação e um destino a volumes emparelhados
+
+Se não atribuiu um volume para ser o alvo de replicação durante o emparelhamento de volume, a configuração não está concluída. Você pode usar este procedimento para atribuir um volume de origem e seu volume de destino de replicação. Uma origem ou destino de replicação pode ser um volume em um par de volumes.
+
+Você também pode usar este procedimento para redirecionar dados de um volume de origem para um volume de destino remoto, caso o volume de origem fique indisponível.
+
+.Antes de começar
+Você tem acesso aos clusters que contêm os volumes de origem e destino.
+
+.Sobre esta tarefa
+Este procedimento descreve a atribuição de volumes de origem e replicação entre dois clusters usando o vCenter nos locais locais locais e remotos. Para volumes não controlados pelo vCenter Plug-in, você pode usar alternadamente https://docs.netapp.com/us-en/element-software/storage/task_replication_assign_replication_source_and_target_to_paired_volumes.html["atribuir uma fonte ou volume de replicação"] a IU da Web do Element.
+
+Um volume de origem de replicação tem acesso de conta de leitura/gravação. Um volume de destino de replicação só pode ser acessado pela fonte de replicação como leitura/gravação.
+
+*Melhores práticas*: O volume de destino não deve conter dados e ter as caraterísticas exatas do volume de origem, como tamanho, configuração de 512e e configuração de QoS. O volume de destino pode ser maior ou igual em tamanho ao volume de origem, mas não pode ser menor.
+
+.Passos
+. Selecione o cluster que contém o volume emparelhado que pretende utilizar como fonte de replicação a partir do ponto de extensão do plug-in:
++
+** Começando com o plug-in Element vCenter 5,0 a partir do *Plugin remoto NetApp > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element*.
+
+
+. No ponto de extensão para a versão do Element Plug-in para vCenter Server, selecione a guia *Gerenciamento*.
+. Selecione a subguia *volumes*.
+. Na exibição *Ativo*, marque a caixa de seleção do volume que deseja editar.
+. Selecione *ações*.
+. Selecione *Editar*.
+. Na lista suspensa Access (Acesso), selecione *Read/Write* (ler/escrever).
++
+
+IMPORTANT: Se você estiver invertendo a atribuição de origem e destino, essa ação fará com que o par de volume exiba PausedMisconfigurado até que um novo destino de replicação seja atribuído. A alteração do acesso interrompe a replicação de volume e faz com que a transmissão de dados cesse. Certifique-se de que você coordenou essas alterações em ambos os sites.
+
+. Selecione *OK*.
+. Selecione o cluster que contém o volume emparelhado que pretende utilizar como destino de replicação:
++
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento > Gerenciamento*.
+** Começando com o plug-in Element vCenter 5,0 a partir do *Plugin remoto NetApp > Gerenciamento > Gerenciamento*.
+
+
+. Selecione a subguia *volumes*.
+. Na exibição *Ativo*, marque a caixa de seleção do volume que deseja editar.
+. Selecione *ações*.
+. Selecione *Editar*.
+. Na lista suspensa *Access*, selecione *Replication Target*.
++
+
+IMPORTANT: Se você atribuir um volume existente como destino de replicação, os dados nesse volume serão sobrescritos. Como prática recomendada, você deve usar um novo volume como destino de replicação.
+
+. Selecione *OK*.
+
+
+
+
+== Valide a replicação de volume
+
+Depois que um volume é replicado, você deve garantir que os volumes de origem e destino estejam ativos. Quando no estado Ativo, os volumes são emparelhados, os dados estão sendo enviados da origem para o volume de destino e os dados estão sincronizados.
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *pares de volume*.
+. Verifique se o status do volume está Ativo.
+
+
+
+
+== Excluir uma relação de volume após a replicação
+
+Após a conclusão da replicação e não precisar mais da relação de emparelhamento de volume, pode eliminar a relação de volume.
+
+<<Eliminar um par de volumes>>Consulte .
+
+
+
+== Gerenciar relacionamentos de volume
+
+Você pode gerenciar relacionamentos de volume de várias maneiras, como pausar a replicação, inverter o emparelhamento de volume, alterar o modo de replicação, excluir um par de volume ou excluir um par de cluster.
+
+* <<Pausar a replicação>>
+* <<Altere o modo de replicação>>
+* <<Eliminar um par de volumes>>
+* <<Excluir um par de cluster>>
+
+
+
+
+=== Pausar a replicação
+
+Você pode editar as propriedades do par de volume para pausar manualmente a replicação.
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *pares de volume*.
+. Selecione a caixa de verificação para o par de volume que pretende editar.
+. Selecione *ações*.
+. Selecione *Editar*.
+. Pausar manualmente ou iniciar o processo de replicação.
++
+
+IMPORTANT: Pausar ou retomar a replicação de volume manualmente fará com que a transmissão de dados cesse ou retome. Certifique-se de que você coordenou essas alterações em ambos os sites.
+
+. Selecione *Salvar alterações*.
+
+
+
+
+=== Altere o modo de replicação
+
+Você pode editar as propriedades do par de volume para fazer alterações no modo de replicação da relação de par de volume.
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *pares de volume*.
+. Selecione a caixa de verificação para o par de volume que pretende editar.
+. Selecione *ações*.
+. Selecione *Editar*.
+. Selecione um novo modo de replicação:
++
+
+IMPORTANT: Alterar o modo de replicação faz com que o modo mude imediatamente. Certifique-se de que você coordenou essas alterações em ambos os sites.
+
++
+** *Tempo real (Synchronous)*: As gravações são confirmadas para o cliente depois que são confirmadas nos clusters de origem e de destino.
+** *Tempo real (assíncrono)*: As gravações são confirmadas para o cliente depois que são confirmadas no cluster de origem.
+** *Somente snapshots*: Somente snapshots criados no cluster de origem são replicados. As gravações ativas do volume de origem não são replicadas.
+
+
+. Selecione *Salvar alterações*.
+
+
+
+
+=== Eliminar um par de volumes
+
+Você pode excluir um par de volume se quiser remover uma associação de par entre dois volumes.
+
+.Sobre esta tarefa
+Este procedimento descreve a exclusão de uma relação de emparelhamento de volume entre dois volumes usando o vCenter nos locais locais locais e remotos.
+
+Para volumes não controlados pelo plug-in do vCenter, você pode link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_volume_relationship_after_replication.html["eliminar uma extremidade do par de volumes"]usar a IU da Web do Element.
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *pares de volume*.
+. Selecione um ou mais pares de volume que pretende eliminar.
+. Selecione *ações*.
+. Selecione *Eliminar*.
+. Confirme os detalhes de cada par de volumes.
++
+
+NOTE: Para clusters que não são gerenciados pelo plug-in, essa ação exclui apenas o término do par de volume no cluster local. Tem de eliminar manualmente a extremidade do par de volumes do cluster remoto para remover totalmente a relação de emparelhamento.
+
+. (Opcional para clusters gerenciados pelo plug-in) Selecione a caixa de seleção *alterar acesso de destino de replicação para* e selecione um novo modo de acesso para o volume de destino de replicação. Este novo modo de acesso será aplicado depois de a relação de emparelhamento de volume ter sido removida.
+. Selecione *Sim*.
+
+
+
+
+=== Excluir um par de cluster
+
+Você pode excluir uma relação de emparelhamento de cluster entre dois clusters usando o vCenter nos locais locais locais e remotos. Para remover completamente uma relação de emparelhamento de cluster, tem de remover as extremidades de pares de cluster dos clusters locais e remotos.
+
+Você pode usar o vCenter Plug-in para excluir um par de cluster
+
+Para clusters não controlados pelo plug-in do vCenter, você pode, alternativamente, link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_cluster_pair.html["eliminar um par de cluster terminar"] usar a IU da Web do Element.
+
+.Passos
+. No vCenter que contém o cluster local, abra a guia *proteção*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > proteção*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > proteção*.
+
+
+. Selecione a subguia *Cluster Pairs*.
+. Marque a caixa de seleção do par de cluster que deseja excluir.
+. Selecione *ações*.
+. Selecione *Eliminar*.
+. Confirme a ação.
++
+
+NOTE: Esta ação exclui apenas o término do par de cluster no cluster local. Tem de eliminar manualmente a extremidade do par de cluster do cluster remoto para remover totalmente a relação de emparelhamento.
+
+. Repita os passos a partir do cluster remoto no emparelhamento do cluster.
+
+
+
+
+== Mensagens e avisos de emparelhamento de volume
+
+Pode visualizar as informações dos volumes emparelhados ou que estão a ser emparelhados na página pares de volume do separador proteção a partir do ponto de extensão do plug-in. A partir do plug-in do Element vCenter 5,0, selecione a guia Gerenciamento no ponto de extensão do plug-in remoto do NetApp Element. Para o plug-in do Element vCenter 4,10 e anterior, selecione o ponto de extensão Gerenciamento do NetApp Element.
+
+O sistema apresenta mensagens de emparelhamento e progresso na coluna Estado do volume.
+
+* <<Mensagens de emparelhamento de volume>>
+* <<Avisos de emparelhamento de volume>>
+
+
+
+
+=== Mensagens de emparelhamento de volume
+
+Pode visualizar mensagens durante o processo de emparelhamento inicial na página pares de volume do separador proteção a partir do ponto de extensão do plug-in. Essas mensagens são exibidas na coluna Status do volume e podem ser exibidas nas extremidades de origem e destino do emparelhamento.
+
+* *PausedDisconnected*: Replicação de origem ou sincronização de RPCs excedeu o tempo limite. A ligação ao cluster remoto foi perdida. Verifique as ligações de rede ao cluster.
+* *ResumingConnected**: A sincronização de replicação remota agora está ativa. Iniciar o processo de sincronização e aguardar dados.
+* *ResumingRRSync**: Uma única cópia em hélice dos metadados de volume está sendo feita para o cluster emparelhado.
+* *ResumingLocalSync**: Uma cópia de dupla hélice dos metadados de volume está sendo feita para o cluster emparelhado.
+* *ResumingDataTransfer**: A transferência de dados foi retomada.
+* *Ativo*: Os volumes são emparelhados e os dados estão sendo enviados da origem para o volume de destino e os dados estão sincronizados.
+* *Idle*: Nenhuma atividade de replicação está ocorrendo.
+
+
+*Este processo é conduzido pelo volume alvo e pode não ser exibido no volume de origem.
+
+
+
+=== Avisos de emparelhamento de volume
+
+Você pode exibir mensagens de aviso depois de emparelhar volumes na página pares de volume da guia proteção do ponto de extensão do plug-in. Essas mensagens são exibidas na coluna Status do volume e podem ser exibidas nas extremidades de origem e destino do emparelhamento.
+
+Estas mensagens podem ser apresentadas nas extremidades de origem e destino do emparelhamento, salvo indicação em contrário.
+
+* *PausedClusterFull*: Como o cluster de destino está cheio, a replicação de origem e a transferência de dados em massa não podem prosseguir. A mensagem é exibida apenas na extremidade de origem do par.
+* *PausedExcededMaxSnapshotCount*: O volume de destino já tem o número máximo de instantâneos e não pode replicar instantâneos adicionais.
+* *PausedManual*: O volume local foi pausado manualmente. Ele deve ser despausado antes que a replicação seja retomada.
+* *PausedManualRemote*: O volume remoto está no modo de pausa manual. É necessária uma intervenção manual para interromper o volume remoto antes de a replicação ser retomada.
+* *PausedMisconfigured*: Aguardando uma fonte e destino ativos. Intervenção manual necessária para retomar a replicação.
+* *PausedQoS*: O QoS de destino não pôde sustentar o IO de entrada. A replicação retoma automática. A mensagem é exibida apenas na extremidade de origem do par.
+* *PausedSlowLink*: Link lento detetado e interrompido a replicação. A replicação retoma automática. A mensagem é exibida apenas na extremidade de origem do par.
+* *PausedVolumeSizeMismatch*: O volume alvo é menor do que o volume de origem.
+* *PausedXCopy*: Um comando SCSI XCOPY está sendo emitido para um volume de origem. O comando deve ser concluído antes que a replicação possa ser retomada. A mensagem é exibida apenas na extremidade de origem do par.
+* *StoppedMisconfigured*: Foi detetado um erro de configuração permanente. O volume remoto foi purgado ou não emparelhado. Não é possível efetuar qualquer ação corretiva; é necessário estabelecer um novo emparelhamento.
+
+
+[discrete]
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

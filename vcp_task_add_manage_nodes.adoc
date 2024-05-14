@@ -1,0 +1,216 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_add_manage_nodes.html 
+summary: Você pode criar e gerenciar nós na configuração do cluster usando o plug-in. 
+keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element 
+---
+= Adicionar e gerenciar nós
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Usando o plug-in, você pode adicionar https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html#storage-nodes["nós de storage"] quando um cluster é criado ou quando é necessário mais armazenamento. Você também pode adicionar nós de storage que executam o software Element. Você deve adicionar nós de computação do NetApp HCI fora do plug-in no vSphere.
+
+* <<Adicione um nó a um cluster>>
+* <<Exibir detalhes do nó>>
+* <<Reinicie um nó>>
+* <<Encerre um nó>>
+* <<Remover um nó de um cluster>>
+
+
+
+
+== Adicione um nó a um cluster
+
+Você pode adicionar nós de storage ao cluster usando o vCenter Plug-in.
+
+.O que você vai precisar
+* O nó que você está adicionando foi configurado, ativado e configurado.
+* Os números de versão principal ou menor do software em cada nó em um cluster devem corresponder para que o software seja compatível. Por exemplo, o elemento 9,0 não é compatível com a versão 9,1.
+
+
+
+NOTE: Se o nó que você está adicionando tiver uma versão maior ou menor do software NetApp Element diferente da versão em execução no cluster, o cluster atualiza assincronamente o nó para a versão do software NetApp Element em execução no master do cluster. Depois que o nó é atualizado, ele se adiciona automaticamente ao cluster. Durante esse processo assíncrono, o nó estará em um `pendingActive` estado.
+
+.Sobre esta tarefa
+Os nós exigem configuração inicial quando são ativados pela primeira vez. Quando o nó foi configurado e configurado, ele se Registra no cluster identificado quando o nó foi configurado e aparece na lista de nós pendentes na página *Cluster > nós* do ponto de extensão do plugin.
+
+Você pode adicionar nós de capacidades menores ou maiores a um cluster existente.
+
+O procedimento é o mesmo para adicionar nós de FC ou nós de storage que estejam executando o software NetApp Element.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Clique na subguia *nodes*.
+. Selecione *pendente* na lista suspensa para exibir a lista de nós.
+. Para adicionar um ou mais nós, execute as seguintes etapas:
++
+.. Marque a caixa de seleção para cada nó que deseja adicionar.
+.. Clique em *Add Node*.
+
+
+. Reveja os detalhes dos nós que pretende adicionar e confirmar a ação.
++
+Quando a ação estiver concluída, o nó aparece na lista de nós ativos para o cluster.
+
+
+
+
+
+== Exibir detalhes do nó
+
+Você pode exibir uma lista dos nós no cluster na página nós da guia Cluster a partir do ponto de extensão do plug-in. Você deve selecionar visualização ativa para ver a lista de nós ativos. Pode alterar a vista selecionando `Pending` `PendingActive` as opções , e , `All` utilizando o filtro pendente.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *nodes*.
+. Selecione a visualização *Ativo*.
+. Veja os detalhes dos nós no cluster de storage.
++
+Você pode exibir informações como IDs de nó, nome e estado de cada nó, IOPS configurado, tipo de nó, número de unidades ativas em cada nó e informações de rede sobre cada nó.
+
+
+
+
+
+== Reinicie um nó
+
+Você pode reiniciar um ou mais nós ativos em um cluster usando o ponto de extensão do plug-in.
+
+.O que você vai precisar
+Parou e/S e desligou todas as sessões iSCSI se estiver a reiniciar mais de um nó em simultâneo.
+
+.Sobre esta tarefa
+Para reiniciar o cluster, você pode selecionar todos os nós de cluster e executar uma reinicialização.
+
+
+IMPORTANT: Esse método reinicia todos os serviços de rede em um nó, causando perda temporária de conetividade de rede.
+
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *nodes*.
++
+.. Na exibição *Ativo*, marque a caixa de seleção para cada nó que deseja reiniciar.
+.. Clique em *ações*.
+.. Selecione *Restart*.
+
+
+. Confirme a ação.
+
+
+
+
+== Encerre um nó
+
+Você pode encerrar um ou mais nós ativos em um cluster usando o ponto de extensão do plug-in. Para encerrar o cluster, você pode selecionar todos os nós de cluster e executar um desligamento simultâneo.
+
+.O que você vai precisar
+Parou e/S e desligou todas as sessões iSCSI se estiver a reiniciar mais de um nó em simultâneo.
+
+.Sobre esta tarefa
+
+NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *nodes*.
++
+.. Na exibição *Ativo*, marque a caixa de seleção para cada nó que deseja encerrar.
+.. Clique em *ações*.
+.. Selecione *Encerrar*.
+
+
+. Confirme a ação.
+
+
+
+NOTE: Se um nó estiver inativo por mais de 5,5 minutos em qualquer tipo de condição de desligamento, o software NetApp Element determina que o nó não está voltando para ingressar no cluster. A proteção de dados Double Helix inicia a tarefa de gravar blocos replicados únicos em outro nó para replicar os dados. Dependendo do período de tempo em que um nó é desligado, suas unidades podem precisar ser adicionadas de volta ao cluster depois que o nó é colocado novamente on-line.
+
+
+
+== Remover um nó de um cluster
+
+É possível remover nós de um cluster sem interrupção de serviço quando o storage não for mais necessário ou se eles precisarem de manutenção.
+
+.O que você vai precisar
+Você removeu todas as unidades no nó do cluster. Não é possível remover um nó até que o `RemoveDrives` processo esteja concluído e todos os dados tenham sido migrados para fora do nó.
+
+.Sobre esta tarefa
+Pelo menos dois nós FC são necessários para conectividade de FC em um cluster NetApp Element. Se apenas um nó FC estiver conetado, o sistema acionará alertas no Log de eventos até que você adicione outro nó FC ao cluster, mesmo que todo o tráfego de rede FC continue operando com apenas um nó FC.
+
+.Passos
+. No vSphere Web Client, abra a guia *Cluster*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > cluster*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > cluster*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *nodes*.
+. Para remover um ou mais nós, execute as seguintes etapas:
++
+.. Na exibição *Ativo*, marque a caixa de seleção para cada nó que deseja remover.
+.. Clique em *ações*.
+.. Selecione *Remover*.
+
+
+. Confirme a ação.
++
+Todos os nós removidos de um cluster aparecem na lista de nós pendentes.
+
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

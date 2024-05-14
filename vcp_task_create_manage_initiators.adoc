@@ -1,0 +1,166 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_create_manage_initiators.html 
+summary: Você pode criar e gerenciar iniciadores usando o plug-in. 
+keywords: netapp, storage, inititators, vcp, vcenter, element 
+---
+= Criar e gerenciar iniciadores
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os iniciadores permitem que clientes externos acessem volumes em um cluster, servindo como ponto de entrada para comunicação entre clientes e volumes.
+
+Você pode criar, editar e excluir iniciadores e dar a eles aliases amigáveis para simplificar a administração e o acesso ao volume. Quando você adiciona um iniciador a um grupo de acesso de volume, esse iniciador habilita o acesso a todos os volumes do grupo.
+
+.Opções
+* <<Crie um iniciador>>
+* <<Edite um iniciador>>
+* <<Adicione iniciadores a um grupo de acesso>>
+* <<Eliminar um iniciador>>
+
+
+
+
+== Crie um iniciador
+
+Você pode criar iniciadores iSCSI ou Fibre Channel e, opcionalmente, atribuí-los aliases.
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *iniciadores*.
+. Selecione *Create Initiator*.
+. Para criar um único iniciador:
++
+.. Selecione *criar um único Iniciador*.
+.. Introduza o IQN ou WWPN para o iniciador no campo *IQN/WWPN*.
++
+O formato aceito de um iniciador IQN é `iqn.yyyy-mm` onde y e m são dígitos seguidos por texto que só deve conter dígitos, carateres alfabéticos em letras minúsculas, um ponto (`.`), dois pontos (`:`ou traço (`-`). Uma amostra do formato é a seguinte:
+
++
+[listing]
+----
+iqn.2010-01.com.solidfire:c2r9.fc0.2100000e1e09bb8b
+----
++
+O formato aceito de um iniciador WWPN de Fibre Channel é `:Aa:bB:CC:dd:11:22:33:44` ou `AabBCCdd11223344`. Uma amostra do formato é a seguinte:
+
++
+[listing]
+----
+5f:47:ac:c0:5c:74:d4:02
+----
+.. Digite um nome amigável para o iniciador no campo *Alias*.
+
+
+. Para criar vários iniciadores:
++
+.. Selecione *criar vários iniciadores*.
+.. Execute um dos seguintes procedimentos:
++
+*** Clique em *Scan hosts* (Digitalizar hosts) para verificar se há valores de iniciador não definidos no cluster do NetApp Element.
+*** Digite uma lista de IQNs ou WWPNs na caixa de texto e selecione *Adicionar iniciadores*.
+
+
+.. (Opcional) no título *Alias*, selecione o campo para cada entrada para adicionar um alias.
+.. (Opcional) Remova um iniciador da lista, conforme necessário.
+
+
+. Clique em *OK* para criar o iniciador.
+
+
+
+
+== Edite um iniciador
+
+Você pode alterar o alias de um iniciador existente ou adicionar um alias se um ainda não existir.
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *iniciadores*.
+. Marque a caixa de seleção do iniciador que deseja editar.
+. Selecione *ações*.
+. No menu resultante, selecione *Editar*.
+. Insira um novo alias para o iniciador no campo *Alias*.
+. Clique em *OK*.
+
+
+
+
+== Adicione iniciadores a um grupo de acesso
+
+Você pode adicionar iniciadores a um grupo de acesso para permitir o acesso a volumes no grupo de acesso de volume sem exigir autenticação CHAP. Quando você adiciona um iniciador a um grupo de acesso de volume, o iniciador tem acesso a todos os volumes nesse grupo de acesso de volume.
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *iniciadores*.
+. Marque as caixas de seleção dos iniciadores que deseja adicionar a um grupo de acesso.
+. Selecione *ações*.
+. No menu resultante, selecione *Adicionar ao Grupo de Acesso*.
+. Na caixa de diálogo *Add to Access Group* (Adicionar ao grupo de acesso), escolha um grupo de acesso na lista suspensa.
+. Clique em *OK*.
+
+
+
+
+== Eliminar um iniciador
+
+Você pode excluir um iniciador depois que ele não for mais necessário. Quando você exclui um iniciador, o sistema o remove de qualquer grupo de acesso de volume associado. Quaisquer conexões usando o iniciador permanecem válidas até que a conexão seja redefinida.
+
+.Passos
+. No vSphere Web Client, abra a guia *Management*:
++
+** A partir do plug-in Element vCenter 5,0, selecione *Plugin remoto NetApp Element > Gerenciamento > Gerenciamento*.
+** Para o plug-in do Element vCenter 4,10 e anterior, selecione *Gerenciamento de NetApp Element > Gerenciamento*.
+
+
++
+
+NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster que pretende utilizar para a tarefa está selecionado na barra de navegação.
+
+. Selecione a subguia *iniciadores*.
+. Marque a caixa de seleção dos iniciadores que deseja excluir.
+. Selecione *ações*.
+. No menu resultante, selecione *Excluir*.
+. Confirme a ação.
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+

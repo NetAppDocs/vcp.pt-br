@@ -1,0 +1,126 @@
+---
+sidebar: sidebar 
+permalink: task_vcp_remove.html 
+summary: Atualize para o plug-in NetApp Element mais recente para o VMware vCenter Server. 
+keywords: netapp, vcp, vcenter, plugin, element, upgrade 
+---
+= Remova o plug-in do vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para o vCenter Plug-in 4,0 a 4,10 usado com o vSphere 6,7 ou anterior, você deve concluir o seguinte processo para remover todos os arquivos associados ao plug-in manualmente do vCenter Server. Para o vSphere 7,0 e posterior, não é necessário remover arquivos depois de cancelar o Registro do plug-in.
+
+.O que você vai precisar
+* Plug-in do vCenter 4,0 a 4,10
+* VSphere 6,7 ou anterior
+* Você tem link:task_vcp_unregister.html["não registado"] o plug-in existente e tem SSH, RDP ou outra conetividade apropriada ao vCSA ou vCenter Server.
+
+
+.Passos
+. Faça login como administrador no servidor que está executando o vCenter Server e abra um prompt de comando.
+. Parar os serviços do vCenter Server:
++
+** Windows:
++
+*** (Para clientes Flash) execute o seguinte comando:
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --stop vsphere-client
+----
+*** (Para clientes HTML5) execute os seguintes comandos:
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --stop vsphere-client
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --stop vsphere-ui
+----
+
+
+** VCenter Server Appliance (vCSA)
++
+*** (Para clientes Flash) execute o seguinte comando:
++
+[listing]
+----
+service-control --stop vsphere-client
+----
+*** (Para clientes HTML5) execute os seguintes comandos:
++
+[listing]
+----
+service-control --stop vsphere-client
+service-control --stop vsphere-ui
+----
+
+
+
+
+. Remova pastas e arquivos SolidFire dos seguintes locais:
++
+** (Para Windows) Utilize o Explorador do Windows e procure `SolidFire` em `C:\ProgramData\VMware` e `C:\Program Files\VMware`.
++
+
+NOTE: A pasta ProgramData está oculta. Tem de introduzir o caminho completo do ficheiro para aceder à pasta.
+
+** (Para vCSA) execute o seguinte comando:
++
+[listing]
+----
+find / -name "*solidfire*" -exec rm -rf {} \;
+----
+
+
+. Inicie os serviços do vCenter Server:
++
+** Windows:
++
+*** (Para clientes Flash) execute o seguinte comando:
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --start vsphere-client
+----
+*** (Para clientes HTML5) execute os seguintes comandos:
++
+[listing]
+----
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --start vsphere-client
+C:\Program Files\VMware\vCenter Server\vmon>.\vmon-cli --start vsphere-ui
+----
+
+
+** VCSA:
++
+*** (Para clientes Flash) execute o seguinte comando:
++
+[listing]
+----
+service-control --start vsphere-client
+----
+*** (Para clientes HTML5) execute os seguintes comandos:
++
+[listing]
+----
+service-control --start vsphere-client
+service-control --start vsphere-ui
+----
+
+
+
+
+
+
+
+
+== Encontre mais informações
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+
