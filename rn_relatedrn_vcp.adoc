@@ -59,7 +59,8 @@ NOTE: Você será solicitado a fazer login usando suas credenciais do site de su
 
 == Plug-in do NetApp Element para VMware vCenter Server
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["Notas de versão do vCenter Plug-in 5,3"^] _NOVO_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3330676["Notas de versão do vCenter Plug-in 5,4"^] _NOVO_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["Notas de versão do vCenter Plug-in 5,3"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["Notas de versão do vCenter Plug-in 5,2"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["Notas de versão do vCenter Plug-in 5,1"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["Notas de versão do vCenter Plug-in 5,0"^]
