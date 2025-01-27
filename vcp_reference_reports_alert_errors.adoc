@@ -101,10 +101,10 @@ Um serviço de bloco foi detetado como não saudável:
 ** Aviso: Nenhuma ação é tomada. Este período de aviso expirará em cTimeUntilBSIsKilledMSec: 330000 milissegundos.
 ** Gravidade: O sistema está desativando automaticamente os dados e replicando novamente seus dados para outras unidades íntegras.
 ** Gravidade Crítica: Há serviços de bloco com falha em vários nós maiores ou iguais à contagem de replicação (2 para hélice dupla). Os dados não estão disponíveis e a sincronização do bin não será concluída.
-
-
 +
 Verifique se há problemas de conetividade de rede e erros de hardware. Haverá outras falhas se os componentes de hardware específicos tiverem falhado. A falha será apagada quando o serviço de bloco estiver acessível ou quando o serviço tiver sido desativado.
+
+
 
 * *BmcSelfTestFailed*
 +
@@ -208,12 +208,9 @@ O cluster retorna essa falha quando uma ou mais unidades falharam, indicando uma
 ** O serviço mestre para o nó está inacessível (todas as unidades no nó são consideradas ausentes/com falha).
 ** A unidade está bloqueada e a chave de autenticação da unidade não pode ser adquirida.
 ** A unidade está bloqueada e a operação de desbloqueio falha.
-
-
 +
 Para resolver este problema:
 
-+
 ** Verifique a conetividade de rede para o nó.
 ** Substitua a unidade.
 ** Certifique-se de que a chave de autenticação está disponível.
@@ -237,10 +234,10 @@ A vida útil restante de uma unidade caiu abaixo dos limites, mas ainda está fu
 +
 ** Unidade com série: <serial number> in slot: <node slot> <drive slot> tem níveis críticos de desgaste.
 ** Unidade com série: <serial number> in slot: <node slot> <drive slot> tem baixas reservas de desgaste.
-
-
 +
 Para resolver esta avaria, substitua a unidade em breve.
+
+
 
 * *DuplicateClusterMasterCandidates*
 +

@@ -109,9 +109,6 @@ Para reiniciar o cluster, você pode selecionar todos os nós de cluster e execu
 
 IMPORTANT: Esse método reinicia todos os serviços de rede em um nó, causando perda temporária de conetividade de rede.
 
-
-NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
-
 .Passos
 . No vSphere Web Client, abra a guia *Cluster*:
 +
@@ -141,10 +138,6 @@ Você pode encerrar um ou mais nós ativos em um cluster usando o ponto de exten
 
 .O que você vai precisar
 Parou e/S e desligou todas as sessões iSCSI se estiver a reiniciar mais de um nó em simultâneo.
-
-.Sobre esta tarefa
-
-NOTE: Esse recurso não está disponível nos clusters do SolidFire Enterprise SDS.
 
 .Passos
 . No vSphere Web Client, abra a guia *Cluster*:
