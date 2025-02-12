@@ -35,6 +35,7 @@ NOTE: Você será solicitado a fazer login usando suas credenciais do site de su
 
 == Software NetApp Element
 
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2886996["Notas de versão do software NetApp Element 12,8"^] _NOVO_
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884468["Notas de versão do software NetApp Element 12,7"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2882193["Notas de versão do software NetApp Element 12,5"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2881056["Notas de versão do software NetApp Element 12.3.2"^]
