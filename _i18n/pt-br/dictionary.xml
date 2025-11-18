@@ -2873,9 +2873,7 @@
   <block id="7cf6790535f5cb85bde6ce82d5227fce" category="section-title">Plug-in do NetApp Element para vCenter Server 5,3</block>
   <block id="912995e99772bb097b2c7b32940725bb" category="list-text"><block ref="912995e99772bb097b2c7b32940725bb" category="inline-link-rx"></block></block>
   <block id="6db7dd4182be7a1979ad403111fa8618" category="inline-link">Notas de versão do software NetApp Element 12,8</block>
-  <block id="7d776811219f8ebb17adecaa976bd578" category="list-text"><block ref="53e04163346326834efd61306c0800b5" category="inline-link-rx"></block> _NOVO_</block>
   <block id="7373675a8dd923fb7362a663e0cb6e1f" category="inline-link">Notas de versão do plug-in vCenter 5.5</block>
-  <block id="814594412abe5847eb0b2ce7d31a9d31" category="list-text"><block ref="19934d197d6821fc66160fdecbaaf499" category="inline-link-rx"></block>_NOVO_</block>
   <block id="9addfb2ff8ac3a9826d26736c6697320" category="inline-link-macro">Aviso para Serviços de Gerenciamento 2.27.40 (Plug-in NetApp Element para VMware vCenter Server 5.5.16)</block>
   <block id="b6d09d5d087d7ad2f49af2dfd97d388b" category="list-text"><block ref="b6d09d5d087d7ad2f49af2dfd97d388b" category="inline-link-macro-rx"></block></block>
   <block id="b4cce35a89113588b2bb62a07da6a004" category="paragraph">A documentação também está disponível para versões anteriores à versão 5.5 do NetApp Element Plug-in para VMware vCenter Server.</block>
@@ -2897,4 +2895,8 @@
   <block id="deeae87482f35a5bab8dd6a36d09f334" category="paragraph">Você pode atualizar o NetApp Element Plug-in para vCenter Server seguindo as etapas descritas para sua instalação.  O plug-in NetApp Element vCenter 5.5 está disponível fora das versões Element e NetApp HCI como parte de um pacote de serviços de gerenciamento.</block>
   <block id="7f2d8b7d7f472dc786301dc93fc008e2" category="inline-link">Notas de versão do plug-in NetApp Element vCenter 5.5</block>
   <block id="b1ca2d1c37b4cbf45ca7c525fb2930a4" category="list-text"><block ref="b1ca2d1c37b4cbf45ca7c525fb2930a4" category="inline-link-rx"></block></block>
+  <block id="f3910c16a2d3ccfefad3cf6a2990562f" category="inline-link">Notas de versão do NetApp Element Software 12.9</block>
+  <block id="0f0dd8ebb47c876fc4d83cd4c503304a" category="list-text"><block ref="65f476025a11aaf16dc58328cfd02319" category="inline-link-rx"></block>_Novo_</block>
+  <block id="53e04163346326834efd61306c0800b5" category="list-text"><block ref="53e04163346326834efd61306c0800b5" category="inline-link-rx"></block></block>
+  <block id="19934d197d6821fc66160fdecbaaf499" category="list-text"><block ref="19934d197d6821fc66160fdecbaaf499" category="inline-link-rx"></block></block>
 </blocks>
