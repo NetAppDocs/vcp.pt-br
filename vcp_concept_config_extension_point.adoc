@@ -35,9 +35,10 @@ Os seguintes separadores estão disponíveis a partir do ponto de extensão Conf
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
-* link:vcp_concept_management_extension_point["Ponto de extensão NetApp Element Management"]
+* link:vcp_concept_management_extension_point.html["Ponto de extensão NetApp Element Management"]
 * link:concept_vcp_product_overview.html["Visão geral do plug-in do NetApp Element para VMware vCenter Server"]
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
 * https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]

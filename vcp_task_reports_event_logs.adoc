@@ -36,6 +36,7 @@ Pode rever os registos de eventos para as operações realizadas no cluster sele
 
 
 
+[[event-types]]
 == Tipos de eventos
 
 O sistema relata vários tipos de eventos; cada evento é uma operação concluída pelo sistema. Os eventos podem ser de rotina, eventos normais ou eventos que exigem atenção do administrador. A coluna tipo de evento na página Registro de eventos indica em qual parte do sistema o evento ocorreu.
@@ -97,6 +98,7 @@ Existem três tipos de eventos de reatribuição de cortes, que incluem informa�
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

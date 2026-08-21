@@ -37,6 +37,7 @@ TIP: https://activeiq.solidfire.com["SolidFire Active IQ"^] Tem uma página de r
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

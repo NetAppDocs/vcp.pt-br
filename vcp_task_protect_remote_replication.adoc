@@ -38,6 +38,7 @@ NOTE: Os dispositivos do acelerador de WAN não foram qualificados pelo NetApp p
 
 
 
+[[pair-clusters]]
 == Emparelhe clusters
 
 É necessário emparelhar dois clusters como primeira etapa para usar a funcionalidade de replicação em tempo real. Depois de emparelhar e conectar dois clusters, é possível configurar volumes ativos em um cluster para serem replicados continuamente para um segundo cluster, fornecendo proteção contínua de dados (CDP).
@@ -64,6 +65,7 @@ Escolha um dos seguintes métodos:
 
 
 
+[[pair-clusters-using-known-credentials]]
 === Emparelhe clusters com credenciais conhecidas
 
 É possível emparelhar dois clusters para replicação em tempo real usando o MVIP de um cluster para estabelecer uma conexão com o outro cluster. O acesso de administrador de cluster em ambos os clusters é necessário para usar esse método.
@@ -112,6 +114,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[pair-clusters-with-a-pairing-key]]
 === Emparelhe clusters com uma chave de emparelhamento
 
 Se tiver acesso de administrador de cluster a um cluster local, mas não ao cluster remoto, pode emparelhar os clusters utilizando uma chave de emparelhamento. Uma chave de emparelhamento é gerada em um cluster local e, em seguida, enviada com segurança para um administrador de cluster em um local remoto para estabelecer uma conexão e concluir o emparelhamento de cluster para replicação em tempo real.
@@ -172,6 +175,7 @@ NOTE: Aguarde que o girador de carga desapareça antes de avançar para o próxi
 
 
 
+[[validate-the-cluster-pair-connections]]
 === Valide as conexões de par de cluster
 
 Depois que o emparelhamento do cluster estiver concluído, você pode querer verificar a conexão do par de cluster para garantir o sucesso da replicação.
@@ -184,6 +188,7 @@ Depois que o emparelhamento do cluster estiver concluído, você pode querer ver
 
 
 
+[[pair-volumes]]
 == Emparelhar volumes
 
 Depois de estabelecer uma conexão entre clusters em um par de cluster, é possível emparelhar um volume em um cluster com um volume no outro cluster do par.
@@ -207,6 +212,7 @@ Depois de estabelecer uma relação de emparelhamento de volume, tem de identifi
 
 
 
+[[pair-volumes-using-known-credentials]]
 === Emparelhe volumes usando credenciais conhecidas
 
 Pode emparelhar um volume local com outro volume num cluster remoto. Use este método se houver acesso de administrador de cluster a ambos os clusters nos quais os volumes devem ser emparelhados. Este método usa a ID do volume do volume no cluster remoto para iniciar uma conexão.
@@ -312,6 +318,7 @@ NOTE: Se ainda não tiver atribuído um volume para ser o destino de replicaçã
 
 
 
+[[pair-volumes-using-a-pairing-key]]
 === Emparelhe volumes utilizando uma tecla de emparelhamento
 
 Pode emparelhar um volume local com outro volume num cluster remoto utilizando uma tecla de emparelhamento. Use este método se houver acesso de administrador de cluster apenas ao cluster de origem. Este método gera uma chave de emparelhamento que pode ser utilizada no cluster remoto para concluir o par de volumes.
@@ -399,6 +406,7 @@ NOTE: Os volumes emparelhados com uma tecla de emparelhamento são apresentados 
 
 
 
+[[create-target-volumes-and-pair-them-with-local-volumes]]
 === Crie volumes de destino e emparelhe-os com volumes locais
 
 É possível emparelhar dois ou mais volumes locais com volumes de destino associados em um cluster remoto. Esse processo cria um volume de destino de replicação no cluster remoto para cada volume de origem local selecionado. Use este método se houver acesso de administrador de cluster aos dois clusters nos quais os volumes devem ser emparelhados e o cluster remoto for controlado pelo plug-in.
@@ -452,6 +460,7 @@ NOTE: Depois de confirmar o emparelhamento, os dois clusters iniciam o processo 
 
 
 
+[[assign-a-replication-source-and-target-to-paired-volumes]]
 === Atribua uma origem de replicação e um destino a volumes emparelhados
 
 Se não atribuiu um volume para ser o alvo de replicação durante o emparelhamento de volume, a configuração não está concluída. Você pode usar este procedimento para atribuir um volume de origem e seu volume de destino de replicação. Uma origem ou destino de replicação pode ser um volume em um par de volumes.
@@ -506,6 +515,7 @@ IMPORTANT: Se você atribuir um volume existente como destino de replicação, o
 
 
 
+[[validate-volume-replication]]
 == Valide a replicação de volume
 
 Depois que um volume é replicado, você deve garantir que os volumes de origem e destino estejam ativos. Quando no estado Ativo, os volumes são emparelhados, os dados estão sendo enviados da origem para o volume de destino e os dados estão sincronizados.
@@ -527,6 +537,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[delete-a-volume-relationship-after-replication]]
 == Excluir uma relação de volume após a replicação
 
 Após a conclusão da replicação e não precisar mais da relação de emparelhamento de volume, pode eliminar a relação de volume.
@@ -535,6 +546,7 @@ Após a conclusão da replicação e não precisar mais da relação de emparelh
 
 
 
+[[manage-volume-relationships]]
 == Gerenciar relacionamentos de volume
 
 Você pode gerenciar relacionamentos de volume de várias maneiras, como pausar a replicação, inverter o emparelhamento de volume, alterar o modo de replicação, excluir um par de volume ou excluir um par de cluster.
@@ -547,6 +559,7 @@ Você pode gerenciar relacionamentos de volume de várias maneiras, como pausar 
 
 
 
+[[pause-replication]]
 === Pausar a replicação
 
 Você pode editar as propriedades do par de volume para pausar manualmente a replicação.
@@ -576,6 +589,7 @@ IMPORTANT: Pausar ou retomar a replicação de volume manualmente fará com que 
 
 
 
+[[change-the-mode-of-replication]]
 === Altere o modo de replicação
 
 Você pode editar as propriedades do par de volume para fazer alterações no modo de replicação da relação de par de volume.
@@ -611,6 +625,7 @@ IMPORTANT: Alterar o modo de replicação faz com que o modo mude imediatamente.
 
 
 
+[[delete-a-volume-pair]]
 === Eliminar um par de volumes
 
 Você pode excluir um par de volume se quiser remover uma associação de par entre dois volumes.
@@ -646,6 +661,7 @@ NOTE: Para clusters que não são gerenciados pelo plug-in, essa ação exclui a
 
 
 
+[[delete-a-cluster-pair]]
 === Excluir um par de cluster
 
 Você pode excluir uma relação de emparelhamento de cluster entre dois clusters usando o vCenter nos locais locais locais e remotos. Para remover completamente uma relação de emparelhamento de cluster, tem de remover as extremidades de pares de cluster dos clusters locais e remotos.
@@ -675,6 +691,7 @@ NOTE: Esta ação exclui apenas o término do par de cluster no cluster local. T
 
 
 
+[[volume-pairing-messages-and-warnings]]
 == Mensagens e avisos de emparelhamento de volume
 
 Pode visualizar as informações dos volumes emparelhados ou que estão a ser emparelhados na página pares de volume do separador proteção a partir do ponto de extensão do plug-in. A partir do plug-in do Element vCenter 5,0, selecione a guia Gerenciamento no ponto de extensão do plug-in remoto do NetApp Element. Para o plug-in do Element vCenter 4,10 e anterior, selecione o ponto de extensão Gerenciamento do NetApp Element.
@@ -687,6 +704,7 @@ O sistema apresenta mensagens de emparelhamento e progresso na coluna Estado do 
 
 
 
+[[volume-pairing-messages]]
 === Mensagens de emparelhamento de volume
 
 Pode visualizar mensagens durante o processo de emparelhamento inicial na página pares de volume do separador proteção a partir do ponto de extensão do plug-in. Essas mensagens são exibidas na coluna Status do volume e podem ser exibidas nas extremidades de origem e destino do emparelhamento.
@@ -704,6 +722,7 @@ Pode visualizar mensagens durante o processo de emparelhamento inicial na págin
 
 
 
+[[volume-pairing-warnings]]
 === Avisos de emparelhamento de volume
 
 Você pode exibir mensagens de aviso depois de emparelhar volumes na página pares de volume da guia proteção do ponto de extensão do plug-in. Essas mensagens são exibidas na coluna Status do volume e podem ser exibidas nas extremidades de origem e destino do emparelhamento.

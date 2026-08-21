@@ -27,6 +27,7 @@ Usando o ponto de extensão do plug-in, você pode configurar e gerenciar o QoSS
 
 
 
+[[create-a-qos-policy]]
 == Crie uma política de QoS
 
 Você pode criar políticas de QoS e aplicá-las a volumes que devem ter desempenho equivalente.
@@ -58,6 +59,7 @@ TIP: Use as melhores práticas descritivas de nomenclatura. Isso é especialment
 
 
 
+[[apply-a-qos-policy-to-volumes]]
 == Aplique uma política de QoS a volumes
 
 Você pode aplicar uma política de QoS existente a vários volumes. Use esse processo quando quiser aplicar uma política em massa a um ou mais volumes.
@@ -86,6 +88,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[change-the-qos-policy-association-of-a-volume]]
 == Altere a associação de política de QoS de um volume
 
 Você pode remover uma associação de política de QoS de um volume ou selecionar uma política de QoS diferente ou QoS personalizada.
@@ -119,6 +122,7 @@ NOTE: Você também pode clicar em *Redefinir QoS padrão* para restaurar os val
 
 
 
+[[edit-a-qos-policy]]
 == Editar uma política de QoS
 
 Você pode alterar o nome de uma política de QoS existente ou editar os valores associados à política. A alteração dos valores de desempenho da política de QoS afeta a QoS para todos os volumes associados à política.
@@ -155,6 +159,7 @@ NOTE: Você também pode clicar em Redefinir QoS padrão para restaurar os valor
 
 
 
+[[delete-a-qos-policy]]
 == Excluir uma política de QoS
 
 Você pode excluir uma política de QoS se ela não for mais necessária. Quando você exclui uma política de QoS, todos os volumes associados à política mantêm os valores de QoS definidos anteriormente pela política, mas como QoS de volume individual. Qualquer associação com a política de QoS excluída é removida.
@@ -179,6 +184,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

@@ -23,6 +23,7 @@ Você pode habilitar a funcionalidade do VMware vSphere link:vcp_concept_vvols.h
 
 
 
+[[setup-tasks]]
 == Tarefas de configuração
 
 Você deve executar as etapas iniciais de configuração para usar volumes virtuais (VVols) no plug-in do NetApp Element para vCenter Server.
@@ -35,6 +36,7 @@ Você deve executar as etapas iniciais de configuração para usar volumes virtu
 
 
 
+[[management-tasks]]
 == Tarefas de gerenciamento
 
 * <<Monitorar recursos de volume virtual>>
@@ -44,6 +46,7 @@ Você deve executar as etapas iniciais de configuração para usar volumes virtu
 
 
 
+[[enable-virtual-volumes-functionality-on-the-netapp-element-cluster]]
 == Ative a funcionalidade de volumes virtuais no cluster do NetApp Element
 
 Você deve habilitar manualmente a funcionalidade vSphere Virtual volumes (VVols) usando o ponto de extensão do plug-in. O sistema Element vem com a funcionalidade vols desativada por padrão e não é automaticamente ativada como parte de uma nova instalação ou atualização. Ativar o recurso Vols é uma tarefa de configuração única.
@@ -75,6 +78,7 @@ NOTE: Quando a funcionalidade VVols está ativada, o cluster do Element inicia o
 
 
 
+[[register-the-vasa-provider-with-vcenter]]
 == Registre o provedor VASA no vCenter
 
 Você deve Registrar o provedor NetApp Element VASA com o vCenter para que o vCenter esteja ciente da funcionalidade VVol no cluster. Registrar o provedor VASA com o vCenter é uma tarefa de configuração única.
@@ -123,6 +127,7 @@ NOTE: Atualize o provedor de armazenamento, se necessário, para mostrar o statu
 
 
 
+[[create-a-storage-container-and-associated-vvol-datastore]]
 == Crie um recipiente de storage e um datastore VVol associado
 
 Você pode criar contentores de armazenamento a partir da guia Vols no ponto de extensão do plug-in. Você precisa criar pelo menos um contêiner de storage para começar a provisionar máquinas virtuais com suporte da VVol.
@@ -176,6 +181,7 @@ NOTE: Se você estiver usando o vCenter Linked Mode, somente os hosts disponíve
 
 
 
+[[monitor-virtual-volume-resources]]
 == Monitorar recursos de volume virtual
 
 Você pode revisar o desempenho e as configurações do componente de volume virtual no ponto de extensão do plug-in:
@@ -187,6 +193,7 @@ Você pode revisar o desempenho e as configurações do componente de volume vir
 
 
 
+[[monitoring-vvols]]
 === Monitoramento de vols
 
 Você pode revisar os dados gerais de todos os volumes virtuais ativos no cluster ou os dados detalhados de cada volume virtual. O plug-in controla a eficiência de volume virtual, a performance, os eventos e a QoS, bem como snapshots, VMs e associações associadas.
@@ -214,6 +221,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[monitoring-storage-containers]]
 === Monitoramento de contêineres de armazenamento
 
 Você pode analisar os dados gerais de todos os contêineres de storage ativos no cluster ou os dados detalhados de cada contêiner de storage. O plug-in controla a eficiência do contêiner de storage, a performance e os volumes virtuais associados.
@@ -237,6 +245,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[monitoring-protocol-endpoints]]
 === Monitoramento de endpoints de protocolo
 
 Pode rever os dados gerais de todos os pontos de extremidade do protocolo no cluster.
@@ -260,6 +269,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[create-a-vvol-datastore-for-a-storage-container]]
 == Crie um datastore VVol para um recipiente de storage
 
 Depois de criar um contêiner de storage, você também precisa criar um datastore de volume virtual que represente o contêiner de storage no cluster do NetApp Element no vCenter. Esse procedimento pode ser usado como alternativa para criar um datastore a partir do <<Crie um recipiente de storage e um datastore VVol associado,Criar contêiner de storage>> assistente. Você precisa criar pelo menos um datastore VVol para começar a provisionar máquinas virtuais com suporte da VVol.
@@ -288,6 +298,7 @@ NOTE: Não é necessário criar manualmente LUNs de endpoint de protocolo (PE). 
 
 
 
+[[delete-a-storage-container]]
 == Excluir um recipiente de armazenamento
 
 Você pode excluir contentores de armazenamento do ponto de extensão do plug-in.
@@ -317,6 +328,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

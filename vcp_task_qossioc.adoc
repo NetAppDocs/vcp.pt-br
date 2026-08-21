@@ -29,6 +29,7 @@ Usando o plug-in do vCenter, você pode configurar e gerenciar o QoSSIOC executa
 
 
 
+[[setup-tasks]]
 == Tarefas de configuração
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["Configure as configurações do QoSSIOC"]
@@ -37,6 +38,7 @@ Usando o plug-in do vCenter, você pode configurar e gerenciar o QoSSIOC executa
 
 
 
+[[management-tasks]]
 == Tarefas de gerenciamento
 
 * link:vcp_task_reports_qossioc.html["Monitore a disposição em camadas de performance da VM com eventos do QoSSIOC"^]
@@ -48,6 +50,7 @@ Usando o plug-in do vCenter, você pode configurar e gerenciar o QoSSIOC executa
 
 
 
+[[enabling-qossioc-automation-on-datastores]]
 == Habilitando a automação do QoSSIOC em datastores
 
 Você pode ativar a automação do QoSSIOC e personalizar os níveis de desempenho do disco de máquina virtual (VMDK) para datastores depois de habilitar o serviço QoSSIOC para o plug-in.
@@ -106,6 +109,7 @@ Quando você ativa a automação do QoSSIOC para um datastore, o botão muda de 
 
 
 
+[[edit-qossioc-settings]]
 == Edite as configurações do QoSSIOC
 
 Você pode alterar as credenciais do QoSSIOC e do vCenter de um nó de gerenciamento de elemento ativo.
@@ -125,7 +129,7 @@ Você pode alterar as credenciais do QoSSIOC e do vCenter de um nó de gerenciam
 ** *QoSSIOC Password*: A senha para o serviço Element QoSSIOC. A senha padrão do serviço QoSSIOC é `solidfire`. Se não tiver criado uma palavra-passe personalizada, pode criar uma a partir da IU do utilitário de registo (`https://[management node IP]:9443`).
 +
 
-NOTE: Para implantações do NetApp HCI, a senha padrão é gerada aleatoriamente durante a instalação. Para determinar a senha, consulte o procedimento 4 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] neste artigo.
+NOTE: Para implantações do NetApp HCI, a senha padrão é gerada aleatoriamente durante a instalação. Para determinar a senha, consulte o procedimento 4 neste  https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KB"^] artigo.
 
 ** *ID do usuário do vCenter*: O nome de usuário do administrador do vCenter com Privileges de função de administrador completo.
 ** *VCenter Password*: A senha para o administrador do vCenter com Privileges de função de administrador completo.
@@ -134,7 +138,7 @@ NOTE: Para implantações do NetApp HCI, a senha padrão é gerada aleatoriament
 . Selecione *OK*. O campo Status do QoSSIOC é exibido `UP` quando o plug-in pode se comunicar com o serviço com êxito.
 +
 
-NOTE: Veja isso https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] para solucionar problemas se o status for qualquer um dos seguintes: * `Down`: QoSSIOC não está habilitado. * `Not Configured`: As configurações de QoSSIOC não foram configuradas.  `Network Down`* : O vCenter não pode se comunicar com o serviço QoSSIOC na rede. O serviço mNode e SIOC ainda podem estar em execução.
+NOTE: Consulte isto https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KB"^] para solucionar problemas caso o status seja um dos seguintes: * `Down`: QoSSIOC não está habilitado. * `Not Configured`: As configurações de QoSSIOC não foram configuradas. * `Network Down`: vCenter não consegue se comunicar com o serviço QoSSIOC na rede. O mNode e o serviço SIOC podem ainda estar em execução.
 
 +
 
@@ -144,6 +148,7 @@ NOTE: Depois de configurar as configurações válidas do QoSSIOC para o nó de 
 
 
 
+[[change-the-qossioc-service-password]]
 == Altere a senha do serviço QoSSIOC
 
 Você pode alterar a senha para o serviço QoSSIOC no nó de gerenciamento usando a IU do utilitário de Registro.
@@ -180,7 +185,7 @@ image::vcp_registration_ui_qossioc.png[Menu do utilitário de Registro do plug-i
 .. * Senha antiga*: A senha atual do serviço QoSSIOC. Se ainda não tiver atribuído uma palavra-passe, introduza a palavra-passe predefinida do `solidfire`.
 +
 
-NOTE: Para implantações do NetApp HCI, a senha padrão é gerada aleatoriamente durante a instalação. Para determinar a senha, consulte o procedimento 4 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KB"^] neste artigo.
+NOTE: Para implantações do NetApp HCI, a senha padrão é gerada aleatoriamente durante a instalação. Para determinar a senha, consulte o procedimento 4 neste  https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KB"^] artigo.
 
 .. *Nova senha*: A nova senha para o serviço QoSSIOC.
 .. *Confirm Password*: Digite a nova senha novamente.
@@ -203,6 +208,7 @@ O campo *Status do QoSSIOC* é exibido `UP` quando o plug-in pode se comunicar c
 
 
 
+[[disable-qossioc-automation-for-a-datastore]]
 == Desative a automação do QoSSIOC para um datastore
 
 Você pode desativar a integração do QoSSIOC para um datastore.
@@ -228,6 +234,7 @@ Desmarcar a caixa de seleção Ativar QoS e SIOC desativa automaticamente a opç
 
 
 
+[[clear-qossioc-settings]]
 == Limpe as configurações de QoSSIOC
 
 Você pode limpar os detalhes de configuração do QoSSIOC para o nó de gerenciamento de storage do Element (mNode). Você deve limpar as configurações do nó de gerenciamento configurado antes de configurar as credenciais para um novo nó de gerenciamento ou alterar a senha do serviço QoSSIOC. Limpar as configurações do QoSSIOC remove o QoSSIOC ativo do vCenter, cluster e datastores.
@@ -249,6 +256,7 @@ O campo *Status do QoSSIOC* é exibido `Not Configured` após o processo estar c
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

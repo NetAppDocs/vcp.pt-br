@@ -52,6 +52,7 @@ NOTE: Você deve adicionar pelo menos um cluster para usar as funções do ponto
 
 
 
+[[view-cluster-details]]
 == Exibir detalhes do cluster
 
 Você pode exibir os detalhes do cluster no ponto de extensão do vCenter Plug-in.
@@ -101,6 +102,7 @@ Você pode exibir os detalhes do cluster no ponto de extensão do vCenter Plug-i
 
 
 
+[[edit-a-cluster-profile]]
 == Editar um perfil de cluster
 
 Pode alterar a ID de utilizador e a palavra-passe do cluster a partir do ponto de extensão do plug-in.
@@ -133,6 +135,7 @@ NOTE: Não é possível alterar o endereço IP ou o FQDN de um cluster depois qu
 
 
 
+[[remove-a-cluster-profile]]
 == Remover um perfil de cluster
 
 Você pode remover o perfil de um cluster que não deseja mais gerenciar do vCenter Plug-in usando o ponto de extensão do plug-in.
@@ -161,6 +164,7 @@ Se você configurar um grupo do modo vinculado e quiser reatribuir um cluster a 
 
 
 
+[[enable-encryption-at-rest]]
 == Ative a encriptação em repouso
 
 Você pode ativar manualmente a funcionalidade de criptografia em repouso (EAR) usando o ponto de extensão do plug-in.
@@ -180,6 +184,7 @@ Você pode ativar manualmente a funcionalidade de criptografia em repouso (EAR) 
 
 
 
+[[disable-encryption-at-rest]]
 == Desativar encriptação em repouso
 
 Você pode desativar manualmente a funcionalidade de criptografia em repouso (EAR) usando o ponto de extensão do plug-in.
@@ -199,6 +204,7 @@ Você pode desativar manualmente a funcionalidade de criptografia em repouso (EA
 
 
 
+[[enable-ssh]]
 == Ativar SSH
 
 Você pode ativar manualmente uma sessão de Secure Shell (SSH) usando o ponto de extensão do plug-in. A ativação do SSH permite aos engenheiros de suporte técnico da NetApp aceder aos nós de armazenamento para resolução de problemas durante a duração que determinar.
@@ -223,6 +229,7 @@ NOTE: Para continuar, você precisa inserir um valor.
 
 
 
+[[change-the-ssh-time-limit]]
 == Altere o limite de tempo do SSH
 
 Você pode inserir uma nova duração para uma sessão SSH.
@@ -250,6 +257,7 @@ NOTE: Para continuar, você precisa inserir um valor.
 
 
 
+[[disable-ssh]]
 == Desativar SSH
 
 Você pode desativar manualmente o acesso SSH (Secure Shell) aos nós no cluster de armazenamento usando o ponto de extensão do plug-in.
@@ -269,6 +277,7 @@ Você pode desativar manualmente o acesso SSH (Secure Shell) aos nós no cluster
 
 
 
+[[set-protection-domain-monitoring]]
 == Definir monitoramento de domínio de proteção
 
 Você pode ativar manualmente link:vcp_concept_protection_domains.html["monitoramento de domínio de proteção"]usando o ponto de extensão do plug-in. Você pode selecionar um limite de domínio de proteção com base em domínios de nó ou chassi.
@@ -301,6 +310,7 @@ Depois de definir preferências de monitoramento, você pode monitorar domínios
 
 
 
+[[shut-down-a-cluster]]
 == Encerre um cluster
 
 Você pode desligar manualmente todos os nós ativos em um cluster de storage usando o ponto de extensão do plug-in.
@@ -325,6 +335,7 @@ Parou e/S e desligou todas as sessões iSCSI.
 
 
 
+[[expand-your-netapp-hci-infrastructure]]
 == Expanda sua infraestrutura NetApp HCI
 
 Você pode expandir manualmente sua infraestrutura do NetApp HCI adicionando nós usando o NetApp HCI. Um link para uma IU do NetApp HCI para escalar seu sistema é fornecido a partir do ponto de extensão do plug-in.
@@ -349,6 +360,7 @@ Links adicionais são fornecidos nas páginas Introdução e Cluster:
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

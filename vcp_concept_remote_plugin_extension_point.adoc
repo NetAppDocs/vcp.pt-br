@@ -26,12 +26,14 @@ As seguintes guias estão disponíveis no ponto de extensão do plug-in remoto d
 
 
 
+[[getting-started]]
 == Como começar
 
 A guia Introdução introduz os pontos de extensão para o plug-in e as ações que podem ser executadas. Você pode ocultar as páginas Getting Started de cada página ou restaurá-las na guia *About*.
 
 
 
+[[configuration]]
 == Configuração
 
 A guia *Configuration* permite adicionar e gerenciar clusters e configurar as configurações de nó de gerenciamento para o QoSSIOC.
@@ -50,6 +52,7 @@ Os seguintes separadores estão disponíveis no separador *Configuration* (Confi
 
 
 
+[[management]]
 == Gerenciamento
 
 Usando a guia *Gerenciamento*, você pode executar as seguintes atividades:
@@ -83,6 +86,7 @@ As guias a seguir estão disponíveis na guia *Gerenciamento*:
 
 
 
+[[about]]
 == Sobre
 
 Exibe informações sobre a versão do plug-in e fornece uma opção de download do pacote de serviços.

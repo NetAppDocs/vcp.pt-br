@@ -26,6 +26,7 @@ Você pode criar um snapshot de grupo de um conjunto relacionado de volumes para
 
 
 
+[[create-a-group-snapshot]]
 == Criar um instantâneo de grupo
 
 Você pode criar um snapshot de um grupo de volumes imediatamente ou criar uma programação para automatizar snapshots futuros do grupo de volumes. Um snapshot de um único grupo pode consistentemente snapshot de até 32 volumes de uma só vez.
@@ -77,6 +78,7 @@ NOTE: Quando você define um período de retenção, você seleciona um período
 
 
 
+[[view-group-snapshot-details]]
 == Ver detalhes do instantâneo do grupo
 
 Talvez você queira verificar se o snapshot foi adicionado.
@@ -110,6 +112,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[clone-volumes-from-a-group-snapshot]]
 == Clonar volumes de um snapshot de grupo
 
 Você pode clonar um grupo de volumes a partir de um snapshot de grupo pontual. Depois de criar os volumes, você pode usá-los como qualquer outro volume no sistema.
@@ -148,6 +151,7 @@ NOTE: O tamanho do volume e a carga atual do cluster afetam o tempo necessário 
 
 
 
+[[roll-back-volumes-to-a-group-snapshot]]
 == Reverter volumes para um instantâneo de grupo
 
 É possível reverter um grupo de volumes ativos para um instantâneo de grupo. Isso restaura todos os volumes associados em um snapshot de grupo para o seu estado no momento em que o snapshot de grupo foi criado. Este procedimento também restaura os tamanhos de volume para o tamanho gravado no instantâneo original. Se o sistema tiver purgado um volume, todos os instantâneos desse volume também foram excluídos no momento da limpeza; o sistema não restaura nenhum instantâneo de volume excluído.
@@ -178,6 +182,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[delete-a-group-snapshot]]
 == Eliminar um instantâneo de grupo
 
 Pode eliminar um instantâneo de grupo do sistema. Ao excluir o instantâneo de grupo, você pode escolher se todos os instantâneos associados ao grupo são excluídos ou retidos como instantâneos individuais.
@@ -209,6 +214,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

@@ -25,6 +25,7 @@ Usando o plug-in, você pode adicionar https://docs.netapp.com/us-en/hci/docs/co
 
 
 
+[[add-a-node-to-a-cluster]]
 == Adicione um nó a um cluster
 
 Você pode adicionar nós de storage ao cluster usando o vCenter Plug-in.
@@ -71,6 +72,7 @@ Quando a ação estiver concluída, o nó aparece na lista de nós ativos para o
 
 
 
+[[view-node-details]]
 == Exibir detalhes do nó
 
 Você pode exibir uma lista dos nós no cluster na página nós da guia Cluster a partir do ponto de extensão do plug-in. Você deve selecionar visualização ativa para ver a lista de nós ativos. Pode alterar a vista selecionando `Pending` `PendingActive` as opções , e , `All` utilizando o filtro pendente.
@@ -96,6 +98,7 @@ Você pode exibir informações como IDs de nó, nome e estado de cada nó, IOPS
 
 
 
+[[restart-a-node]]
 == Reinicie um nó
 
 Você pode reiniciar um ou mais nós ativos em um cluster usando o ponto de extensão do plug-in.
@@ -132,6 +135,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[shut-down-a-node]]
 == Encerre um nó
 
 Você pode encerrar um ou mais nós ativos em um cluster usando o ponto de extensão do plug-in. Para encerrar o cluster, você pode selecionar todos os nós de cluster e executar um desligamento simultâneo.
@@ -165,6 +169,7 @@ NOTE: Se um nó estiver inativo por mais de 5,5 minutos em qualquer tipo de cond
 
 
 
+[[remove-a-node-from-a-cluster]]
 == Remover um nó de um cluster
 
 É possível remover nós de um cluster sem interrupção de serviço quando o storage não for mais necessário ou se eles precisarem de manutenção.
@@ -202,6 +207,7 @@ Todos os nós removidos de um cluster aparecem na lista de nós pendentes.
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

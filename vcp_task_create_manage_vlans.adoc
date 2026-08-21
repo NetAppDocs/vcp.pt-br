@@ -24,6 +24,7 @@ Você pode adicionar uma nova rede virtual a uma configuração de cluster para 
 
 
 
+[[create-a-virtual-network]]
 == Crie uma rede virtual
 
 Você pode adicionar uma nova rede virtual a uma configuração de cluster.
@@ -104,6 +105,7 @@ NOTE: O número total de endereços IP deve corresponder ao número de nós no c
 
 
 
+[[view-virtual-network-details]]
 == Ver detalhes da rede virtual
 
 Você pode exibir informações de rede para VLANs na página rede da guia Cluster a partir do ponto de extensão do plug-in.
@@ -129,6 +131,7 @@ Você pode exibir informações como o ID e o nome de cada VLAN, a tag associada
 
 
 
+[[edit-a-virtual-network]]
 == Edite uma rede virtual
 
 Você pode alterar os atributos da VLAN, como nome da VLAN, máscara de rede e tamanho dos blocos de endereço IP.
@@ -158,6 +161,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[delete-a-virtual-network]]
 == Eliminar uma rede virtual
 
 Você pode excluir permanentemente um objeto VLAN e seu bloco de IPs. Os blocos de endereço atribuídos à VLAN são desassociados à rede virtual e podem ser reatribuídos a outra rede virtual.

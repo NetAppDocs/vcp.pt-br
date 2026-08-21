@@ -32,6 +32,7 @@ O intervalo de atualização padrão é de 10 segundos se o cluster tiver menos 
 
 
 
+[[volume-performance-data]]
 == Dados de performance de volume
 
 * *Nome*: Nome do volume quando foi criado.
@@ -59,6 +60,7 @@ Valores possíveis:
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

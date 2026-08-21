@@ -28,6 +28,7 @@ Você pode criar grupos de acesso mapeando IQNs do iniciador iSCSI ou WWPNs FC e
 
 
 
+[[create-an-access-group]]
 == Crie um grupo de acesso
 
 Você pode criar grupos de acesso de volume com um ou mais iniciadores. O mapeamento dos iniciadores de cliente Fibre Channel (WWPN) ou iSCSI (IQN) para os volumes em um grupo de acesso de volume permite a e/S segura de dados entre uma rede e um volume.
@@ -60,6 +61,7 @@ NOTE: Os iniciadores podem ser adicionados ou eliminados após a criação do gr
 
 
 
+[[edit-an-access-group]]
 == Editar um grupo de acesso
 
 Você pode editar nomes de grupos de acesso ao volume ou adicionar ou remover iniciadores do ponto de extensão do plug-in.
@@ -94,6 +96,7 @@ NOTE: Se você estiver removendo um iniciador, clique no ícone de lixo para rem
 
 
 
+[[add-volumes-to-an-access-group]]
 == Adicionar volumes a um grupo de acesso
 
 Você pode adicionar volumes a um grupo de acesso de volume. Cada volume pode pertencer a mais de um grupo de acesso de volume; pode ver os grupos a que cada volume pertence a partir da vista volumes ativos.
@@ -125,6 +128,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[remove-volumes-from-an-access-group]]
 == Remover volumes de um grupo de acesso
 
 Você pode remover volumes de um grupo de acesso.
@@ -154,6 +158,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[delete-an-access-group]]
 == Eliminar um grupo de acesso
 
 Você pode excluir grupos de acesso de volume usando o ponto de extensão do plug-in. Não é necessário excluir IDs de iniciador ou desassociar volumes do grupo de acesso de volume antes de excluir o grupo. Depois de eliminar o grupo de acesso, o acesso do grupo aos volumes é descontinuado.
@@ -178,6 +183,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

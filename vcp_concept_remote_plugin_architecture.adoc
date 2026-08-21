@@ -30,6 +30,7 @@ A arquitetura de plug-in remoto do vSphere Client foi projetada para integrar a 
 
 
 
+[[remote-element-plug-in-for-vcenter-server-high-level-architecture]]
 == Plug-in do elemento remoto para arquitetura de alto nível do vCenter Server
 
 Usando o Controle de nuvem híbrida do NetApp, o plug-in de elemento remoto é implantado em um contentor docker dentro de um nó de gerenciamento, juntamente com serviços de gerenciamento.
@@ -53,6 +54,7 @@ O vCenter Server, serviço de Registro e controle de e/S de storage remoto Eleme
 |===
 
 
+[[remote-element-plug-in-communication-paths-overview]]
 == Visão geral dos caminhos de comunicação do Plug-in do elemento remoto
 
 Primeiro, você deve Registrar o plug-in remoto no vCenter Server usando o serviço de Registro em execução em um nó de gerenciamento (`https://<mnode-ip>:9443/`). Na página de Registro, você pode ver o nome de usuário do vCenter Server, a senha e o `plugin.json` caminho do arquivo de manifesto.
@@ -68,6 +70,7 @@ Toda a comunicação da IU do plug-in ocorre através do vCenter Server, que exe
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

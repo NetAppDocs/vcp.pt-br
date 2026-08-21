@@ -18,12 +18,14 @@ O vSphere Virtual volumes é um paradigma de armazenamento para VMware que trans
 
 
 
+[[bindings]]
 == Ligações
 
 O cluster do NetApp Element escolhe um ponto de extremidade de protocolo ideal, cria uma ligação que associa o host ESXi e o volume virtual ao ponto de extremidade do protocolo e retorna a ligação ao host ESXi. Depois que estiver vinculado, o host ESXi pode executar operações de e/S com o volume virtual vinculado.
 
 
 
+[[protocol-endpoints]]
 == Endpoints do protocolo
 
 Os hosts do VMware ESXi usam proxies de e/S lógicos conhecidos como endpoints de protocolo para se comunicar com volumes virtuais. Os hosts ESXi vinculam volumes virtuais a endpoints de protocolo para executar operações de e/S. Quando uma máquina virtual no host executa uma operação de e/S, o endpoint de protocolo associado direciona e/S para o volume virtual com o qual é emparelhado.
@@ -38,6 +40,7 @@ ISCSI é o único protocolo suportado para o software NetApp Element. O protocol
 
 
 
+[[storage-containers]]
 == Contêineres de armazenamento
 
 Os contêineres de storage são construções lógicas que mapeiam para contas NetApp Element e são usados para geração de relatórios e alocação de recursos. Eles agregam capacidade de storage bruto ou funcionalidades de storage agregado que o sistema de storage pode fornecer a volumes virtuais. Um datastore VVol criado no vSphere é mapeado para um contentor de storage individual. Por padrão, um único contêiner de storage tem todos os recursos disponíveis no cluster do NetApp Element. Se for necessária uma governança mais granular para a alocação a vários clientes, é possível criar vários contêineres de storage.
@@ -52,6 +55,7 @@ Você também pode descobrir contêineres de storage no vCenter durante a criaç
 
 
 
+[[vasa-provider]]
 == Fornecedor VASA
 
 Para que o vSphere fique ciente do recurso vVol no cluster do NetApp Element, o administrador do vSphere deve Registrar o provedor NetApp Element VASA no vCenter. O provedor VASA é o caminho de controle fora da banda entre o vSphere e o cluster do Element. Ele é responsável pela execução de solicitações no cluster Element em nome do vSphere, como criação de VMs, disponibilização de VMs para o vSphere e publicidade de recursos de storage para o vSphere.
@@ -66,9 +70,9 @@ NOTE: O suporte DO VASA para até 10 vCenters está disponível como um patch de
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["Página de recursos do NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Recursos de documentação do SolidFire e do Element"^]
 

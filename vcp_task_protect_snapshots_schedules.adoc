@@ -30,6 +30,7 @@ NOTE: As programações são criadas usando a hora UTC-0. Talvez seja necessári
 
 
 
+[[create-a-snapshot-schedule]]
 == Criar uma agenda de instantâneos
 
 Você pode agendar um instantâneo de um volume ou volumes para que ocorra automaticamente em intervalos especificados.
@@ -76,6 +77,7 @@ NOTE: Quando você define um período de retenção, você seleciona um período
 
 
 
+[[view-snapshot-schedule-details]]
 == Ver detalhes da programação do instantâneo
 
 Você pode querer verificar os detalhes da programação do snapshot.
@@ -97,6 +99,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[edit-a-snapshot-schedule]]
 == Editar uma agenda de instantâneos
 
 Você pode modificar programações de snapshot existentes. Após a modificação, na próxima vez que o agendamento for executado, ele usará os atributos atualizados. Todos os instantâneos criados pela programação original permanecem no sistema de armazenamento.
@@ -148,6 +151,7 @@ NOTE: Quando você define um período de retenção, você seleciona um período
 
 
 
+[[copy-a-snapshot-schedule]]
 == Copiar uma agenda de instantâneos
 
 Você pode fazer uma cópia de um agendamento de snapshot e atribuí-lo a novos volumes ou usá-lo para outros fins.
@@ -173,6 +177,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[delete-a-snapshot-schedule]]
 == Eliminar uma agenda de instantâneos
 
 Pode eliminar uma agenda de instantâneos. Depois de excluir a programação, ela não executa nenhum instantâneo agendado futuro. Todos os snapshots que foram criados pela programação permanecem no sistema de storage.
@@ -197,6 +202,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

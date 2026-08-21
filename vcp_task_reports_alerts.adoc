@@ -61,6 +61,7 @@ Depois de resolver o problema, o sistema polls-se e identifica o problema como r
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

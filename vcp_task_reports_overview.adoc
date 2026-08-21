@@ -28,6 +28,7 @@ Você pode exibir informações de cluster de alto nível para o cluster selecio
 
 
 
+[[reporting-overview-page-data]]
 == Dados da página Visão geral de relatórios
 
 Os seguintes dados são exibidos na página Visão geral do relatório:
@@ -106,6 +107,7 @@ NOTE: Por exemplo, se houver quatro volumes no cluster, cada um com um mínimo d
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

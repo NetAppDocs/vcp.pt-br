@@ -74,6 +74,7 @@ IMPORTANT: O VMware vSphere 6,0 atingiu o status de fim do suporte em 12 de mar�
 ====
 
 
+[[vsphere-compatibility-and-best-practices]]
 == Compatibilidade do vSphere e práticas recomendadas
 
 Considere os seguintes recursos e recomendações antes de usar o plugin:
@@ -85,6 +86,7 @@ Considere os seguintes recursos e recomendações antes de usar o plugin:
 
 
 
+[[netapp-element-support]]
 == Suporte à NetApp Element
 
 O plug-in suporta as seguintes versões principais:
@@ -95,12 +97,15 @@ O plug-in suporta as seguintes versões principais:
 
 
 
+[[network-port-requirements]]
 == Requisitos de porta de rede
 
 Você precisa permitir algumas portas TCP através do firewall de borda do seu datacenter para que você possa gerenciar o sistema remotamente e permitir que clientes fora do seu datacenter se conetem a recursos. Para obter uma lista abrangente de portas usadas nos sistemas NetApp HCI e SolidFire, consulte este link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["página"].
 
 
 
+[[optional-create-a-vcp-role-in-vcenter]]
+[[create_vcp_role]]
 == (Opcional) Crie uma "função VCP" no vCenter
 
 Para o vCenter Servers 8,0 e 7,0, você pode criar uma "função VCP" no vCenter para uma conta de usuário do plug-in Element e atribuir permissões para Registrar ou atualizar o plug-in Element para vCenter Server e executar tarefas de administração do plug-in Element.
@@ -185,6 +190,7 @@ Agora você pode fazer login no vSphere Web Client usando a conta "vcpuser".
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

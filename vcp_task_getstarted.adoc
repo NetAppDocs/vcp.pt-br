@@ -7,7 +7,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 = Instale e configure o Element Plug-in 4,10 e anterior
 :hardbreaks:
 :allow-uri-read: 
-:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
+:url-peak: https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -34,12 +34,14 @@ Leia e complete cada passo para instalar e começar a usar o plug-in:
 
 
 
+[[prepare-for-installation]]
 == Prepare-se para a instalação
 
 Antes de iniciar a instalação, reveja link:reference_requirements_vcp.html["requisitos de pré-implantação"]o .
 
 
 
+[[install-the-management-node]]
 == Instale o nó de gerenciamento
 
 Você pode manualmente https://docs.netapp.com/us-en/hci/docs/task_mnode_install.html["instale o nó de gerenciamento"^] para seu cluster que executa o software NetApp Element usando a imagem apropriada para sua configuração.
@@ -48,6 +50,7 @@ Este processo manual destina-se a administradores de storage all-flash do SolidF
 
 
 
+[[register-the-plug-in-with-vcenter]]
 == Registre o plug-in com o vCenter
 
 A implantação do pacote vCenter Plug-in no vSphere Web Client envolve o Registro do pacote como uma extensão no vCenter Server. Depois que o Registro for concluído, o plug-in estará disponível para qualquer vSphere Web Client que se conete ao seu ambiente vSphere.
@@ -137,6 +140,7 @@ NOTE: Esta ação conclui a instalação no vSphere Web Client. Se os ícones do
 
 
 
+[[modify-vcenter-properties-for-a-dark-site-http-server]]
 == Modifique as propriedades do vCenter para um servidor HTTP de site escuro
 
 Se você pretende personalizar um URL para um servidor HTTP interno (dark site) durante o Registro do vCenter Plug-in, você deve modificar o arquivo de propriedades do vSphere Web Client `webclient.properties` . Você pode usar o vCSA ou o Windows para fazer as alterações.
@@ -247,6 +251,7 @@ NOTE: Depois de concluir o procedimento de registo, pode remover `allowHttp=true
 
 
 
+[[access-the-plug-in-and-verify-successful-installation]]
 == Acesse o plug-in e verifique a instalação bem-sucedida
 
 Após a instalação ou atualização bem-sucedida, os pontos de extensão Configuração e Gerenciamento do NetApp Element aparecem na guia Atalhos do vSphere Web Client e no painel lateral.
@@ -258,6 +263,7 @@ NOTE: Se os ícones do vCenter Plug-in não estiverem visíveis, consulte link:v
 
 
 
+[[add-storage-clusters-for-use-with-the-plug-in]]
 == Adicione clusters de storage para uso com o plug-in
 
 Você pode adicionar um cluster executando o software Element usando o ponto de extensão Configuração do NetApp Element para que ele possa ser gerenciado pelo plug-in.
@@ -307,6 +313,7 @@ Quando o processo for concluído, o cluster aparece na lista de clusters dispon�
 
 
 
+[[configure-qossioc-settings-using-the-plug-in]]
 == Configure as configurações do QoSSIOC usando o plug-in
 
 Você pode configurar a qualidade automática do serviço com base no Storage I/o Control link:vcp_concept_qossioc.html["(QoSSIOC)"] para volumes individuais e datastores controlados pelo plug-in. Para isso, configure as credenciais do QoSSIOC e do vCenter que permitirão que o serviço do QoSSIOC se comunique com o vCenter.
@@ -350,21 +357,23 @@ Depois que o serviço QoSSIOC estiver habilitado, você poderá configurar o des
 
 
 
+[[configure-user-accounts]]
 == Configurar contas de usuário
 
 Para habilitar o acesso a volumes, você precisará criar pelo menos um link:vcp_task_create_manage_user_accounts.html#create-an-account["conta de utilizador"].
 
 
 
+[[create-datastores-and-volumes]]
 == Crie datastores e volumes
 
 Você pode link:vcp_task_datastores_manage.html#create-a-datastore["Armazenamentos de dados e volumes de elementos"]criar para começar a alocar armazenamento.
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["Página de recursos do NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Recursos de documentação do SolidFire e do Element"^]
 

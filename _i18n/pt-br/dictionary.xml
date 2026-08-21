@@ -115,8 +115,6 @@
   <block id="9c83e144e5481ac6766f4055e566594d" category="section-title">Encontre mais informações</block>
   <block id="ad0a505756223d68dc11afeae3459351" category="inline-link">Documentação do NetApp HCI</block>
   <block id="bf667c8802395357e4f080e2fcd819e4" category="list-text"><block ref="bf667c8802395357e4f080e2fcd819e4" category="inline-link-rx"></block></block>
-  <block id="c93817bbfc3fab71f5f7ca740a11c847" category="inline-link">Página de recursos do NetApp HCI</block>
-  <block id="db44bd4317aeddd12845bd1fdbf8738c" category="list-text"><block ref="db44bd4317aeddd12845bd1fdbf8738c" category="inline-link-rx"></block></block>
   <block id="631923a687ff82d68973d99b95597b47" category="inline-link">Página de recursos do SolidFire e do Element</block>
   <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
   <block id="ca55ce9e6e52d3c2adce10bd8af25702" category="inline-link-macro">Ponto de extensão da Configuração do NetApp Element</block>
@@ -124,7 +122,6 @@
   <block id="a551db227a426bdfb177aee6f63574b3" category="list-text"><block ref="a551db227a426bdfb177aee6f63574b3" category="inline-link-macro-rx"></block></block>
   <block id="02762e915121057c841797106c1e2368" category="inline-link-macro">Ponto de extensão do plug-in remoto NetApp Element</block>
   <block id="93e2289f97da80da1364be2c4e0d10a1" category="list-text"><block ref="93e2289f97da80da1364be2c4e0d10a1" category="inline-link-macro-rx"></block></block>
-  <block id="7c385748f57d5138e7a7e04224b0094d" category="summary">Use o plug-in do NetApp Element para VMware vCenter Server, um plug-in para a interface do VMware vSphere, para gerenciar e monitorar clusters de storage que executam o software NetApp Element.</block>
   <block id="64224a57594a94e207c3cc3f117b9b4c" category="doc">Plug-in do NetApp Element para documentação do VMware vCenter Server</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="summary"></block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Avisos legais</block>
@@ -429,7 +426,6 @@
   <block id="17214f3da5f4fde025ab6bff02b1e131" category="list-text">*Eventos de QoSSIOC*: Exibe informações sobre todos os eventos de QoSSIOC detetados.</block>
   <block id="7859d016cf7f2b5a5e2abf89cdedf206" category="list-text">*Sobre*: Exibe informações sobre a versão do plug-in e fornece uma opção de download do pacote de serviços.</block>
   <block id="84766b1f02c6136ddf8fac32ab4bb8d7" category="inline-link-macro">Ponto de extensão NetApp Element Management</block>
-  <block id="d05470d1480aa89ff09b30647c509081" category="list-text"><block ref="d05470d1480aa89ff09b30647c509081" category="inline-link-macro-rx"></block></block>
   <block id="baf751cfa98ca2f74ceb6948fcda780b" category="inline-link-macro">Visão geral do plug-in do NetApp Element para VMware vCenter Server</block>
   <block id="63cc63082dc63dbd2008d199a2bbc40f" category="list-text"><block ref="63cc63082dc63dbd2008d199a2bbc40f" category="inline-link-macro-rx"></block></block>
   <block id="4c4722e5324c9cd449ccd55ff6c40753" category="summary">Você pode usar o plug-in do NetApp Element para VMware vCenter Server para gerenciar recursos de cluster de outros vCenter Servers usando o vCenter Linked Mode.</block>
@@ -482,7 +478,6 @@
   <block id="f5f47ac4bc4f3a4085c75b416bc16300" category="list-text">*Proteção*: Gerencie snapshots individuais e em grupo. Você também pode criar programações para criação de snapshot, emparelhar clusters para replicação em tempo real e gerenciar pares de volume.</block>
   <block id="54bf2caed918291b3771a8543d667f6c" category="list-text">*Cluster*: Adicione e gerencie unidades e nós. Você também pode criar e gerenciar VLANs.</block>
   <block id="53c3fa82359c8c96c0034060741a24ad" category="list-text">*Vols*: Gerencie volumes virtuais e seus contentores de armazenamento associados, pontos de extremidade de protocolo e ligações.</block>
-  <block id="c384eab57dc664d0f5f58e4f009f0b6a" category="list-text"><block ref="c384eab57dc664d0f5f58e4f009f0b6a" category="inline-link-macro-rx"></block></block>
   <block id="3fc23f34e36d05f9e3d062c71bacd2f0" category="doc">Domínios de proteção</block>
   <block id="9b480422c240fe96384c295ed19ec96d" category="paragraph">Um domínio de proteção é um nó ou um conjunto de nós agrupados de modo que qualquer nó ou todos os nós no domínio possam falhar sem causar a perda de disponibilidade de dados do cluster. O recurso de domínios de proteção permite monitorar a capacidade de recursos de um cluster para garantir que o cluster ainda seja capaz de se recuperar de um evento de falha. Você pode selecionar o monitoramento em um nível de domínio de nó ou chassi:</block>
   <block id="d3aa0229608e48b638ce6da6bee6fdb7" category="list-text">*O nível do nó* define cada domínio de proteção por nó individual, com cada nó potencialmente localizado no chassi.</block>
@@ -928,7 +923,6 @@
   <block id="8ba7fe73aadae9fb529486bc9631d061" category="doc">Solucionar problemas do vCenter Plug-in</block>
   <block id="8c685412580675b6fc94b6d9884c2190" category="paragraph">Você precisa estar ciente de alguns dos problemas comuns com o plug-in do NetApp Element para VMware vCenter Server e as etapas para resolvê-los.</block>
   <block id="acb74ddc623ba3a90ff6c3e1e72aabb5" category="list-text"><block ref="20d8460084a0c9948d2cc36d92e5943a" category="inline-xref-macro-rx"></block></block>
-  <block id="f379f8e66e1db17bdc8c224d43f3435a" category="list-text"><block ref="59dc4ba83e500318a7037078449a4c75" category="inline-xref-macro-rx"></block></block>
   <block id="720a88aac85bd38e5f77600c434fa172" category="list-text"><block ref="d08f3f2eb111725a9e38a4e29e363ebe" category="inline-xref-macro-rx"></block></block>
   <block id="095c464a72d772c972dffda935226c8f" category="list-text"><block ref="f2afcbdd747e2c0ac83150466ba1452e" category="inline-xref-macro-rx"></block></block>
   <block id="0e77b072d97a1a77d7ce7648f6ff3e6b" category="list-text"><block ref="425e693d2e8aa6dd4d79c902e1163b89" category="inline-xref-macro-rx"></block></block>
@@ -1036,7 +1030,6 @@
   <block id="4fb0bbac8ed9dc001c6bd394776c58b9" category="list-text">Abra<block ref="0add9e485dff240b6b42952ec1c31d30" prefix=" " category="inline-code"></block><block ref="2df368a8877f23266c589b1888398863" prefix=" " category="inline-code"></block> no nó de gerenciamento <block ref="72ab0dd25459f7bfe6f0f90e0af20861" prefix="(" category="inline-code"></block>ou<block ref="7b8f31d960b220b7d0753ba094b54bac" prefix=" " category="inline-code"></block> nos nós de gerenciamento mais antigos).</block>
   <block id="8776a0f7728d2804b6638746068901d5" category="list-text">Procure este texto:</block>
   <block id="8acadeccb90bf205135348e4902b9c20" category="inline-link">este artigo</block>
-  <block id="6827a947857f77989cf06bb0f67a6085" category="list-text">Consulte<block ref="fcb81063f72d7cb08144faa25942e149" category="inline-link-rx"></block> para obter a ação corretiva específica para o seu problema.</block>
   <block id="76bcb4a408198a6676ccab6cbdeeaee5" category="summary">Você pode adicionar e gerenciar unidades ao cluster usando o plug-in.</block>
   <block id="169bc36348d833447e9ed51fe9bb69fd" category="doc">Adicionar e gerenciar unidades</block>
   <block id="8088f26fd11b6aee24aa85e21c8554c1" category="paragraph">Você pode adicionar unidades a um cluster, exibir unidades existentes e remover unidades usando o ponto de extensão do plug-in.</block>
@@ -2366,9 +2359,7 @@
   <block id="afdeffce59224badc13a8821b6ec412f" category="list-text">Na caixa de diálogo *Edit QoSSIOC Settings* (Editar configurações do QoSSIOC*), altere qualquer um dos seguintes itens:</block>
   <block id="f8bae8de9baa8395a6a8ec2d860c337f" category="list-text">*QoSSIOC User ID*: O ID do usuário para o serviço QoSSIOC. O ID de usuário padrão do serviço QoSSIOC é<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>. Para o NetApp HCI, o ID do usuário é o mesmo digitado durante a instalação usando o mecanismo de implantação do NetApp.</block>
   <block id="ab57fd0432e25d5b3013133a1c910d56" category="inline-link">KB</block>
-  <block id="cad792ab45ca62879a629f687945067c" category="admonition">Para implantações do NetApp HCI, a senha padrão é gerada aleatoriamente durante a instalação. Para determinar a senha, consulte o procedimento 4<block ref="73c985feae38ab11c72c32983286b317" category="inline-link-rx"></block> neste artigo.</block>
   <block id="c66387cd1de0480bd2c9654b23b1dc90" category="list-text">Selecione *OK*. O campo Status do QoSSIOC é exibido<block ref="fbaedde498cdead4f2780217646e9ba1" prefix=" " category="inline-code"></block> quando o plug-in pode se comunicar com o serviço com êxito.</block>
-  <block id="18d6e8678d9b6ffeb8e937c46930d1ee" category="admonition">Veja isso<block ref="73c985feae38ab11c72c32983286b317" category="inline-link-rx"></block> para solucionar problemas se o status for qualquer um dos seguintes: *<block ref="08a38277b0309070706f6652eeae9a53" prefix=" " category="inline-code"></block>: QoSSIOC não está habilitado. *<block ref="ac10863a89ea5da5d78b29ab7d8d4db9" prefix=" " category="inline-code"></block>: As configurações de QoSSIOC não foram configuradas. <block ref="8e8acaa1cba651ded0d5a7427cba69ac" prefix=" " category="inline-code"></block>* : O vCenter não pode se comunicar com o serviço QoSSIOC na rede. O serviço mNode e SIOC ainda podem estar em execução.</block>
   <block id="fa56630b6219bb590988e3850ac6bf23" category="section-title">Altere a senha do serviço QoSSIOC</block>
   <block id="8209f42f47120008b0d3d7d32da6ae59" category="paragraph">Você pode alterar a senha para o serviço QoSSIOC no nó de gerenciamento usando a IU do utilitário de Registro.</block>
   <block id="e1ea2de510fb69c3802c3b09357e3c35" category="list-text">Seu nó de gerenciamento está ativado.</block>
@@ -2713,7 +2704,6 @@
   <block id="381a713d0f51b31ff1fbdb3ab89b3006" category="admonition">Os volumes clonados não herdam a associação do grupo de acesso ao volume do volume de origem.</block>
   <block id="b8a1cad4a50c9260122967b830aa2f1e" category="inline-link">Montagem de uma cópia do datastore VMFS</block>
   <block id="d79c3c87976b8fd24486c760b99214ec" category="inline-link">Gerenciando armazenamentos de dados VMFS duplicados</block>
-  <block id="ab5a2e1182407c1415e14a4d40a00d1e" category="paragraph">Os sistemas operacionais diferem em como tratam os volumes clonados. O ESXi tratará um volume clonado como uma cópia de volume ou um volume instantâneo. O volume será um dispositivo disponível para usar para criar um novo datastore. Para obter mais informações sobre a montagem de volumes de clones e o manuseio de LUNs instantâneos, consulte a documentação da VMware sobre<block ref="be550d2037a470ce38c4e9b1205adbd3" category="inline-link-rx"></block> e<block ref="e78925c5281376a20450a24207e06cd4" category="inline-link-rx"></block>.</block>
   <block id="c15882785a0d876bc229f0d34454c482" category="list-text">Verifique o volume que deseja clonar.</block>
   <block id="9de0e2b17d7e1e2da6c0ce7e9dc6e377" category="list-text">Selecione *Clone*.</block>
   <block id="834f6dbd3eb0c6b268da4538ab2d8565" category="list-text">Introduza um nome de volume para o volume recém clonado.</block>
@@ -2899,4 +2889,11 @@
   <block id="0f0dd8ebb47c876fc4d83cd4c503304a" category="list-text"><block ref="65f476025a11aaf16dc58328cfd02319" category="inline-link-rx"></block>_Novo_</block>
   <block id="53e04163346326834efd61306c0800b5" category="list-text"><block ref="53e04163346326834efd61306c0800b5" category="inline-link-rx"></block></block>
   <block id="19934d197d6821fc66160fdecbaaf499" category="list-text"><block ref="19934d197d6821fc66160fdecbaaf499" category="inline-link-rx"></block></block>
+  <block id="7ee2c1d45d5ea0b3b627e776551e0a66" category="list-text"><block ref="7ee2c1d45d5ea0b3b627e776551e0a66" category="inline-link-rx"></block></block>
+  <block id="ddfcc4a211e4d4aeb8858fcf7023db79" category="list-text"><block ref="ddfcc4a211e4d4aeb8858fcf7023db79" category="inline-link-macro-rx"></block></block>
+  <block id="946a456b3340bab5444f7fdd2d1668a6" category="list-text"><block ref="81a91a7b2e7c16e9382a3b4102c75dd6" category="inline-xref-macro-rx"></block></block>
+  <block id="576fdcfbd453ff81e50ed038bbd75080" category="list-text">Consulte <block ref="b1809f417eab8dd7bd52c5b130b213a1" category="inline-link-rx"></block> para obter informações sobre a ação corretiva específica para o seu problema.</block>
+  <block id="49e5955799c1635bb234348ec3e98e8d" category="admonition">Para implantações do NetApp HCI, a senha padrão é gerada aleatoriamente durante a instalação. Para determinar a senha, consulte o procedimento 4 neste <block ref="6eec7bea3d46c7ec2c72cd0ab5ecde7c" category="inline-link-rx"></block> artigo.</block>
+  <block id="2547d26c583559d66bf10554cc96e8c0" category="admonition">Consulte isto<block ref="6eec7bea3d46c7ec2c72cd0ab5ecde7c" category="inline-link-rx"></block> para solucionar problemas caso o status seja um dos seguintes: *<block ref="08a38277b0309070706f6652eeae9a53" prefix=" " category="inline-code"></block>: QoSSIOC não está habilitado. *<block ref="ac10863a89ea5da5d78b29ab7d8d4db9" prefix=" " category="inline-code"></block>: As configurações de QoSSIOC não foram configuradas. *<block ref="8e8acaa1cba651ded0d5a7427cba69ac" prefix=" " category="inline-code"></block>: vCenter não consegue se comunicar com o serviço QoSSIOC na rede. O mNode e o serviço SIOC podem ainda estar em execução.</block>
+  <block id="8ffbbcee166c0ec6044df97dd87b1511" category="paragraph">Os sistemas operacionais diferem na forma como tratam volumes clonados. O ESXi tratará um volume clonado como uma cópia de volume ou um volume de snapshot. O volume será um dispositivo disponível para você usar na criação de um novo datastore. Para mais informações sobre como montar volumes clonados e lidar com LUNs de snapshot, consulte a documentação da VMware sobre<block ref="f96e603cc6ab65c475c668cd9e36a0f1" category="inline-link-rx"></block> e<block ref="1504d644b8dbc81b76b400084d9988fb" category="inline-link-rx"></block>.</block>
 </blocks>

@@ -42,6 +42,7 @@ TIP: Monitore as operações do datastore para conclusão usando o monitoramento
 
 
 
+[[create-a-datastore]]
 == Crie um datastore
 
 Você pode criar um datastore a partir da extensão do plug-in.
@@ -212,6 +213,7 @@ TIP: Por padrão, os compartilhamentos de disco SIOC máximos são definidos com
 
 
 
+[[view-the-datastore-list]]
 == Exibir a lista de datastore
 
 Você pode exibir datastores disponíveis na página datastores a partir do ponto de extensão do plug-in.
@@ -254,6 +256,7 @@ NOTE: Armazenamentos de dados que abrangem vários volumes (datastores mistos) n
 
 
 
+[[extend-a-datastore]]
 == Estenda um datastore
 
 Você pode estender um datastore para aumentar o tamanho do volume usando o ponto de extensão do plug-in. Estender o datastore também estende o volume VMFS relacionado a esse datastore.
@@ -283,6 +286,7 @@ NOTE: Estender o datastore consumirá todo o tamanho do volume. O novo tamanho d
 
 
 
+[[clone-a-datastore]]
 == Clonar um datastore
 
 Você pode clonar datastores usando o plug-in, que inclui a montagem do novo datastore no servidor ou cluster ESXi desejado. Você pode nomear o clone do datastore e configurar suas configurações de QoSSIOC, volume, host e tipo de autorização.
@@ -424,6 +428,7 @@ TIP: Por padrão, os compartilhamentos de disco SIOC máximos são definidos com
 
 
 
+[[share-a-datastore]]
 == Compartilhe um datastore
 
 Você pode compartilhar um datastore com um ou mais hosts usando o ponto de extensão do plug-in.
@@ -490,6 +495,7 @@ Se um iniciador de host já estiver associado a um grupo de acesso de volume, o 
 
 
 
+[[perform-vaai-unmap]]
 == Execute VAAI UNMAP
 
 Se você quiser que um cluster recupere espaço em bloco liberado de armazenamentos de dados VMFS5D provisionados de forma fina, use o recurso DESMAPEAR VAAI.
@@ -530,6 +536,7 @@ NOTE: Se forem adicionados dois ou mais clusters, selecione o cluster que preten
 
 
 
+[[delete-a-datastore]]
 == Excluir um datastore
 
 Você pode excluir um datastore usando o ponto de extensão do plug-in. Esta operação exclui permanentemente todos os arquivos associados às VMs no datastore que você deseja excluir. O plug-in não exclui armazenamentos de dados que contêm VMs registradas.
@@ -557,6 +564,7 @@ NOTE: Você também pode optar por reter o volume e associá-lo posteriormente a
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

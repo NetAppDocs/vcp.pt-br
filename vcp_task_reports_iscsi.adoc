@@ -28,6 +28,7 @@ Você pode exibir informações sobre sessões iSCSI conetadas ao cluster seleci
 
 
 
+[[iscsi-session-data]]
 == Dados de sessão iSCSI
 
 * *Node*: O nó que hospeda a partição de metadados primária para o volume.
@@ -45,6 +46,7 @@ Você pode exibir informações sobre sessões iSCSI conetadas ao cluster seleci
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

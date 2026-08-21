@@ -97,6 +97,7 @@ Você tem vCenter1 e vCenter2 em modo vinculado e armazenamento cluster1 e armaz
 ====
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

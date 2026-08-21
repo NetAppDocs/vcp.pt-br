@@ -23,6 +23,7 @@ Você pode adicionar unidades a um cluster, exibir unidades existentes e remover
 
 
 
+[[add-available-drives-to-a-cluster]]
 == Adicionar unidades disponíveis a um cluster
 
 Você pode adicionar unidades a um cluster usando o ponto de extensão do plug-in. Quando você adiciona um nó ao cluster ou instala novas unidades em um nó existente, as unidades são registradas automaticamente como `Available`. Você deve adicionar as unidades ao cluster antes que cada unidade possa participar do cluster.
@@ -57,6 +58,7 @@ NOTE: Se forem adicionados dois ou mais clusters, certifique-se de que o cluster
 
 
 
+[[view-drive-details]]
 == Veja os detalhes da unidade
 
 Você pode exibir uma lista das unidades ativas no cluster usando a exibição Ativo na página unidades da guia Cluster no ponto de extensão do plug-in. Pode alterar a vista selecionando opções disponíveis utilizando o filtro pendente.
@@ -85,6 +87,7 @@ Você pode exibir informações como IDs de unidade, a capacidade e o status de 
 
 
 
+[[remove-a-drive]]
 == Remova uma unidade
 
 Você pode remover uma unidade de um cluster usando o ponto de extensão do plug-in. Você pode fazer isso ao reduzir a capacidade do cluster ou se preparar para substituir unidades que se aproximam do fim de sua vida útil. Remover uma unidade coloca a unidade offline. Todos os dados na unidade são removidos e migrados para outras unidades no cluster antes que a unidade seja removida do cluster. A migração de dados para outras unidades ativas no sistema pode levar alguns minutos a uma hora, dependendo da utilização da capacidade e e/S ativa no cluster.
@@ -119,6 +122,7 @@ NOTE: Se não houver capacidade suficiente para remover unidades ativas antes de
 
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]

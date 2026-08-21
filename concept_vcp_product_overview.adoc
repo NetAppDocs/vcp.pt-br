@@ -20,6 +20,7 @@ Você pode usar a interface de usuário do plug-in para descobrir e configurar c
 
 
 
+[[netapp-components-related-to-the-plug-in]]
 == Componentes NetApp relacionados com o plug-in
 
 * *Utilitário de Registro*: Uma ferramenta que permite gerenciar o link:vcp_concept_qossioc.html["QoSSIOC"] serviço e o Registro de plug-ins com o vCenter.
@@ -37,6 +38,7 @@ TIP: Saiba mais link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Stora
 
 
 
+[[common-urls]]
 == URLs comuns
 
 Além do vSphere, esses são alguns dos URLs comuns que você usa com o plug-in do vCenter:
@@ -62,11 +64,11 @@ Além do vSphere, esses são alguns dos URLs comuns que você usa com o plug-in 
 |===
 
 
+[[find-more-information]]
 == Encontre mais informações
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentação do NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["Página de recursos do NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["Página de recursos do SolidFire e do Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Recursos de documentação do SolidFire e do Element"^]
 * link:vcp_concept_config_extension_point.html["Ponto de extensão da Configuração do NetApp Element"]
 * link:vcp_concept_management_extension_point.html["Ponto de extensão da Configuração do NetApp Element"]
 * link:vcp_concept_remote_plugin_extension_point.html["Ponto de extensão do plug-in remoto NetApp Element"]
